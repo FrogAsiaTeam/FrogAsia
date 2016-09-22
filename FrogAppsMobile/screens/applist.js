@@ -1,9 +1,8 @@
 'use strict';
-var React = require('react-native');
-var {
-  Component,
+import React, { Component } from 'react';
+import {
   View,
-} = React;
+} from 'react-native';
 
 class AppList extends Component{
     render(){

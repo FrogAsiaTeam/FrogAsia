@@ -1,15 +1,14 @@
 'use strict';
 
-var React = require('react-native');
-var {
+import React, { Component } from 'react';
+import {
   AppRegistry,
   StyleSheet,
-  Component,
   Text,
   View,
   Navigator,
   TouchableOpacity,
-} = React;
+} from 'react-native';
 
 var SplashScreen = require('./screens/splashscreen')
 var WelcomeScreen = require('./screens/welcome')
@@ -91,4 +90,4 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('FrogApps', () => App);
+AppRegistry.registerComponent('FrogAppsMobile', () => App);

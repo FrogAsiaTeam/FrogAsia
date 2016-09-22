@@ -1,9 +1,8 @@
 'use strict';
-var React = require('react-native');
-var {
-  Component,
+import React, { Component } from 'react';
+import {
   WebView,
-} = React;
+} from 'react-native';
 
 class WelcomeScreen extends Component{
     render(){
