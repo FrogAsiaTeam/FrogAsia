@@ -5,6 +5,7 @@ import {
   View,
   Text,
 } from 'react-native';
+var styles = require('../stylesheets/styles');
 
 class SplashScreen extends Component {
   componentWillMount() {

@@ -19,6 +19,7 @@ class App extends Component{
   render(){
      return (
       <Navigator
+          style={{ flex:1 }}
           initialRoute={{id: 'SplashScreen', name: 'Index'}}
           renderScene={this.renderScene.bind(this)}
           configureScene={(route) => {
@@ -71,23 +72,5 @@ class App extends Component{
   }
 }
 
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('FrogAppsMobile', () => App);
