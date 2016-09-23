@@ -13,9 +13,7 @@ class AppList extends Component{
         var leftButtonConfig = {
             title: 'Back',
             handler: () => {
-                navigator.replace({
-                    id: 'WelcomeScreen',
-                })
+                navigator.pop();
             },
         };
         var titleConfig = {

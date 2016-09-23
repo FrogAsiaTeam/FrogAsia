@@ -13,14 +13,15 @@ var styles = require('../stylesheets/styles');
 
 class WelcomeScreen extends Component{
     render(){
-        let videourl = {uri: 'https://github.com/facebook/react-native'};
+        let videourl = {uri: 'https://www.youtube.com/embed/ZZ5LpwO-An4?rel=0&autoplay=0&showinfo=0&controls=0'};
         var navigator = this.props.navigator;
        var rightButtonConfig = {
             title: 'Skip',
             handler: () =>  {
-                navigator.replace({
+                navigator.pop();
+                navigator.push({
                     id: 'AppList',
-                })
+                });
             },
         };
 
@@ -37,7 +38,9 @@ class WelcomeScreen extends Component{
                 </View>
                 <WebView
                     source={videourl}
+                    javaScriptEnabled={true}
                     style={{marginTop: 20}}
+                    mediaPlaybackRequiresUserAction={false}
                 />
            </View>
         );

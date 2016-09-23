@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
+  Image,
 } from 'react-native';
 var styles = require('../stylesheets/styles');
 
@@ -14,12 +15,15 @@ class SplashScreen extends Component {
       navigator.replace({
         id: 'WelcomeScreen',
       });
-    }, 1000);
+    }, 2000);
   }
   render() {
     return (
       <View style={{flex: 1, backgroundColor: '#246dd5', alignItems: 'center', justifyContent: 'center'}}>
-        <Text style={{color: 'white', fontSize: 32,}}>Splash screen</Text>
+        <Image
+          style={{flex: 1}}
+          source={require('../images/frogasia1.png')}
+        />
       </View>
     );
   }
