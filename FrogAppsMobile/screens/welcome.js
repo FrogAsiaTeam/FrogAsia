@@ -28,10 +28,10 @@ class WelcomeScreen extends Component{
             title: 'Frog Apps',
         };
         return(
-            <View style={[styles.container]}>
-                <View style={[styles.navigator]}>
+            <View style={styles.container}>
+                <View style={styles.navigator}>
                    <NavigationBar
-                        style={[styles.navigator]}
+                        style={styles.navigator}
                         title={titleConfig}
                         rightButton={rightButtonConfig} />
                 </View>
@@ -41,12 +41,6 @@ class WelcomeScreen extends Component{
                 />
            </View>
         );
-    }
-   
- _navigate(){
-        this.props.navigator.push({
-            name: 'AppList', 
-        })
     }
 }
 module.exports = WelcomeScreen;

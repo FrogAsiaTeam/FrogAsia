@@ -23,10 +23,10 @@ class AppList extends Component{
         };
         
         return(
-           <View style={[styles.container]}>
-                <View style={[styles.navigator]}>
+           <View style={styles.container}>
+                <View style={styles.navigator}>
                    <NavigationBar
-                        style={[styles.navigator]}
+                        style={styles.navigator}
                         title={titleConfig}
                         leftButton={leftButtonConfig}/>
                 </View>
