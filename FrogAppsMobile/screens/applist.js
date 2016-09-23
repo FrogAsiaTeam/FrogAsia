@@ -8,18 +8,13 @@ var NavigationBar = require('react-native-navbar');
 var styles = require('../stylesheets/styles');
 
 class AppList extends Component{
-     constructor(props){
-        super(props);
-      
-    }
     render(){
         var navigator = this.props.navigator;
-       
         var leftButtonConfig = {
             title: 'Back',
             handler: () => {
                 navigator.replace({
-                    id: 'Welcome',
+                    id: 'WelcomeScreen',
                 })
             },
         };

@@ -12,10 +12,6 @@ var NavigationBar = require('react-native-navbar');
 var styles = require('../stylesheets/styles');
 
 class WelcomeScreen extends Component{
-    constructor(props){
-        super(props);
-       
-    }
     render(){
         let videourl = {uri: 'https://github.com/facebook/react-native'};
         var navigator = this.props.navigator;
