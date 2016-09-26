@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native';
+import Rating from '../components/rating.js'
 var NavigationBar = require('react-native-navbar');
 var styles = require('../stylesheets/styles');
 
@@ -30,17 +32,35 @@ class AppDetail extends Component{
                          title={titleConfig}
                          leftButton={leftButtonConfig}/>
                  </View>
-                 <View style={{flex:1, backgroundColor:'#ffffff'}}>
+                 <View style={styles.detailContainer}>
+                      <View style={styles.headDetail}>
+                        <View style={styles.imgDetailContainer}>
+                            <Image style={styles.imgDetail} source={this.props.data.img}/>
+                        </View>
+                        <View style={styles.infoDetailContainer}>
 
-                      <View style={{flexDirection:'row'}}>
-                        <View style={{flex:0.23}}>
-                            <Image style={{height:80, width:80}} source={this.props.data.img}/>
+                            <Text style={styles.titleDetail}>{this.props.data.title}</Text>
+                            <View style={styles.downloadAndRating}>
+                                <View style= {styles.ratingForDetailContainer}>
+
+                                  <Text>{this.props.data.downloadCount}</Text>
+                                  <View style={styles.rateContainer}>
+                                    <View style={styles.detailRate}>
+                                        <Rating disabled={true} rating={this.props.data.starcount} starSize= {11} starColor= {'gray'}/>
+                                    </View>
+                                    <Text>{this.props.data.starcount} (611376)</Text>
+                                  </View>
+
+                                </View>
+                                <View style= {styles.btnContainer}>
+                                  <TouchableOpacity style={styles.btn}>
+                                    <Text style={styles.btnText}>INSTALL</Text>
+                                  </TouchableOpacity>
+                                </View>
+                            </View>
+
                         </View>
-                        <View style={{flex:0.47, backgroundColor:'yellow'}}>
-                          <Text>{this.props.data.title}</Text>
-                        </View>
-                        <View style={{flex:0.3, backgroundColor:'green'}}>
-                        </View>
+
                       </View>
                  </View>
 

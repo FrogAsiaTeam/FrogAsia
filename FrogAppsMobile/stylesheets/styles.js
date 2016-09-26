@@ -83,8 +83,66 @@ module.exports = StyleSheet.create({
       width:20,
       height:20,
       justifyContent:'center'
-    }
+    },
 
     /*----------Page Detail----------*/
+    detailContainer:{
+      flex:1,
+      backgroundColor:'#ffffff'
+    },
+    headDetail:{
+      flexDirection:'row',
+      paddingTop: 25,
+      paddingBottom:25,
+      paddingLeft:15,
+      paddingRight:15
+    },
+    imgDetailContainer:{
+      flex:0.3
+    },
+    infoDetailContainer:{
+      flex:0.7,
+      marginLeft:10,
+      justifyContent:'space-around',
+      alignItems:'flex-start'
+    },
+    imgDetail:{
+      height:80,
+      width:80
+    },
+    titleDetail: {
+      fontSize: 20,
+      fontWeight: 'normal',
+      color: 'black'
+    },
+    btnContainer:{
+      flex:0.3,
+      justifyContent:'flex-end',
+      alignItems:'flex-start'
+    },
+    downloadAndRating:{
+      flexDirection:'row'
+    },
+    ratingForDetailContainer:{
+      flex:0.7
+    },
+    rateContainer:{
+      flexDirection:'row'
+    },
+    detailRate:{
+      justifyContent:'center',
+      alignItems:'flex-start',
+      paddingRight: 5
+    },
+    btn:{
+      backgroundColor:"#32cd32",
+      borderRadius:2,
+      padding: 6
+    },
+    btnText:{
+      fontSize:13,
+      color:"#ffffff",
+      fontWeight:'bold'
+    }
 
 });
