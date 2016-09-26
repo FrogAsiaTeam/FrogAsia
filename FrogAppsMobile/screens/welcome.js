@@ -32,11 +32,7 @@ class WelcomeScreen extends Component{
         };
         return(
             <View style={styles.container}>
-<<<<<<< HEAD
                   <View style={styles.navigator}>
-=======
-                <View style={styles.navigator}>
->>>>>>> d5e20d5c6c9d236ac94047d5428d34a2cbd6b4d5
                    <NavigationBar
                         style={styles.navigator}
                         title={titleConfig}
@@ -47,11 +43,6 @@ class WelcomeScreen extends Component{
                         rate={1} volume={1} muted={true}
                         resizeMode="cover" repeat={true} key="video1" />
            </View>
-<<<<<<< HEAD
-           
-             
-=======
->>>>>>> d5e20d5c6c9d236ac94047d5428d34a2cbd6b4d5
 
                 //   <WebView
                 //     source={videourl}
