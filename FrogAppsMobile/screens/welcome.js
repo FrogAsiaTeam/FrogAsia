@@ -32,36 +32,17 @@ class WelcomeScreen extends Component{
         };
         return(
             <View style={styles.container}>
-<<<<<<< HEAD
                 <View style={styles.navigator}>
                    <NavigationBar
                         style={styles.navigator}
                         title={titleConfig}
                         rightButton={rightButtonConfig} />
                 </View>
-
-                <WebView
-                    source={videourl}
-                    javaScriptEnabled={true}
-                    style={{marginTop: 20}}
-                    mediaPlaybackRequiresUserAction={false}
-                />
-
-=======
-               
                 <Video source={{uri: "background"}}
                         style={styles.backgroundVideo}
                         rate={1} volume={1} muted={true}
                         resizeMode="cover" repeat={true} key="video1" />
->>>>>>> origin/master
            </View>
-           
-                // <View style={styles.navigator}>
-                //    <NavigationBar
-                //         style={styles.navigator}
-                //         title={titleConfig}
-                //         rightButton={rightButtonConfig} />
-                // </View>
 
                 //   <WebView
                 //     source={videourl}
