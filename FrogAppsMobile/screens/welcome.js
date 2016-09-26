@@ -30,19 +30,19 @@ class WelcomeScreen extends Component{
         };
         return(
             <View style={styles.container}>
-               
+                  <View style={styles.navigator}>
+                   <NavigationBar
+                        style={styles.navigator}
+                        title={titleConfig}
+                        rightButton={rightButtonConfig} />
+                </View>
                 <Video source={{uri: "background"}}
                         style={styles.backgroundVideo}
                         rate={1} volume={1} muted={true}
                         resizeMode="cover" repeat={true} key="video1" />
            </View>
            
-                // <View style={styles.navigator}>
-                //    <NavigationBar
-                //         style={styles.navigator}
-                //         title={titleConfig}
-                //         rightButton={rightButtonConfig} />
-                // </View>
+             
 
                 //   <WebView
                 //     source={videourl}
