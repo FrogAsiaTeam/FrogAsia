@@ -6,12 +6,15 @@ import {
     Image,
     StyleSheet,
     WebView,
+    TouchableOpacity,
+	Text
 } from 'react-native';
 var NavigationBar = require('react-native-navbar');
 
 var styles = require('../stylesheets/styles');
 
 class WelcomeScreen extends Component{
+
     render(){
         let videourl = {uri: 'https://github.com/facebook/react-native'};
         var navigator = this.props.navigator;
@@ -19,7 +22,7 @@ class WelcomeScreen extends Component{
             title: 'Skip',
             handler: () =>  {
                 navigator.replace({
-                    id: 'AppList',
+                    id: 'AppList'
                 })
             },
         };
@@ -35,10 +38,9 @@ class WelcomeScreen extends Component{
                         title={titleConfig}
                         rightButton={rightButtonConfig} />
                 </View>
-                <WebView
-                    source={videourl}
-                    style={{marginTop: 20}}
-                />
+				<View style={{backgroundColor:'red',flex:1}}>
+					<Text>Wellcome to Home Screen</Text>
+				</View>
            </View>
         );
     }
