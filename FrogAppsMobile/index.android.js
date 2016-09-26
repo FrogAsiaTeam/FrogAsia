@@ -47,13 +47,13 @@ class App extends Component{
     if (routeId === 'AppList') {
       return (
         <AppList
-            navigator={navigator} />
+            navigator={navigator}  />
       );
     }
     if (routeId === 'AppDetail') {
       return (
         <AppDetail
-          navigator={navigator} />
+          navigator={navigator} data = {route.passProps.dataItem} />
       );
     }
     return this.noRoute(navigator);
