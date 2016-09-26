@@ -16,7 +16,7 @@ var styles = require('../stylesheets/styles');
 class WelcomeScreen extends Component{
 
     render(){
-        let videourl = {uri: 'https://github.com/facebook/react-native'};
+        let videourl = {uri: 'https://www.youtube.com/embed/ZZ5LpwO-An4?rel=0&autoplay=0&showinfo=0&controls=0'};
         var navigator = this.props.navigator;
        var rightButtonConfig = {
             title: 'Skip',
@@ -38,9 +38,14 @@ class WelcomeScreen extends Component{
                         title={titleConfig}
                         rightButton={rightButtonConfig} />
                 </View>
-				<View style={{backgroundColor:'red',flex:1}}>
-					<Text>Wellcome to Home Screen</Text>
-				</View>
+
+                <WebView
+                    source={videourl}
+                    javaScriptEnabled={true}
+                    style={{marginTop: 20}}
+                    mediaPlaybackRequiresUserAction={false}
+                />
+
            </View>
         );
     }
