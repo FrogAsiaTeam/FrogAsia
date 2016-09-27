@@ -151,4 +151,20 @@ module.exports = StyleSheet.create({
         bottom: 0,
         right: 0,
     },
+    linearGradient: {
+      paddingLeft: 15,
+      paddingRight: 15,
+      borderRadius: 5,
+    },
+    buttonText: {
+      fontSize: 20,
+      fontFamily: 'Gill Sans',
+      textAlign: 'center',
+      color: '#ffffff',
+      margin: 10,
+      opacity: 0.8,
+    },
+    loginContainer: {
+      backgroundColor: 'transparent',
+    },
 });
