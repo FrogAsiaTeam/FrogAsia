@@ -8,6 +8,7 @@
   "dependencies": {
     "react": "15.3.2",
     "react-native": "0.33.0",
+    "react-native-linear-gradient": "^1.5.13",
     "react-native-navbar": "^1.5.1",
     "react-native-star-rating": "^1.0.6",
     "react-native-vector-icons": "^2.1.0",
