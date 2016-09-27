@@ -40,7 +40,7 @@ class WelcomeScreen extends Component{
                <Video source={require('../background.mp4')}
                         style={styles.backgroundVideo}
                         rate={1} volume={1} muted={true}
-                        resizeMode="cover" repeat={true} key="video1" />
+                        resizeMode="cover" repeat={false} key="video1" />
            </View>
    
                 //   <WebView
