@@ -1,15 +1,14 @@
 'use strict';
 
-var React = require('react-native');
-var {
+import React, { Component } from 'react';
+import {
   AppRegistry,
   StyleSheet,
-  Component,
   Text,
   View,
   Navigator,
   TouchableOpacity,
-} = React;
+} from 'react-native';
 
 var SplashScreen = require('./screens/splashscreen')
 var WelcomeScreen = require('./screens/welcome')
@@ -20,6 +19,7 @@ class App extends Component{
   render(){
      return (
       <Navigator
+          style={{ flex:1 }}
           initialRoute={{id: 'SplashScreen', name: 'Index'}}
           renderScene={this.renderScene.bind(this)}
           configureScene={(route) => {
@@ -47,13 +47,13 @@ class App extends Component{
     if (routeId === 'AppList') {
       return (
         <AppList
-            navigator={navigator} />
+            navigator={navigator}  />
       );
     }
     if (routeId === 'AppDetail') {
       return (
         <AppDetail
-          navigator={navigator} />
+          navigator={navigator} data = {route.passProps.dataItem} />
       );
     }
     return this.noRoute(navigator);
@@ -72,23 +72,5 @@ class App extends Component{
   }
 }
 
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
-AppRegistry.registerComponent('FrogApps', () => App);
+AppRegistry.registerComponent('FrogAppsMobile', () => App);
