@@ -22,8 +22,6 @@ module.exports = StyleSheet.create({
         width: 50,
         height: 20
     },
-<<<<<<< HEAD
-
     /*----------ListView----------*/
     listViewContainer:{
     //resizeMode:'cover',
@@ -144,10 +142,8 @@ module.exports = StyleSheet.create({
       fontSize:13,
       color:"#ffffff",
       fontWeight:'bold'
-    }
-
-});
-=======
+    },
+    /*-----------Welcome page-----------------*/
     backgroundVideo: {
         position: 'absolute',
         top: 0,
@@ -156,4 +152,3 @@ module.exports = StyleSheet.create({
         right: 0,
     },
 });
->>>>>>> origin/master
