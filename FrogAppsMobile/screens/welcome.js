@@ -17,7 +17,7 @@ import Video from 'react-native-video';
 
 class WelcomeScreen extends Component{
     render(){
-        let videourl = require('../background.mp4');
+        let videourl = {uri: "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"}; //require('../background.mp4');
         var navigator = this.props.navigator;
        var rightButtonConfig = {
             title: 'Skip',
