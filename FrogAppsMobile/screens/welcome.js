@@ -33,7 +33,7 @@ class WelcomeScreen extends Component{
         };
         return(
             <View style={styles.container}>
-                <View style={styles.navigator}>
+                  <View style={styles.navigator}>
                    <NavigationBar
                         style={styles.navigator}
                         title={titleConfig}
