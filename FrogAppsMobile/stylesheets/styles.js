@@ -23,11 +23,11 @@ module.exports = StyleSheet.create({
         width: 50,
         height: 20
     },
-    textColor:{
-      color:"#ffffff",
-    //  alignItems:'center',
-    //  justifyContent:'center',
-    //  textAlign:'center'
+    /*----------ListView----------*/
+    listViewContainer:{
+    //resizeMode:'cover',
+      flex:1,
+      backgroundColor:'#ffffff'
     },
     /*----------ListView----------*/
 
@@ -238,13 +238,28 @@ module.exports = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center'
       },
-
-/*-------playvideo-------*/
-      backgroundVideo: {
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right: 0,
-      },
+    /*-----------Welcome page-----------------*/
+    backgroundVideo: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+    },
+    linearGradient: {
+      paddingLeft: 15,
+      paddingRight: 15,
+      borderRadius: 5,
+    },
+    buttonText: {
+      fontSize: 20,
+      fontFamily: 'Gill Sans',
+      textAlign: 'center',
+      color: '#ffffff',
+      margin: 10,
+      opacity: 0.8,
+    },
+    loginContainer: {
+      backgroundColor: 'transparent',
+    },
 });
