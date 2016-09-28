@@ -1497,9 +1497,9 @@ var _reactNative=require(44 /* react-native */);
 
 
 var SplashScreen=require(656 /* ./screens/splashscreen */);
-var WelcomeScreen=require(658 /* ./screens/welcome */);
-var AppList=require(662 /* ./screens/applist */);
-var AppDetail=require(663 /* ./screens/appdetails */);var
+var WelcomeScreen=require(659 /* ./screens/welcome */);
+var AppList=require(666 /* ./screens/applist */);
+var AppDetail=require(805 /* ./screens/appdetails */);var
 
 App=function(_Component){babelHelpers.inherits(App,_Component);function App(){babelHelpers.classCallCheck(this,App);return babelHelpers.possibleConstructorReturn(this,(App.__proto__||Object.getPrototypeOf(App)).apply(this,arguments));}babelHelpers.createClass(App,[{key:'render',value:function render()
 {
@@ -1539,7 +1539,7 @@ navigator:navigator}));
 if(routeId==='AppDetail'){
 return(
 _react2.default.createElement(AppDetail,{
-navigator:navigator}));
+navigator:navigator,data:route.passProps.dataItem}));
 
 }
 return this.noRoute(navigator);
@@ -81486,6 +81486,7 @@ var _reactNative=require(44 /* react-native */);
 
 
 
+
 var styles=require(657 /* ../stylesheets/styles */);var
 
 SplashScreen=function(_Component){babelHelpers.inherits(SplashScreen,_Component);function SplashScreen(){babelHelpers.classCallCheck(this,SplashScreen);return babelHelpers.possibleConstructorReturn(this,(SplashScreen.__proto__||Object.getPrototypeOf(SplashScreen)).apply(this,arguments));}babelHelpers.createClass(SplashScreen,[{key:'componentWillMount',value:function componentWillMount()
@@ -81495,12 +81496,15 @@ setTimeout(function(){
 navigator.replace({
 id:'WelcomeScreen'});
 
-},1000);
+},2000);
 }},{key:'render',value:function render()
 {
 return(
 _react2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'#246dd5',alignItems:'center',justifyContent:'center'}},
-_react2.default.createElement(_reactNative.Text,{style:{color:'white',fontSize:32}},'Splash screen')));
+_react2.default.createElement(_reactNative.Image,{
+style:{flex:1},
+source:require(658 /* ../images/frogasia1.png */)})));
+
 
 
 }}]);return SplashScreen;}(_react.Component);
@@ -81530,9 +81534,164 @@ backgroundColor:HEADER},
 
 button:{
 width:50,
-height:20}});
+height:20},
+
+
+listViewContainer:{
+
+flex:1,
+backgroundColor:'#ffffff'},
+
+itemContainer:{
+borderWidth:1,
+backgroundColor:'#ffffff',
+borderColor:'#dddddd',
+elevation:3,
+
+
+
+
+
+margin:5,
+padding:5,
+flexDirection:'row'},
+
+thumb:{
+width:50,
+height:50,
+marginRight:10},
+
+textContainer:{
+flex:1},
+
+title:{
+fontSize:16,
+fontWeight:'bold',
+color:'black'},
+
+content:{
+fontSize:14,
+color:'#656565'},
+
+moreContainer:{
+flex:1,
+flexDirection:'row'},
+
+rating:{
+flex:0.2,
+justifyContent:'center'},
+
+textDownload:{
+flex:0.4,
+marginLeft:5},
+
+installContainer:{
+flex:0.4,
+flexDirection:'row'},
+
+textInstall:{
+color:'#0099ff'},
+
+iconInstall:{
+width:20,
+height:20,
+justifyContent:'center'},
+
+
+
+detailContainer:{
+flex:1,
+backgroundColor:'#ffffff'},
+
+headDetail:{
+flexDirection:'row',
+paddingTop:25,
+paddingBottom:25,
+paddingLeft:15,
+paddingRight:15},
+
+imgDetailContainer:{
+flex:0.3},
+
+infoDetailContainer:{
+flex:0.7,
+marginLeft:10,
+justifyContent:'space-around',
+alignItems:'flex-start'},
+
+imgDetail:{
+height:80,
+width:80},
+
+titleDetail:{
+fontSize:20,
+fontWeight:'normal',
+color:'black'},
+
+btnContainer:{
+flex:0.3,
+justifyContent:'flex-end',
+alignItems:'flex-start'},
+
+downloadAndRating:{
+flexDirection:'row'},
+
+ratingForDetailContainer:{
+flex:0.7},
+
+rateContainer:{
+flexDirection:'row'},
+
+detailRate:{
+justifyContent:'center',
+alignItems:'flex-start',
+paddingRight:5},
+
+btn:{
+backgroundColor:"#32cd32",
+borderRadius:2,
+padding:6},
+
+btnText:{
+fontSize:13,
+color:"#ffffff",
+fontWeight:'bold'},
+
+
+
+scrollView:{
+backgroundColor:'#ffffff',
+height:300},
+
+horizontalScrollView:{
+height:260},
+
+scrollViewContainer:{
+margin:7,
+padding:5,
+alignItems:'center',
+backgroundColor:'#eaeaea',
+borderRadius:3},
+
+scrollViewImg:{
+width:120,
+height:260},
+
+kkk:{
+color:'red',
+fontSize:25},
+
+
+backgroundVideo:{
+position:'absolute',
+top:0,
+left:0,
+bottom:0,
+right:0}});
 }, "FrogAppsMobile/stylesheets/styles.js");
-__d(658 /* FrogAppsMobile/screens/welcome.js */, function(global, require, module, exports) {'use strict';
+__d(658 /* FrogAppsMobile/images/frogasia1.png */, function(global, require, module, exports) {module.exports = require(174 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/images","width":400,"height":400,"scales":[1],"hash":"5a8a05c24b4ad3ab69054d63b8a5a920","name":"frogasia1","type":"png"});
+}, "FrogAppsMobile/images/frogasia1.png");
+__d(659 /* FrogAppsMobile/screens/welcome.js */, function(global, require, module, exports) {'use strict';
 var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(44 /* react-native */);
 
@@ -81541,13 +81700,16 @@ var _reactNative=require(44 /* react-native */);
 
 
 
-var NavigationBar=require(659 /* react-native-navbar */);
 
+
+var NavigationBar=require(660 /* react-native-navbar */);
+var Video=require(663 /* react-native-video */);
 var styles=require(657 /* ../stylesheets/styles */);var
 
 WelcomeScreen=function(_Component){babelHelpers.inherits(WelcomeScreen,_Component);function WelcomeScreen(){babelHelpers.classCallCheck(this,WelcomeScreen);return babelHelpers.possibleConstructorReturn(this,(WelcomeScreen.__proto__||Object.getPrototypeOf(WelcomeScreen)).apply(this,arguments));}babelHelpers.createClass(WelcomeScreen,[{key:'render',value:function render()
+
 {
-var videourl={uri:'https://github.com/facebook/react-native'};
+var videourl={uri:'https://www.youtube.com/embed/ZZ5LpwO-An4?rel=0&autoplay=0&showinfo=0&controls=0'};
 var navigator=this.props.navigator;
 var rightButtonConfig={
 title:'Skip',
@@ -81567,11 +81729,15 @@ _react2.default.createElement(_reactNative.View,{style:styles.navigator},
 _react2.default.createElement(NavigationBar,{
 style:styles.navigator,
 title:titleConfig,
-rightButton:rightButtonConfig})),
+rightButton:rightButtonConfig}))));
 
-_react2.default.createElement(_reactNative.WebView,{
-source:videourl,
-style:{marginTop:20}})));
+
+
+
+
+
+
+
 
 
 
@@ -81579,7 +81745,7 @@ style:{marginTop:20}})));
 
 module.exports=WelcomeScreen;
 }, "FrogAppsMobile/screens/welcome.js");
-__d(659 /* react-native-navbar/index.js */, function(global, require, module, exports) {var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+__d(660 /* react-native-navbar/index.js */, function(global, require, module, exports) {var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(44 /* react-native */);
 
 
@@ -81588,8 +81754,8 @@ var _reactNative=require(44 /* react-native */);
 
 
 
-var _NavbarButton=require(660 /* ./NavbarButton */);var _NavbarButton2=babelHelpers.interopRequireDefault(_NavbarButton);
-var _styles=require(661 /* ./styles */);var _styles2=babelHelpers.interopRequireDefault(_styles);
+var _NavbarButton=require(661 /* ./NavbarButton */);var _NavbarButton2=babelHelpers.interopRequireDefault(_NavbarButton);
+var _styles=require(662 /* ./styles */);var _styles2=babelHelpers.interopRequireDefault(_styles);
 
 var ButtonShape={
 title:_react.PropTypes.string.isRequired,
@@ -81727,14 +81893,14 @@ title:''}};
 
 module.exports=NavigationBar;
 }, "react-native-navbar/index.js");
-__d(660 /* react-native-navbar/NavbarButton.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+__d(661 /* react-native-navbar/NavbarButton.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(44 /* react-native */);
 
 
 
 
 
-var _styles=require(661 /* ./styles */);var _styles2=babelHelpers.interopRequireDefault(_styles);var
+var _styles=require(662 /* ./styles */);var _styles2=babelHelpers.interopRequireDefault(_styles);var
 
 NavbarButton=function(_Component){babelHelpers.inherits(NavbarButton,_Component);function NavbarButton(){babelHelpers.classCallCheck(this,NavbarButton);return babelHelpers.possibleConstructorReturn(this,(NavbarButton.__proto__||Object.getPrototypeOf(NavbarButton)).apply(this,arguments));}babelHelpers.createClass(NavbarButton,[{key:'render',value:function render()
 {var _props=
@@ -81765,7 +81931,7 @@ title:'',
 tintColor:'#0076FF',
 onPress:function onPress(){return{};}};exports.default=NavbarButton;
 }, "react-native-navbar/NavbarButton.js");
-__d(661 /* react-native-navbar/styles.js */, function(global, require, module, exports) {var NAV_BAR_HEIGHT=44;
+__d(662 /* react-native-navbar/styles.js */, function(global, require, module, exports) {var NAV_BAR_HEIGHT=44;
 var STATUS_BAR_HEIGHT=20;
 
 module.exports={
@@ -81817,29 +81983,7974 @@ letterSpacing:0.5,
 color:'#333',
 fontWeight:'500'}};
 }, "react-native-navbar/styles.js");
-__d(662 /* FrogAppsMobile/screens/applist.js */, function(global, require, module, exports) {'use strict';
+__d(663 /* react-native-video/Video.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+var _reactNative=require(44 /* react-native */);
+var _resolveAssetSource=require(173 /* react-native/Libraries/Image/resolveAssetSource */);var _resolveAssetSource2=babelHelpers.interopRequireDefault(_resolveAssetSource);
+var _VideoResizeMode=require(664 /* ./VideoResizeMode.js */);var _VideoResizeMode2=babelHelpers.interopRequireDefault(_VideoResizeMode);
+
+var styles=_reactNative.StyleSheet.create({
+base:{
+overflow:'hidden'}});var
+
+
+
+Video=function(_Component){babelHelpers.inherits(Video,_Component);function Video(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,Video);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=Video.__proto__||Object.getPrototypeOf(Video)).call.apply(_ref,[this].concat(args))),_this),_this.
+
+
+
+
+
+seek=function(time){
+_this.setNativeProps({seek:time});
+},_this.
+
+presentFullscreenPlayer=function(){
+_this.setNativeProps({fullscreen:true});
+},_this.
+
+dismissFullscreenPlayer=function(){
+_this.setNativeProps({fullscreen:false});
+},_this.
+
+_assignRoot=function(component){
+_this._root=component;
+},_this.
+
+_onLoadStart=function(event){
+if(_this.props.onLoadStart){
+_this.props.onLoadStart(event.nativeEvent);
+}
+},_this.
+
+_onLoad=function(event){
+if(_this.props.onLoad){
+_this.props.onLoad(event.nativeEvent);
+}
+},_this.
+
+_onError=function(event){
+if(_this.props.onError){
+_this.props.onError(event.nativeEvent);
+}
+},_this.
+
+_onProgress=function(event){
+if(_this.props.onProgress){
+_this.props.onProgress(event.nativeEvent);
+}
+},_this.
+
+_onSeek=function(event){
+if(_this.props.onSeek){
+_this.props.onSeek(event.nativeEvent);
+}
+},_this.
+
+_onEnd=function(event){
+if(_this.props.onEnd){
+_this.props.onEnd(event.nativeEvent);
+}
+},_this.
+
+_onFullscreenPlayerWillPresent=function(event){
+if(_this.props.onFullscreenPlayerWillPresent){
+_this.props.onFullscreenPlayerWillPresent(event.nativeEvent);
+}
+},_this.
+
+_onFullscreenPlayerDidPresent=function(event){
+if(_this.props.onFullscreenPlayerDidPresent){
+_this.props.onFullscreenPlayerDidPresent(event.nativeEvent);
+}
+},_this.
+
+_onFullscreenPlayerWillDismiss=function(event){
+if(_this.props.onFullscreenPlayerWillDismiss){
+_this.props.onFullscreenPlayerWillDismiss(event.nativeEvent);
+}
+},_this.
+
+_onFullscreenPlayerDidDismiss=function(event){
+if(_this.props.onFullscreenPlayerDidDismiss){
+_this.props.onFullscreenPlayerDidDismiss(event.nativeEvent);
+}
+},_this.
+
+_onReadyForDisplay=function(event){
+if(_this.props.onReadyForDisplay){
+_this.props.onReadyForDisplay(event.nativeEvent);
+}
+},_this.
+
+_onPlaybackStalled=function(event){
+if(_this.props.onPlaybackStalled){
+_this.props.onPlaybackStalled(event.nativeEvent);
+}
+},_this.
+
+_onPlaybackResume=function(event){
+if(_this.props.onPlaybackResume){
+_this.props.onPlaybackResume(event.nativeEvent);
+}
+},_this.
+
+_onPlaybackRateChange=function(event){
+if(_this.props.onPlaybackRateChange){
+_this.props.onPlaybackRateChange(event.nativeEvent);
+}
+},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(Video,[{key:'setNativeProps',value:function setNativeProps(nativeProps){this._root.setNativeProps(nativeProps);}},{key:'render',value:function render()
+
+{
+var resizeMode=this.props.resizeMode;
+var source=(0,_resolveAssetSource2.default)(this.props.source)||{};
+
+var uri=source.uri;
+if(uri&&uri.match(/^\//)){
+uri='file://'+uri;
+}
+
+var isNetwork=!!(uri&&uri.match(/^https?:/));
+var isAsset=!!(uri&&uri.match(/^(assets-library|file|content):/));
+
+var nativeResizeMode=void 0;
+if(resizeMode===_VideoResizeMode2.default.stretch){
+nativeResizeMode=_reactNative.NativeModules.UIManager.RCTVideo.Constants.ScaleToFill;
+}else if(resizeMode===_VideoResizeMode2.default.contain){
+nativeResizeMode=_reactNative.NativeModules.UIManager.RCTVideo.Constants.ScaleAspectFit;
+}else if(resizeMode===_VideoResizeMode2.default.cover){
+nativeResizeMode=_reactNative.NativeModules.UIManager.RCTVideo.Constants.ScaleAspectFill;
+}else{
+nativeResizeMode=_reactNative.NativeModules.UIManager.RCTVideo.Constants.ScaleNone;
+}
+
+var nativeProps=babelHelpers.extends({},this.props);
+babelHelpers.extends(nativeProps,{
+style:[styles.base,nativeProps.style],
+resizeMode:nativeResizeMode,
+src:{
+uri:uri,
+isNetwork:isNetwork,
+isAsset:isAsset,
+type:source.type||'mp4'},
+
+onVideoLoadStart:this._onLoadStart,
+onVideoLoad:this._onLoad,
+onVideoError:this._onError,
+onVideoProgress:this._onProgress,
+onVideoSeek:this._onSeek,
+onVideoEnd:this._onEnd,
+onVideoFullscreenPlayerWillPresent:this._onFullscreenPlayerWillPresent,
+onVideoFullscreenPlayerDidPresent:this._onFullscreenPlayerDidPresent,
+onVideoFullscreenPlayerWillDismiss:this._onFullscreenPlayerWillDismiss,
+onVideoFullscreenPlayerDidDismiss:this._onFullscreenPlayerDidDismiss,
+onReadyForDisplay:this._onReadyForDisplay,
+onPlaybackStalled:this._onPlaybackStalled,
+onPlaybackResume:this._onPlaybackResume,
+onPlaybackRateChange:this._onPlaybackRateChange});
+
+
+return(
+_react2.default.createElement(RCTVideo,babelHelpers.extends({
+ref:this._assignRoot},
+nativeProps)));
+
+
+}}]);return Video;}(_react.Component);exports.default=Video;
+
+
+Video.propTypes=babelHelpers.extends({
+
+src:_react.PropTypes.object,
+seek:_react.PropTypes.number,
+fullscreen:_react.PropTypes.bool,
+
+
+source:_react.PropTypes.oneOfType([
+_react.PropTypes.shape({
+uri:_react.PropTypes.string}),
+
+
+_react.PropTypes.number]),
+
+resizeMode:_react.PropTypes.string,
+repeat:_react.PropTypes.bool,
+paused:_react.PropTypes.bool,
+muted:_react.PropTypes.bool,
+volume:_react.PropTypes.number,
+rate:_react.PropTypes.number,
+playInBackground:_react.PropTypes.bool,
+playWhenInactive:_react.PropTypes.bool,
+controls:_react.PropTypes.bool,
+currentTime:_react.PropTypes.number,
+onLoadStart:_react.PropTypes.func,
+onLoad:_react.PropTypes.func,
+onError:_react.PropTypes.func,
+onProgress:_react.PropTypes.func,
+onSeek:_react.PropTypes.func,
+onEnd:_react.PropTypes.func,
+onFullscreenPlayerWillPresent:_react.PropTypes.func,
+onFullscreenPlayerDidPresent:_react.PropTypes.func,
+onFullscreenPlayerWillDismiss:_react.PropTypes.func,
+onFullscreenPlayerDidDismiss:_react.PropTypes.func,
+onReadyForDisplay:_react.PropTypes.func,
+onPlaybackStalled:_react.PropTypes.func,
+onPlaybackResume:_react.PropTypes.func,
+onPlaybackRateChange:_react.PropTypes.func,
+
+
+scaleX:_react.PropTypes.number,
+scaleY:_react.PropTypes.number,
+translateX:_react.PropTypes.number,
+translateY:_react.PropTypes.number,
+rotation:_react.PropTypes.number},
+_reactNative.View.propTypes);
+
+
+var RCTVideo=(0,_reactNative.requireNativeComponent)('RCTVideo',Video,{
+nativeOnly:{
+src:true,
+seek:true,
+fullscreen:true}});
+}, "react-native-video/Video.js");
+__d(664 /* react-native-video/VideoResizeMode.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _keymirror=require(665 /* keymirror */);var _keymirror2=babelHelpers.interopRequireDefault(_keymirror);exports.default=
+
+(0,_keymirror2.default)({
+contain:null,
+cover:null,
+stretch:null});
+}, "react-native-video/VideoResizeMode.js");
+__d(665 /* keymirror/index.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"use strict";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var keyMirror=function keyMirror(obj){
+var ret={};
+var key;
+if(!(obj instanceof Object&&!Array.isArray(obj))){
+throw new Error('keyMirror(...): Argument must be an object.');
+}
+for(key in obj){
+if(!obj.hasOwnProperty(key)){
+continue;
+}
+ret[key]=key;
+}
+return ret;
+};
+
+module.exports=keyMirror;
+}, "keymirror/index.js");
+__d(666 /* FrogAppsMobile/screens/applist.js */, function(global, require, module, exports) {'use strict';
 var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(44 /* react-native */);
 
 
 
-var NavigationBar=require(659 /* react-native-navbar */);
-var styles=require(657 /* ../stylesheets/styles */);var
+
+
+var _listview=require(667 /* ../components/listview.js */);var _listview2=babelHelpers.interopRequireDefault(_listview);
+var NavigationBar=require(660 /* react-native-navbar */);
+var styles=require(657 /* ../stylesheets/styles */);
+
+
+
+var DATA=[
+{title:"Microsoft Wordline",content:"access view and edit your file through out ubuntu",starcount:2.5,downloadCount:"10M+download",install:"INSTALLED",img:require(802 /* ../images/outlook.png */)},
+{title:"Microsoft outlook",content:"outlook will have you easy to manage your email and update something more",starcount:4.5,downloadCount:"20M+download",install:"",img:require(803 /* ../images/office.png */)},
+{title:"Microsoft Word",content:"if you have an account you can access cloud to storage database",starcount:3,downloadCount:"13M+download",install:"",img:require(804 /* ../images/word.jpg */)},
+{title:"React Native",content:"React Native build app on mobile- facebook copyright",starcount:1,downloadCount:"2M+download",install:"INSTALLED",img:require(802 /* ../images/outlook.png */)},
+{title:"Microsoft outlook",content:"outlook will have you easy to manage your email and update something more",starcount:4.5,downloadCount:"20M+download",install:"",img:require(803 /* ../images/office.png */)},
+{title:"One drive cloud storage",content:"if you have an account you can access cloud to storage database",starcount:3,downloadCount:"13M+download",install:"INSTALLED",img:require(804 /* ../images/word.jpg */)}];var
+
+
 
 AppList=function(_Component){babelHelpers.inherits(AppList,_Component);function AppList(){babelHelpers.classCallCheck(this,AppList);return babelHelpers.possibleConstructorReturn(this,(AppList.__proto__||Object.getPrototypeOf(AppList)).apply(this,arguments));}babelHelpers.createClass(AppList,[{key:'render',value:function render()
+{
+var navigator=this.props.navigator;
+var titleConfig={
+title:'Frog Apps'};
+
+return(
+_react2.default.createElement(_reactNative.View,{style:styles.container},
+_react2.default.createElement(_reactNative.View,{style:styles.navigator},
+_react2.default.createElement(NavigationBar,{
+style:styles.navigator,
+title:titleConfig})),
+
+
+_react2.default.createElement(_listview2.default,{mydata:DATA,navigator:navigator})));
+
+
+
+}}]);return AppList;}(_react.Component);
+
+
+module.exports=AppList;
+}, "FrogAppsMobile/screens/applist.js");
+__d(667 /* FrogAppsMobile/components/listview.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+var _reactNative=require(44 /* react-native */);
+
+
+
+
+
+
+
+
+
+var _reactNativeStarRating=require(668 /* react-native-star-rating */);var _reactNativeStarRating2=babelHelpers.interopRequireDefault(_reactNativeStarRating);
+var NavigationBar=require(660 /* react-native-navbar */);
+var styles=require(657 /* ../stylesheets/styles */);var
+
+ListViewApp=function(_Component){babelHelpers.inherits(ListViewApp,_Component);
+
+function ListViewApp(props){babelHelpers.classCallCheck(this,ListViewApp);var _this=babelHelpers.possibleConstructorReturn(this,(ListViewApp.__proto__||Object.getPrototypeOf(ListViewApp)).call(this,
+props));
+_this.ds=new _reactNative.ListView.DataSource({rowHasChanged:function rowHasChanged(r1,r2){return r1!==r2;}});
+_this.state={
+dataSource:_this.ds.cloneWithRows(_this.props.mydata)};return _this;
+
+}babelHelpers.createClass(ListViewApp,[{key:'render',value:function render()
+
+{var _this2=this;
+return(
+_react2.default.createElement(_reactNative.View,{style:styles.listViewContainer},
+_react2.default.createElement(_reactNative.ListView,{
+style:{flex:1},
+dataSource:this.state.dataSource,
+renderRow:function renderRow(property){
+var _iconInstall=-1;
+if(property.install.length>0){
+_iconInstall=require(801 /* ../images/checked.png */);
+}
+return(
+_react2.default.createElement(_reactNative.TouchableOpacity,{onPress:function onPress(){
+_this2.props.navigator.push({
+id:'AppDetail',
+passProps:{dataItem:property}});
+
+},underlayColor:'gray'},
+
+_react2.default.createElement(_reactNative.View,{style:styles.itemContainer},
+_react2.default.createElement(_reactNative.Image,{style:styles.thumb,source:property.img}),
+_react2.default.createElement(_reactNative.View,{style:styles.textContainer},
+_react2.default.createElement(_reactNative.Text,{style:styles.title},property.title),
+_react2.default.createElement(_reactNative.Text,{style:styles.content},property.content),
+_react2.default.createElement(_reactNative.View,{style:styles.moreContainer},
+_react2.default.createElement(_reactNative.View,{style:styles.rating},
+_react2.default.createElement(_reactNativeStarRating2.default,{
+disabled:true,
+emptyStar:'ios-star-outline',
+fullStar:'ios-star',
+halfStar:'ios-star-half',
+iconSet:'Ionicons',
+maxStars:5,
+rating:property.starcount,
+selectedStar:function selectedStar(){},
+starColor:'red',
+starSize:11})),
+
+
+_react2.default.createElement(_reactNative.View,{style:styles.textDownload},
+_react2.default.createElement(_reactNative.Text,null,property.downloadCount)),
+
+_react2.default.createElement(_reactNative.View,{style:styles.installContainer},
+_react2.default.createElement(_reactNative.Image,{style:styles.iconInstall,source:_iconInstall}),
+_react2.default.createElement(_reactNative.Text,{style:styles.textInstall},property.install)))))));
+
+
+
+
+
+
+
+},
+automaticallyAdjustContentInsets:true})));
+
+
+
+}}]);return ListViewApp;}(_react.Component);exports.default=ListViewApp;
+}, "FrogAppsMobile/components/listview.js");
+__d(668 /* react-native-star-rating/index.js */, function(global, require, module, exports) {'use strict';Object.defineProperty(exports,"__esModule",{value:true});
+
+
+var _reactNative=require(44 /* react-native */);
+
+
+
+
+var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+
+
+
+
+
+var _reactNativeButton=require(669 /* react-native-button */);var _reactNativeButton2=babelHelpers.interopRequireDefault(_reactNativeButton);
+var _Entypo=require(671 /* react-native-vector-icons/Entypo */);var _Entypo2=babelHelpers.interopRequireDefault(_Entypo);
+var _EvilIcons=require(794 /* react-native-vector-icons/EvilIcons */);var _EvilIcons2=babelHelpers.interopRequireDefault(_EvilIcons);
+var _FontAwesome=require(795 /* react-native-vector-icons/FontAwesome */);var _FontAwesome2=babelHelpers.interopRequireDefault(_FontAwesome);
+var _Foundation=require(796 /* react-native-vector-icons/Foundation */);var _Foundation2=babelHelpers.interopRequireDefault(_Foundation);
+var _Ionicons=require(797 /* react-native-vector-icons/Ionicons */);var _Ionicons2=babelHelpers.interopRequireDefault(_Ionicons);
+var _MaterialIcons=require(798 /* react-native-vector-icons/MaterialIcons */);var _MaterialIcons2=babelHelpers.interopRequireDefault(_MaterialIcons);
+var _Octicons=require(799 /* react-native-vector-icons/Octicons */);var _Octicons2=babelHelpers.interopRequireDefault(_Octicons);
+var _Zocial=require(800 /* react-native-vector-icons/Zocial */);var _Zocial2=babelHelpers.interopRequireDefault(_Zocial);
+
+var iconSets={
+Entypo:_Entypo2.default,
+EvilIcons:_EvilIcons2.default,
+FontAwesome:_FontAwesome2.default,
+Foundation:_Foundation2.default,
+Ionicons:_Ionicons2.default,
+MaterialIcons:_MaterialIcons2.default,
+Octicons:_Octicons2.default,
+Zocial:_Zocial2.default};var
+
+
+StarRating=function(_Component){babelHelpers.inherits(StarRating,_Component);
+
+function StarRating(props){babelHelpers.classCallCheck(this,StarRating);var _this=babelHelpers.possibleConstructorReturn(this,(StarRating.__proto__||Object.getPrototypeOf(StarRating)).call(this,
+props));
+
+
+var roundedRating=_this.round(_this.props.rating);
+_this.state={
+maxStars:_this.props.maxStars,
+rating:_this.round(_this.props.rating)};return _this;
+
+}babelHelpers.createClass(StarRating,[{key:'componentWillReceiveProps',value:function componentWillReceiveProps(
+
+nextProps){
+this.setState({
+rating:this.round(nextProps.rating)});
+
+}},{key:'round',value:function round(
+
+number){
+return Math.round(number*2)/2;
+}},{key:'pressStarButton',value:function pressStarButton(
+
+rating){
+this.props.selectedStar(rating);
+this.setState({
+rating:rating});
+
+}},{key:'render',value:function render()
+
+{
+var starsLeft=this.state.rating;
+var starButtons=[];
+for(var i=0;i<this.state.maxStars;i++){
+var Icon=iconSets[this.props.iconSet];
+var starIconName=this.props.emptyStar;
+var starColor=this.props.emptyStarColor;
+if(starsLeft>=1){
+starIconName=this.props.fullStar;
+starColor=this.props.starColor;
+}else if(starsLeft===0.5){
+starIconName=this.props.halfStar;
+starColor=this.props.starColor;
+}
+starButtons.push(
+_react2.default.createElement(_reactNativeButton2.default,{
+activeOpacity:0.20,
+disabled:this.props.disabled,
+key:i+1,
+onPress:this.pressStarButton.bind(this,i+1),
+style:{
+height:this.props.starSize,
+width:this.props.starSize}},
+
+
+_react2.default.createElement(Icon,{
+name:starIconName,
+size:this.props.starSize,
+color:starColor})));
+
+
+
+starsLeft--;
+}
+return(
+_react2.default.createElement(_reactNative.View,{style:styles.starRatingContainer},
+starButtons));
+
+
+}}]);return StarRating;}(_react.Component);
+;
+
+StarRating.propTypes={
+disabled:_react.PropTypes.bool,
+emptyStar:_react.PropTypes.string,
+fullStar:_react.PropTypes.string,
+halfStar:_react.PropTypes.string,
+iconSet:_react.PropTypes.string,
+maxStars:_react.PropTypes.number,
+rating:_react.PropTypes.number,
+selectedStar:_react.PropTypes.func.isRequired,
+starColor:_react.PropTypes.string,
+emptyStarColor:_react.PropTypes.string,
+starSize:_react.PropTypes.number};
+
+
+StarRating.defaultProps={
+disabled:false,
+emptyStar:'star-o',
+fullStar:'star',
+halfStar:'star-half-o',
+iconSet:'FontAwesome',
+maxStars:5,
+rating:0,
+starColor:'black',
+emptyStarColor:'gray',
+starSize:40};
+
+
+var styles=_reactNative.StyleSheet.create({
+starRatingContainer:{
+flexDirection:'row',
+justifyContent:'space-between'}});exports.default=
+
+
+
+StarRating;
+}, "react-native-star-rating/index.js");
+__d(669 /* react-native-button/Button.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+var _reactNative=require(44 /* react-native */);
+
+
+
+
+
+
+var _coalesceNonElementChildren=require(670 /* ./coalesceNonElementChildren */);var _coalesceNonElementChildren2=babelHelpers.interopRequireDefault(_coalesceNonElementChildren);
+
+var systemButtonOpacity=0.2;var
+
+Button=function(_Component){babelHelpers.inherits(Button,_Component);function Button(){babelHelpers.classCallCheck(this,Button);return babelHelpers.possibleConstructorReturn(this,(Button.__proto__||Object.getPrototypeOf(Button)).apply(this,arguments));}babelHelpers.createClass(Button,[{key:'render',value:function render()
+
+
+
+
+
+
+
+
+{
+var touchableProps={
+activeOpacity:this._computeActiveOpacity()};
+
+if(!this.props.disabled){
+touchableProps.onPress=this.props.onPress;
+touchableProps.onPressIn=this.props.onPressIn;
+touchableProps.onPressOut=this.props.onPressOut;
+touchableProps.onLongPress=this.props.onLongPress;
+}
+
+return(
+_react2.default.createElement(_reactNative.TouchableOpacity,babelHelpers.extends({},
+touchableProps,{
+testID:this.props.testID,
+style:this.props.containerStyle,
+accessibilityTraits:'button',
+accessibilityComponentType:'button'}),
+
+this._renderGroupedChildren()));
+
+
+}},{key:'_renderGroupedChildren',value:function _renderGroupedChildren()
+
+{var
+disabled=this.props.disabled;
+var style=[
+styles.text,
+disabled?styles.disabledText:null,
+this.props.style,
+disabled?this.props.styleDisabled:null];
+
+
+var children=(0,_coalesceNonElementChildren2.default)(this.props.children,function(children,index){
+return(
+_react2.default.createElement(_reactNative.Text,{key:index,style:style},
+children));
+
+
+});
+
+switch(children.length){
+case 0:
+return null;
+case 1:
+return children[0];
+default:
+return _react2.default.createElement(_reactNative.View,{style:styles.group},children);}
+
+}},{key:'_computeActiveOpacity',value:function _computeActiveOpacity()
+
+{
+if(this.props.disabled){
+return 1;
+}
+return this.props.activeOpacity!=null?
+this.props.activeOpacity:
+systemButtonOpacity;
+}}]);return Button;}(_react.Component);Button.propTypes=babelHelpers.extends({},_reactNative.TouchableOpacity.propTypes,{containerStyle:_reactNative.View.propTypes.style,disabled:_react.PropTypes.bool,style:_reactNative.Text.propTypes.style,styleDisabled:_reactNative.Text.propTypes.style});exports.default=Button;
+;
+
+var styles=_reactNative.StyleSheet.create({
+text:{
+color:'#007aff',
+fontFamily:'.HelveticaNeueInterface-MediumP4',
+fontSize:17,
+fontWeight:'bold',
+textAlign:'center'},
+
+disabledText:{
+color:'#dcdcdc'},
+
+group:{
+flexDirection:'row',
+justifyContent:'space-between',
+alignItems:'center'}});
+}, "react-native-button/Button.js");
+__d(670 /* react-native-button/coalesceNonElementChildren.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.default=
+
+
+coalesceNonElementChildren;var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);function coalesceNonElementChildren(children,coalesceNodes){
+var coalescedChildren=[];
+
+var contiguousNonElements=[];
+_react.Children.forEach(children,function(child){
+if(!_react2.default.isValidElement(child)){
+contiguousNonElements.push(child);
+return;
+}
+
+if(contiguousNonElements.length){
+coalescedChildren.push(
+coalesceNodes(contiguousNonElements,coalescedChildren.length));
+
+contiguousNonElements=[];
+}
+
+coalescedChildren.push(child);
+});
+
+if(contiguousNonElements.length){
+coalescedChildren.push(
+coalesceNodes(contiguousNonElements,coalescedChildren.length));
+
+}
+
+return coalescedChildren;
+}
+}, "react-native-button/coalesceNonElementChildren.js");
+__d(671 /* react-native-vector-icons/Entypo.js */, function(global, require, module, exports) {
+
+
+
+
+var _createIconSet=require(672 /* ./lib/create-icon-set */);var _createIconSet2=babelHelpers.interopRequireDefault(_createIconSet);
+var glyphMap={
+"500px":61696,
+"500px-with-circle":61697,
+"add-to-list":61698,
+"add-user":61699,
+"address":61700,
+"adjust":61701,
+"air":61702,
+"aircraft":61703,
+"aircraft-landing":61704,
+"aircraft-take-off":61705,
+"align-bottom":61706,
+"align-horizontal-middle":61707,
+"align-left":61708,
+"align-right":61709,
+"align-top":61710,
+"align-vertical-middle":61711,
+"app-store":61712,
+"archive":61713,
+"area-graph":61714,
+"arrow-bold-down":61715,
+"arrow-bold-left":61716,
+"arrow-bold-right":61717,
+"arrow-bold-up":61718,
+"arrow-down":61719,
+"arrow-left":61720,
+"arrow-long-down":61721,
+"arrow-long-left":61722,
+"arrow-long-right":61723,
+"arrow-long-up":61724,
+"arrow-right":61725,
+"arrow-up":61726,
+"arrow-with-circle-down":61727,
+"arrow-with-circle-left":61728,
+"arrow-with-circle-right":61729,
+"arrow-with-circle-up":61730,
+"attachment":61731,
+"awareness-ribbon":61732,
+"back":61733,
+"back-in-time":61734,
+"baidu":61735,
+"bar-graph":61736,
+"basecamp":61737,
+"battery":61738,
+"beamed-note":61739,
+"behance":61740,
+"bell":61741,
+"blackboard":61742,
+"block":61743,
+"book":61744,
+"bookmark":61745,
+"bookmarks":61746,
+"bowl":61747,
+"box":61748,
+"briefcase":61749,
+"browser":61750,
+"brush":61751,
+"bucket":61752,
+"bug":61753,
+"cake":61754,
+"calculator":61755,
+"calendar":61756,
+"camera":61757,
+"ccw":61758,
+"chat":61759,
+"check":61760,
+"chevron-down":61761,
+"chevron-left":61762,
+"chevron-right":61763,
+"chevron-small-down":61764,
+"chevron-small-left":61765,
+"chevron-small-right":61766,
+"chevron-small-up":61767,
+"chevron-thin-down":61768,
+"chevron-thin-left":61769,
+"chevron-thin-right":61770,
+"chevron-thin-up":61771,
+"chevron-up":61772,
+"chevron-with-circle-down":61773,
+"chevron-with-circle-left":61774,
+"chevron-with-circle-right":61775,
+"chevron-with-circle-up":61776,
+"circle":61777,
+"circle-with-cross":61778,
+"circle-with-minus":61779,
+"circle-with-plus":61780,
+"circular-graph":61781,
+"clapperboard":61782,
+"classic-computer":61783,
+"clipboard":61784,
+"clock":61785,
+"cloud":61786,
+"code":61787,
+"cog":61788,
+"colours":61789,
+"compass":61790,
+"controller-fast-backward":61791,
+"controller-fast-forward":61792,
+"controller-jump-to-start":61793,
+"controller-next":61794,
+"controller-paus":61795,
+"controller-play":61796,
+"controller-record":61797,
+"controller-stop":61798,
+"controller-volume":61799,
+"copy":61800,
+"creative-cloud":61801,
+"creative-commons":61802,
+"creative-commons-attribution":61803,
+"creative-commons-noderivs":61804,
+"creative-commons-noncommercial-eu":61805,
+"creative-commons-noncommercial-us":61806,
+"creative-commons-public-domain":61807,
+"creative-commons-remix":61808,
+"creative-commons-share":61809,
+"creative-commons-sharealike":61810,
+"credit":61811,
+"credit-card":61812,
+"crop":61813,
+"cross":61814,
+"cup":61815,
+"cw":61816,
+"cycle":61817,
+"database":61818,
+"dial-pad":61819,
+"direction":61820,
+"document":61821,
+"document-landscape":61822,
+"documents":61823,
+"dot-single":61824,
+"dots-three-horizontal":61825,
+"dots-three-vertical":61826,
+"dots-two-horizontal":61827,
+"dots-two-vertical":61828,
+"download":61829,
+"dribbble":61830,
+"dribbble-with-circle":61831,
+"drink":61832,
+"drive":61833,
+"drop":61834,
+"dropbox":61835,
+"edit":61836,
+"email":61837,
+"emoji-flirt":61838,
+"emoji-happy":61839,
+"emoji-neutral":61840,
+"emoji-sad":61841,
+"erase":61842,
+"eraser":61843,
+"evernote":61844,
+"export":61845,
+"eye":61846,
+"eye-with-line":61847,
+"facebook":61848,
+"facebook-with-circle":61849,
+"feather":61850,
+"fingerprint":61851,
+"flag":61852,
+"flash":61853,
+"flashlight":61854,
+"flat-brush":61855,
+"flattr":61856,
+"flickr":61857,
+"flickr-with-circle":61858,
+"flow-branch":61859,
+"flow-cascade":61860,
+"flow-line":61861,
+"flow-parallel":61862,
+"flow-tree":61863,
+"flower":61864,
+"folder":61865,
+"folder-images":61866,
+"folder-music":61867,
+"folder-video":61868,
+"forward":61869,
+"foursquare":61870,
+"funnel":61871,
+"game-controller":61872,
+"gauge":61873,
+"github":61874,
+"github-with-circle":61875,
+"globe":61876,
+"google-":61877,
+"google--with-circle":61878,
+"google-drive":61879,
+"google-hangouts":61880,
+"google-play":61881,
+"graduation-cap":61882,
+"grid":61883,
+"grooveshark":61884,
+"hair-cross":61885,
+"hand":61886,
+"heart":61887,
+"heart-outlined":61888,
+"help":61889,
+"help-with-circle":61890,
+"home":61891,
+"hour-glass":61892,
+"houzz":61893,
+"icloud":61894,
+"image":61895,
+"image-inverted":61896,
+"images":61897,
+"inbox":61898,
+"infinity":61899,
+"info":61900,
+"info-with-circle":61901,
+"instagram":61902,
+"instagram-with-circle":61903,
+"install":61904,
+"key":61905,
+"keyboard":61906,
+"lab-flask":61907,
+"landline":61908,
+"language":61909,
+"laptop":61910,
+"lastfm":61911,
+"lastfm-with-circle":61912,
+"layers":61913,
+"leaf":61914,
+"level-down":61915,
+"level-up":61916,
+"lifebuoy":61917,
+"light-bulb":61918,
+"light-down":61919,
+"light-up":61920,
+"line-graph":61921,
+"link":61922,
+"linkedin":61923,
+"linkedin-with-circle":61924,
+"list":61925,
+"location":61926,
+"location-pin":61927,
+"lock":61928,
+"lock-open":61929,
+"log-out":61930,
+"login":61931,
+"loop":61932,
+"magnet":61933,
+"magnifying-glass":61934,
+"mail":61935,
+"mail-with-circle":61936,
+"man":61937,
+"map":61938,
+"mask":61939,
+"medal":61940,
+"medium":61941,
+"medium-with-circle":61942,
+"megaphone":61943,
+"menu":61944,
+"merge":61945,
+"message":61946,
+"mic":61947,
+"minus":61948,
+"mixi":61949,
+"mobile":61950,
+"modern-mic":61951,
+"moon":61952,
+"mouse":61953,
+"mouse-pointer":61954,
+"music":61955,
+"network":61956,
+"new":61957,
+"new-message":61958,
+"news":61959,
+"newsletter":61960,
+"note":61961,
+"notification":61962,
+"notifications-off":61963,
+"old-mobile":61964,
+"old-phone":61965,
+"onedrive":61966,
+"open-book":61967,
+"palette":61968,
+"paper-plane":61969,
+"paypal":61970,
+"pencil":61971,
+"phone":61972,
+"picasa":61973,
+"pie-chart":61974,
+"pin":61975,
+"pinterest":61976,
+"pinterest-with-circle":61977,
+"plus":61978,
+"popup":61979,
+"power-plug":61980,
+"price-ribbon":61981,
+"price-tag":61982,
+"print":61983,
+"progress-empty":61984,
+"progress-full":61985,
+"progress-one":61986,
+"progress-two":61987,
+"publish":61988,
+"qq":61989,
+"qq-with-circle":61990,
+"quote":61991,
+"radio":61992,
+"raft":61993,
+"raft-with-circle":61994,
+"rainbow":61995,
+"rdio":61996,
+"rdio-with-circle":61997,
+"remove-user":61998,
+"renren":61999,
+"reply":62000,
+"reply-all":62001,
+"resize-100-":62002,
+"resize-full-screen":62003,
+"retweet":62004,
+"rocket":62005,
+"round-brush":62006,
+"rss":62007,
+"ruler":62008,
+"save":62009,
+"scissors":62010,
+"scribd":62011,
+"select-arrows":62012,
+"share":62013,
+"share-alternative":62014,
+"shareable":62015,
+"shield":62016,
+"shop":62017,
+"shopping-bag":62018,
+"shopping-basket":62019,
+"shopping-cart":62020,
+"shuffle":62021,
+"signal":62022,
+"sina-weibo":62023,
+"skype":62024,
+"skype-with-circle":62025,
+"slideshare":62026,
+"smashing":62027,
+"sound":62028,
+"sound-mix":62029,
+"sound-mute":62030,
+"soundcloud":62031,
+"sports-club":62032,
+"spotify":62033,
+"spotify-with-circle":62034,
+"spreadsheet":62035,
+"squared-cross":62036,
+"squared-minus":62037,
+"squared-plus":62038,
+"star":62039,
+"star-outlined":62040,
+"stopwatch":62041,
+"stumbleupon":62042,
+"stumbleupon-with-circle":62043,
+"suitcase":62044,
+"swap":62045,
+"swarm":62046,
+"sweden":62047,
+"switch":62048,
+"tablet":62049,
+"tablet-mobile-combo":62050,
+"tag":62051,
+"text":62052,
+"text-document":62053,
+"text-document-inverted":62054,
+"thermometer":62055,
+"thumbs-down":62056,
+"thumbs-up":62057,
+"thunder-cloud":62058,
+"ticket":62059,
+"time-slot":62060,
+"tools":62061,
+"traffic-cone":62062,
+"trash":62063,
+"tree":62064,
+"triangle-down":62065,
+"triangle-left":62066,
+"triangle-right":62067,
+"triangle-up":62068,
+"tripadvisor":62069,
+"trophy":62070,
+"tumblr":62071,
+"tumblr-with-circle":62072,
+"tv":62073,
+"twitter":62074,
+"twitter-with-circle":62075,
+"typing":62076,
+"uninstall":62077,
+"unread":62078,
+"untag":62079,
+"upload":62080,
+"upload-to-cloud":62081,
+"user":62082,
+"users":62083,
+"v-card":62084,
+"video":62085,
+"video-camera":62086,
+"vimeo":62087,
+"vimeo-with-circle":62088,
+"vine":62089,
+"vine-with-circle":62090,
+"vinyl":62091,
+"vk":62092,
+"vk-alternitive":62093,
+"vk-with-circle":62094,
+"voicemail":62095,
+"wallet":62096,
+"warning":62097,
+"water":62098,
+"windows-store":62099,
+"xing":62100,
+"xing-with-circle":62101,
+"yelp":62102,
+"youko":62103,
+"youko-with-circle":62104,
+"youtube":62105,
+"youtube-with-circle":62106};
+
+
+var Entypo=(0,_createIconSet2.default)(glyphMap,'Entypo','Entypo.ttf');
+
+module.exports=Entypo;
+module.exports.glyphMap=glyphMap;
+}, "react-native-vector-icons/Entypo.js");
+__d(672 /* react-native-vector-icons/lib/create-icon-set.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.default=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+createIconSet;var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);var _reactNative=require(673 /* ./react-native */);var _iconButton=require(674 /* ./icon-button */);var _iconButton2=babelHelpers.interopRequireDefault(_iconButton);var _tabBarItemIos=require(792 /* ./tab-bar-item-ios */);var _tabBarItemIos2=babelHelpers.interopRequireDefault(_tabBarItemIos);var _toolbarAndroid=require(793 /* ./toolbar-android */);var _toolbarAndroid2=babelHelpers.interopRequireDefault(_toolbarAndroid);var NativeIconAPI=_reactNative.NativeModules&&(_reactNative.NativeModules.RNVectorIconsManager||_reactNative.NativeModules.RNVectorIconsModule);var DEFAULT_ICON_SIZE=12;var DEFAULT_ICON_COLOR='black';function createIconSet(glyphMap,fontFamily,fontFile){
+var fontReference=fontFamily;
+
+if(_reactNative.Platform.OS==='android'&&fontFile){
+fontReference=fontFile.replace(/\.(otf|ttf)$/,'');
+}
+
+var IconNamePropType=_react.PropTypes.oneOf(Object.keys(glyphMap));var
+
+Icon=function(_Component){babelHelpers.inherits(Icon,_Component);function Icon(){babelHelpers.classCallCheck(this,Icon);return babelHelpers.possibleConstructorReturn(this,(Icon.__proto__||Object.getPrototypeOf(Icon)).apply(this,arguments));}babelHelpers.createClass(Icon,[{key:'setNativeProps',value:function setNativeProps(
+
+
+
+
+
+
+
+
+
+
+
+nativeProps){
+if(this._root){
+this._root.setNativeProps(nativeProps);
+}
+}},{key:'render',value:function render()
+
+{var _this2=this;var _props=
+this.props;var name=_props.name;var size=_props.size;var color=_props.color;var style=_props.style;var props=babelHelpers.objectWithoutProperties(_props,['name','size','color','style']);
+
+var glyph=glyphMap[name]||'?';
+if(typeof glyph==='number'){
+glyph=String.fromCharCode(glyph);
+}
+
+var styleDefaults={
+fontSize:size,
+fontWeight:'normal',
+fontStyle:'normal',
+color:color};
+
+
+props.style=[styleDefaults,style];
+props.ref=function(component){
+_this2._root=component;
+};
+
+styleDefaults.fontFamily=fontReference;
+
+return _react2.default.createElement(_reactNative.Text,props,glyph,this.props.children);
+}}]);return Icon;}(_react.Component);Icon.propTypes={name:IconNamePropType.isRequired,size:_react.PropTypes.number,color:_react.PropTypes.string};Icon.defaultProps={size:DEFAULT_ICON_SIZE,allowFontScaling:false};
+
+
+var imageSourceCache={};
+
+function getImageSource(name){var size=arguments.length<=1||arguments[1]===undefined?DEFAULT_ICON_SIZE:arguments[1];var color=arguments.length<=2||arguments[2]===undefined?DEFAULT_ICON_COLOR:arguments[2];
+if(!NativeIconAPI){
+if(_reactNative.Platform.OS==='android'){
+throw new Error('RNVectorIconsModule not available, did you properly integrate the module?');
+}
+throw new Error('RNVectorIconsManager not available, did you add the library to your project and link with libRNVectorIcons.a?');
+}
+
+var glyph=glyphMap[name]||'?';
+if(typeof glyph==='number'){
+glyph=String.fromCharCode(glyph);
+}
+
+var proessedColor=(0,_reactNative.processColor)(color);
+var cacheKey=glyph+':'+size+':'+proessedColor;
+var scale=_reactNative.PixelRatio.get();
+
+return new Promise(function(resolve,reject){
+var cached=imageSourceCache[cacheKey];
+if(typeof cached!=='undefined'){
+if(!cached||cached instanceof Error){reject(cached);}
+resolve({uri:cached,scale:scale});
+}else{
+NativeIconAPI.getImageForFont(fontReference,glyph,size,proessedColor,function(err,image){
+var error=typeof err==='string'?new Error(err):err;
+imageSourceCache[cacheKey]=image||error||false;
+if(!error&&image){
+resolve({uri:image,scale:scale});
+}else{
+reject(error);
+}
+});
+}
+});
+}
+
+Icon.Button=(0,_iconButton2.default)(Icon);
+Icon.TabBarItem=Icon.TabBarItemIOS=(0,_tabBarItemIos2.default)(IconNamePropType,getImageSource);
+Icon.ToolbarAndroid=(0,_toolbarAndroid2.default)(IconNamePropType,getImageSource);
+Icon.getImageSource=getImageSource;
+
+return Icon;
+}
+}, "react-native-vector-icons/lib/create-icon-set.js");
+__d(673 /* react-native-vector-icons/lib/react-native.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require(44 /* react-native */);Object.keys(_reactNative).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _reactNative[key];}});});
+}, "react-native-vector-icons/lib/react-native.js");
+__d(674 /* react-native-vector-icons/lib/icon-button.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.default=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+createIconButtonComponent;var _isEqual=require(675 /* lodash/isEqual */);var _isEqual2=babelHelpers.interopRequireDefault(_isEqual);var _isString=require(754 /* lodash/isString */);var _isString2=babelHelpers.interopRequireDefault(_isString);var _omit=require(755 /* lodash/omit */);var _omit2=babelHelpers.interopRequireDefault(_omit);var _pick=require(791 /* lodash/pick */);var _pick2=babelHelpers.interopRequireDefault(_pick);var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);var _reactNative=require(673 /* ./react-native */);var styles=_reactNative.StyleSheet.create({container:{flexDirection:'row',justifyContent:'flex-start',alignItems:'center',padding:8},touchable:{overflow:'hidden'},icon:{marginRight:10},text:{fontWeight:'600',backgroundColor:'transparent'}});var IOS7_BLUE='#007AFF';function createIconButtonComponent(Icon){var _class,_temp;
+return _temp=_class=function(_Component){babelHelpers.inherits(IconButton,_Component);function IconButton(){babelHelpers.classCallCheck(this,IconButton);return babelHelpers.possibleConstructorReturn(this,(IconButton.__proto__||Object.getPrototypeOf(IconButton)).apply(this,arguments));}babelHelpers.createClass(IconButton,[{key:'render',value:function render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{var _props=
+
+
+
+
+
+this.props;var style=_props.style;var iconStyle=_props.iconStyle;var children=_props.children;var props=babelHelpers.objectWithoutProperties(_props,['style','iconStyle','children']);
+
+var iconProps=(0,_pick2.default)(props,Object.keys(_reactNative.Text.propTypes),'style','name','size','color');
+var touchableProps=(0,_pick2.default)(props,Object.keys(_reactNative.TouchableHighlight.propTypes));
+props=(0,_omit2.default)(
+props,
+Object.keys(iconProps),
+Object.keys(touchableProps),
+'iconStyle',
+'borderRadius',
+'backgroundColor');
+
+iconProps.style=this.props.iconStyle?[styles.icon,this.props.iconStyle]:styles.icon;
+
+var colorStyle=(0,_pick2.default)(this.props,'color');
+var blockStyle=(0,_pick2.default)(this.props,'backgroundColor','borderRadius');
+
+if((0,_isString2.default)(children)){
+children=_react2.default.createElement(_reactNative.Text,{style:[styles.text,colorStyle]},children);
+}
+
+return(
+_react2.default.createElement(_reactNative.TouchableHighlight,babelHelpers.extends({style:[styles.touchable,blockStyle]},touchableProps),
+_react2.default.createElement(_reactNative.View,babelHelpers.extends({
+style:[styles.container,blockStyle,style]},
+props),
+
+_react2.default.createElement(Icon,iconProps),
+children)));
+
+
+
+}}]);return IconButton;}(_react.Component),_class.propTypes={backgroundColor:_react.PropTypes.string,borderRadius:_react.PropTypes.number,color:_react.PropTypes.string,size:_react.PropTypes.number},_class.defaultProps={backgroundColor:IOS7_BLUE,borderRadius:5,color:'white',size:20},_temp;
+
+}
+}, "react-native-vector-icons/lib/icon-button.js");
+__d(675 /* lodash/isEqual.js */, function(global, require, module, exports) {var baseIsEqual=require(676 /* ./_baseIsEqual */);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function isEqual(value,other){
+return baseIsEqual(value,other);
+}
+
+module.exports=isEqual;
+}, "lodash/isEqual.js");
+__d(676 /* lodash/_baseIsEqual.js */, function(global, require, module, exports) {var baseIsEqualDeep=require(677 /* ./_baseIsEqualDeep */),
+isObject=require(696 /* ./isObject */),
+isObjectLike=require(737 /* ./isObjectLike */);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function baseIsEqual(value,other,customizer,bitmask,stack){
+if(value===other){
+return true;
+}
+if(value==null||other==null||!isObject(value)&&!isObjectLike(other)){
+return value!==value&&other!==other;
+}
+return baseIsEqualDeep(value,other,baseIsEqual,customizer,bitmask,stack);
+}
+
+module.exports=baseIsEqual;
+}, "lodash/_baseIsEqual.js");
+__d(677 /* lodash/_baseIsEqualDeep.js */, function(global, require, module, exports) {var Stack=require(678 /* ./_Stack */),
+equalArrays=require(718 /* ./_equalArrays */),
+equalByTag=require(724 /* ./_equalByTag */),
+equalObjects=require(729 /* ./_equalObjects */),
+getTag=require(744 /* ./_getTag */),
+isArray=require(738 /* ./isArray */),
+isTypedArray=require(750 /* ./isTypedArray */);
+
+
+var PARTIAL_COMPARE_FLAG=2;
+
+
+var argsTag='[object Arguments]',
+arrayTag='[object Array]',
+objectTag='[object Object]';
+
+
+var objectProto=Object.prototype;
+
+
+var hasOwnProperty=objectProto.hasOwnProperty;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function baseIsEqualDeep(object,other,equalFunc,customizer,bitmask,stack){
+var objIsArr=isArray(object),
+othIsArr=isArray(other),
+objTag=arrayTag,
+othTag=arrayTag;
+
+if(!objIsArr){
+objTag=getTag(object);
+objTag=objTag==argsTag?objectTag:objTag;
+}
+if(!othIsArr){
+othTag=getTag(other);
+othTag=othTag==argsTag?objectTag:othTag;
+}
+var objIsObj=objTag==objectTag,
+othIsObj=othTag==objectTag,
+isSameTag=objTag==othTag;
+
+if(isSameTag&&!objIsObj){
+stack||(stack=new Stack());
+return objIsArr||isTypedArray(object)?
+equalArrays(object,other,equalFunc,customizer,bitmask,stack):
+equalByTag(object,other,objTag,equalFunc,customizer,bitmask,stack);
+}
+if(!(bitmask&PARTIAL_COMPARE_FLAG)){
+var objIsWrapped=objIsObj&&hasOwnProperty.call(object,'__wrapped__'),
+othIsWrapped=othIsObj&&hasOwnProperty.call(other,'__wrapped__');
+
+if(objIsWrapped||othIsWrapped){
+var objUnwrapped=objIsWrapped?object.value():object,
+othUnwrapped=othIsWrapped?other.value():other;
+
+stack||(stack=new Stack());
+return equalFunc(objUnwrapped,othUnwrapped,customizer,bitmask,stack);
+}
+}
+if(!isSameTag){
+return false;
+}
+stack||(stack=new Stack());
+return equalObjects(object,other,equalFunc,customizer,bitmask,stack);
+}
+
+module.exports=baseIsEqualDeep;
+}, "lodash/_baseIsEqualDeep.js");
+__d(678 /* lodash/_Stack.js */, function(global, require, module, exports) {var ListCache=require(679 /* ./_ListCache */),
+stackClear=require(687 /* ./_stackClear */),
+stackDelete=require(688 /* ./_stackDelete */),
+stackGet=require(689 /* ./_stackGet */),
+stackHas=require(690 /* ./_stackHas */),
+stackSet=require(691 /* ./_stackSet */);
+
+
+
+
+
+
+
+
+function Stack(entries){
+var data=this.__data__=new ListCache(entries);
+this.size=data.size;
+}
+
+
+Stack.prototype.clear=stackClear;
+Stack.prototype['delete']=stackDelete;
+Stack.prototype.get=stackGet;
+Stack.prototype.has=stackHas;
+Stack.prototype.set=stackSet;
+
+module.exports=Stack;
+}, "lodash/_Stack.js");
+__d(679 /* lodash/_ListCache.js */, function(global, require, module, exports) {var listCacheClear=require(680 /* ./_listCacheClear */),
+listCacheDelete=require(681 /* ./_listCacheDelete */),
+listCacheGet=require(684 /* ./_listCacheGet */),
+listCacheHas=require(685 /* ./_listCacheHas */),
+listCacheSet=require(686 /* ./_listCacheSet */);
+
+
+
+
+
+
+
+
+function ListCache(entries){
+var index=-1,
+length=entries?entries.length:0;
+
+this.clear();
+while(++index<length){
+var entry=entries[index];
+this.set(entry[0],entry[1]);
+}
+}
+
+
+ListCache.prototype.clear=listCacheClear;
+ListCache.prototype['delete']=listCacheDelete;
+ListCache.prototype.get=listCacheGet;
+ListCache.prototype.has=listCacheHas;
+ListCache.prototype.set=listCacheSet;
+
+module.exports=ListCache;
+}, "lodash/_ListCache.js");
+__d(680 /* lodash/_listCacheClear.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+function listCacheClear(){
+this.__data__=[];
+this.size=0;
+}
+
+module.exports=listCacheClear;
+}, "lodash/_listCacheClear.js");
+__d(681 /* lodash/_listCacheDelete.js */, function(global, require, module, exports) {var assocIndexOf=require(682 /* ./_assocIndexOf */);
+
+
+var arrayProto=Array.prototype;
+
+
+var splice=arrayProto.splice;
+
+
+
+
+
+
+
+
+
+
+function listCacheDelete(key){
+var data=this.__data__,
+index=assocIndexOf(data,key);
+
+if(index<0){
+return false;
+}
+var lastIndex=data.length-1;
+if(index==lastIndex){
+data.pop();
+}else{
+splice.call(data,index,1);
+}
+--this.size;
+return true;
+}
+
+module.exports=listCacheDelete;
+}, "lodash/_listCacheDelete.js");
+__d(682 /* lodash/_assocIndexOf.js */, function(global, require, module, exports) {var eq=require(683 /* ./eq */);
+
+
+
+
+
+
+
+
+
+function assocIndexOf(array,key){
+var length=array.length;
+while(length--){
+if(eq(array[length][0],key)){
+return length;
+}
+}
+return-1;
+}
+
+module.exports=assocIndexOf;
+}, "lodash/_assocIndexOf.js");
+__d(683 /* lodash/eq.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function eq(value,other){
+return value===other||value!==value&&other!==other;
+}
+
+module.exports=eq;
+}, "lodash/eq.js");
+__d(684 /* lodash/_listCacheGet.js */, function(global, require, module, exports) {var assocIndexOf=require(682 /* ./_assocIndexOf */);
+
+
+
+
+
+
+
+
+
+
+function listCacheGet(key){
+var data=this.__data__,
+index=assocIndexOf(data,key);
+
+return index<0?undefined:data[index][1];
+}
+
+module.exports=listCacheGet;
+}, "lodash/_listCacheGet.js");
+__d(685 /* lodash/_listCacheHas.js */, function(global, require, module, exports) {var assocIndexOf=require(682 /* ./_assocIndexOf */);
+
+
+
+
+
+
+
+
+
+
+function listCacheHas(key){
+return assocIndexOf(this.__data__,key)>-1;
+}
+
+module.exports=listCacheHas;
+}, "lodash/_listCacheHas.js");
+__d(686 /* lodash/_listCacheSet.js */, function(global, require, module, exports) {var assocIndexOf=require(682 /* ./_assocIndexOf */);
+
+
+
+
+
+
+
+
+
+
+
+function listCacheSet(key,value){
+var data=this.__data__,
+index=assocIndexOf(data,key);
+
+if(index<0){
+++this.size;
+data.push([key,value]);
+}else{
+data[index][1]=value;
+}
+return this;
+}
+
+module.exports=listCacheSet;
+}, "lodash/_listCacheSet.js");
+__d(687 /* lodash/_stackClear.js */, function(global, require, module, exports) {var ListCache=require(679 /* ./_ListCache */);
+
+
+
+
+
+
+
+
+function stackClear(){
+this.__data__=new ListCache();
+this.size=0;
+}
+
+module.exports=stackClear;
+}, "lodash/_stackClear.js");
+__d(688 /* lodash/_stackDelete.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+function stackDelete(key){
+var data=this.__data__,
+result=data['delete'](key);
+
+this.size=data.size;
+return result;
+}
+
+module.exports=stackDelete;
+}, "lodash/_stackDelete.js");
+__d(689 /* lodash/_stackGet.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+function stackGet(key){
+return this.__data__.get(key);
+}
+
+module.exports=stackGet;
+}, "lodash/_stackGet.js");
+__d(690 /* lodash/_stackHas.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+function stackHas(key){
+return this.__data__.has(key);
+}
+
+module.exports=stackHas;
+}, "lodash/_stackHas.js");
+__d(691 /* lodash/_stackSet.js */, function(global, require, module, exports) {var ListCache=require(679 /* ./_ListCache */),
+Map=require(692 /* ./_Map */),
+MapCache=require(703 /* ./_MapCache */);
+
+
+var LARGE_ARRAY_SIZE=200;
+
+
+
+
+
+
+
+
+
+
+
+function stackSet(key,value){
+var data=this.__data__;
+if(data instanceof ListCache){
+var pairs=data.__data__;
+if(!Map||pairs.length<LARGE_ARRAY_SIZE-1){
+pairs.push([key,value]);
+this.size=++data.size;
+return this;
+}
+data=this.__data__=new MapCache(pairs);
+}
+data.set(key,value);
+this.size=data.size;
+return this;
+}
+
+module.exports=stackSet;
+}, "lodash/_stackSet.js");
+__d(692 /* lodash/_Map.js */, function(global, require, module, exports) {var getNative=require(693 /* ./_getNative */),
+root=require(699 /* ./_root */);
+
+
+var Map=getNative(root,'Map');
+
+module.exports=Map;
+}, "lodash/_Map.js");
+__d(693 /* lodash/_getNative.js */, function(global, require, module, exports) {var baseIsNative=require(694 /* ./_baseIsNative */),
+getValue=require(702 /* ./_getValue */);
+
+
+
+
+
+
+
+
+
+function getNative(object,key){
+var value=getValue(object,key);
+return baseIsNative(value)?value:undefined;
+}
+
+module.exports=getNative;
+}, "lodash/_getNative.js");
+__d(694 /* lodash/_baseIsNative.js */, function(global, require, module, exports) {var isFunction=require(695 /* ./isFunction */),
+isMasked=require(697 /* ./_isMasked */),
+isObject=require(696 /* ./isObject */),
+toSource=require(701 /* ./_toSource */);
+
+
+
+
+
+var reRegExpChar=/[\\^$.*+?()[\]{}|]/g;
+
+
+var reIsHostCtor=/^\[object .+?Constructor\]$/;
+
+
+var funcProto=Function.prototype,
+objectProto=Object.prototype;
+
+
+var funcToString=funcProto.toString;
+
+
+var hasOwnProperty=objectProto.hasOwnProperty;
+
+
+var reIsNative=RegExp('^'+
+funcToString.call(hasOwnProperty).replace(reRegExpChar,'\\$&').
+replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,'$1.*?')+'$');
+
+
+
+
+
+
+
+
+
+
+function baseIsNative(value){
+if(!isObject(value)||isMasked(value)){
+return false;
+}
+var pattern=isFunction(value)?reIsNative:reIsHostCtor;
+return pattern.test(toSource(value));
+}
+
+module.exports=baseIsNative;
+}, "lodash/_baseIsNative.js");
+__d(695 /* lodash/isFunction.js */, function(global, require, module, exports) {var isObject=require(696 /* ./isObject */);
+
+
+var funcTag='[object Function]',
+genTag='[object GeneratorFunction]';
+
+
+var objectProto=Object.prototype;
+
+
+
+
+
+
+var objectToString=objectProto.toString;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function isFunction(value){
+
+
+var tag=isObject(value)?objectToString.call(value):'';
+return tag==funcTag||tag==genTag;
+}
+
+module.exports=isFunction;
+}, "lodash/isFunction.js");
+__d(696 /* lodash/isObject.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function isObject(value){
+var type=typeof value;
+return value!=null&&(type=='object'||type=='function');
+}
+
+module.exports=isObject;
+}, "lodash/isObject.js");
+__d(697 /* lodash/_isMasked.js */, function(global, require, module, exports) {var coreJsData=require(698 /* ./_coreJsData */);
+
+
+var maskSrcKey=function(){
+var uid=/[^.]+$/.exec(coreJsData&&coreJsData.keys&&coreJsData.keys.IE_PROTO||'');
+return uid?'Symbol(src)_1.'+uid:'';
+}();
+
+
+
+
+
+
+
+
+function isMasked(func){
+return!!maskSrcKey&&maskSrcKey in func;
+}
+
+module.exports=isMasked;
+}, "lodash/_isMasked.js");
+__d(698 /* lodash/_coreJsData.js */, function(global, require, module, exports) {var root=require(699 /* ./_root */);
+
+
+var coreJsData=root['__core-js_shared__'];
+
+module.exports=coreJsData;
+}, "lodash/_coreJsData.js");
+__d(699 /* lodash/_root.js */, function(global, require, module, exports) {var freeGlobal=require(700 /* ./_freeGlobal */);
+
+
+var freeSelf=typeof self=='object'&&self&&self.Object===Object&&self;
+
+
+var root=freeGlobal||freeSelf||Function('return this')();
+
+module.exports=root;
+}, "lodash/_root.js");
+__d(700 /* lodash/_freeGlobal.js */, function(global, require, module, exports) {
+var freeGlobal=typeof global=='object'&&global&&global.Object===Object&&global;
+
+module.exports=freeGlobal;
+}, "lodash/_freeGlobal.js");
+__d(701 /* lodash/_toSource.js */, function(global, require, module, exports) {
+var funcProto=Function.prototype;
+
+
+var funcToString=funcProto.toString;
+
+
+
+
+
+
+
+
+function toSource(func){
+if(func!=null){
+try{
+return funcToString.call(func);
+}catch(e){}
+try{
+return func+'';
+}catch(e){}
+}
+return'';
+}
+
+module.exports=toSource;
+}, "lodash/_toSource.js");
+__d(702 /* lodash/_getValue.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+function getValue(object,key){
+return object==null?undefined:object[key];
+}
+
+module.exports=getValue;
+}, "lodash/_getValue.js");
+__d(703 /* lodash/_MapCache.js */, function(global, require, module, exports) {var mapCacheClear=require(704 /* ./_mapCacheClear */),
+mapCacheDelete=require(712 /* ./_mapCacheDelete */),
+mapCacheGet=require(715 /* ./_mapCacheGet */),
+mapCacheHas=require(716 /* ./_mapCacheHas */),
+mapCacheSet=require(717 /* ./_mapCacheSet */);
+
+
+
+
+
+
+
+
+function MapCache(entries){
+var index=-1,
+length=entries?entries.length:0;
+
+this.clear();
+while(++index<length){
+var entry=entries[index];
+this.set(entry[0],entry[1]);
+}
+}
+
+
+MapCache.prototype.clear=mapCacheClear;
+MapCache.prototype['delete']=mapCacheDelete;
+MapCache.prototype.get=mapCacheGet;
+MapCache.prototype.has=mapCacheHas;
+MapCache.prototype.set=mapCacheSet;
+
+module.exports=MapCache;
+}, "lodash/_MapCache.js");
+__d(704 /* lodash/_mapCacheClear.js */, function(global, require, module, exports) {var Hash=require(705 /* ./_Hash */),
+ListCache=require(679 /* ./_ListCache */),
+Map=require(692 /* ./_Map */);
+
+
+
+
+
+
+
+
+function mapCacheClear(){
+this.size=0;
+this.__data__={
+'hash':new Hash(),
+'map':new(Map||ListCache)(),
+'string':new Hash()};
+
+}
+
+module.exports=mapCacheClear;
+}, "lodash/_mapCacheClear.js");
+__d(705 /* lodash/_Hash.js */, function(global, require, module, exports) {var hashClear=require(706 /* ./_hashClear */),
+hashDelete=require(708 /* ./_hashDelete */),
+hashGet=require(709 /* ./_hashGet */),
+hashHas=require(710 /* ./_hashHas */),
+hashSet=require(711 /* ./_hashSet */);
+
+
+
+
+
+
+
+
+function Hash(entries){
+var index=-1,
+length=entries?entries.length:0;
+
+this.clear();
+while(++index<length){
+var entry=entries[index];
+this.set(entry[0],entry[1]);
+}
+}
+
+
+Hash.prototype.clear=hashClear;
+Hash.prototype['delete']=hashDelete;
+Hash.prototype.get=hashGet;
+Hash.prototype.has=hashHas;
+Hash.prototype.set=hashSet;
+
+module.exports=Hash;
+}, "lodash/_Hash.js");
+__d(706 /* lodash/_hashClear.js */, function(global, require, module, exports) {var nativeCreate=require(707 /* ./_nativeCreate */);
+
+
+
+
+
+
+
+
+function hashClear(){
+this.__data__=nativeCreate?nativeCreate(null):{};
+this.size=0;
+}
+
+module.exports=hashClear;
+}, "lodash/_hashClear.js");
+__d(707 /* lodash/_nativeCreate.js */, function(global, require, module, exports) {var getNative=require(693 /* ./_getNative */);
+
+
+var nativeCreate=getNative(Object,'create');
+
+module.exports=nativeCreate;
+}, "lodash/_nativeCreate.js");
+__d(708 /* lodash/_hashDelete.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+
+function hashDelete(key){
+var result=this.has(key)&&delete this.__data__[key];
+this.size-=result?1:0;
+return result;
+}
+
+module.exports=hashDelete;
+}, "lodash/_hashDelete.js");
+__d(709 /* lodash/_hashGet.js */, function(global, require, module, exports) {var nativeCreate=require(707 /* ./_nativeCreate */);
+
+
+var HASH_UNDEFINED='__lodash_hash_undefined__';
+
+
+var objectProto=Object.prototype;
+
+
+var hasOwnProperty=objectProto.hasOwnProperty;
+
+
+
+
+
+
+
+
+
+
+function hashGet(key){
+var data=this.__data__;
+if(nativeCreate){
+var result=data[key];
+return result===HASH_UNDEFINED?undefined:result;
+}
+return hasOwnProperty.call(data,key)?data[key]:undefined;
+}
+
+module.exports=hashGet;
+}, "lodash/_hashGet.js");
+__d(710 /* lodash/_hashHas.js */, function(global, require, module, exports) {var nativeCreate=require(707 /* ./_nativeCreate */);
+
+
+var objectProto=Object.prototype;
+
+
+var hasOwnProperty=objectProto.hasOwnProperty;
+
+
+
+
+
+
+
+
+
+
+function hashHas(key){
+var data=this.__data__;
+return nativeCreate?data[key]!==undefined:hasOwnProperty.call(data,key);
+}
+
+module.exports=hashHas;
+}, "lodash/_hashHas.js");
+__d(711 /* lodash/_hashSet.js */, function(global, require, module, exports) {var nativeCreate=require(707 /* ./_nativeCreate */);
+
+
+var HASH_UNDEFINED='__lodash_hash_undefined__';
+
+
+
+
+
+
+
+
+
+
+
+function hashSet(key,value){
+var data=this.__data__;
+this.size+=this.has(key)?0:1;
+data[key]=nativeCreate&&value===undefined?HASH_UNDEFINED:value;
+return this;
+}
+
+module.exports=hashSet;
+}, "lodash/_hashSet.js");
+__d(712 /* lodash/_mapCacheDelete.js */, function(global, require, module, exports) {var getMapData=require(713 /* ./_getMapData */);
+
+
+
+
+
+
+
+
+
+
+function mapCacheDelete(key){
+var result=getMapData(this,key)['delete'](key);
+this.size-=result?1:0;
+return result;
+}
+
+module.exports=mapCacheDelete;
+}, "lodash/_mapCacheDelete.js");
+__d(713 /* lodash/_getMapData.js */, function(global, require, module, exports) {var isKeyable=require(714 /* ./_isKeyable */);
+
+
+
+
+
+
+
+
+
+function getMapData(map,key){
+var data=map.__data__;
+return isKeyable(key)?
+data[typeof key=='string'?'string':'hash']:
+data.map;
+}
+
+module.exports=getMapData;
+}, "lodash/_getMapData.js");
+__d(714 /* lodash/_isKeyable.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+function isKeyable(value){
+var type=typeof value;
+return type=='string'||type=='number'||type=='symbol'||type=='boolean'?
+value!=='__proto__':
+value===null;
+}
+
+module.exports=isKeyable;
+}, "lodash/_isKeyable.js");
+__d(715 /* lodash/_mapCacheGet.js */, function(global, require, module, exports) {var getMapData=require(713 /* ./_getMapData */);
+
+
+
+
+
+
+
+
+
+
+function mapCacheGet(key){
+return getMapData(this,key).get(key);
+}
+
+module.exports=mapCacheGet;
+}, "lodash/_mapCacheGet.js");
+__d(716 /* lodash/_mapCacheHas.js */, function(global, require, module, exports) {var getMapData=require(713 /* ./_getMapData */);
+
+
+
+
+
+
+
+
+
+
+function mapCacheHas(key){
+return getMapData(this,key).has(key);
+}
+
+module.exports=mapCacheHas;
+}, "lodash/_mapCacheHas.js");
+__d(717 /* lodash/_mapCacheSet.js */, function(global, require, module, exports) {var getMapData=require(713 /* ./_getMapData */);
+
+
+
+
+
+
+
+
+
+
+
+function mapCacheSet(key,value){
+var data=getMapData(this,key),
+size=data.size;
+
+data.set(key,value);
+this.size+=data.size==size?0:1;
+return this;
+}
+
+module.exports=mapCacheSet;
+}, "lodash/_mapCacheSet.js");
+__d(718 /* lodash/_equalArrays.js */, function(global, require, module, exports) {var SetCache=require(719 /* ./_SetCache */),
+arraySome=require(722 /* ./_arraySome */),
+cacheHas=require(723 /* ./_cacheHas */);
+
+
+var UNORDERED_COMPARE_FLAG=1,
+PARTIAL_COMPARE_FLAG=2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function equalArrays(array,other,equalFunc,customizer,bitmask,stack){
+var isPartial=bitmask&PARTIAL_COMPARE_FLAG,
+arrLength=array.length,
+othLength=other.length;
+
+if(arrLength!=othLength&&!(isPartial&&othLength>arrLength)){
+return false;
+}
+
+var stacked=stack.get(array);
+if(stacked&&stack.get(other)){
+return stacked==other;
+}
+var index=-1,
+result=true,
+seen=bitmask&UNORDERED_COMPARE_FLAG?new SetCache():undefined;
+
+stack.set(array,other);
+stack.set(other,array);
+
+
+while(++index<arrLength){
+var arrValue=array[index],
+othValue=other[index];
+
+if(customizer){
+var compared=isPartial?
+customizer(othValue,arrValue,index,other,array,stack):
+customizer(arrValue,othValue,index,array,other,stack);
+}
+if(compared!==undefined){
+if(compared){
+continue;
+}
+result=false;
+break;
+}
+
+if(seen){
+if(!arraySome(other,function(othValue,othIndex){
+if(!cacheHas(seen,othIndex)&&(
+arrValue===othValue||equalFunc(arrValue,othValue,customizer,bitmask,stack))){
+return seen.push(othIndex);
+}
+})){
+result=false;
+break;
+}
+}else if(!(
+arrValue===othValue||
+equalFunc(arrValue,othValue,customizer,bitmask,stack)))
+{
+result=false;
+break;
+}
+}
+stack['delete'](array);
+stack['delete'](other);
+return result;
+}
+
+module.exports=equalArrays;
+}, "lodash/_equalArrays.js");
+__d(719 /* lodash/_SetCache.js */, function(global, require, module, exports) {var MapCache=require(703 /* ./_MapCache */),
+setCacheAdd=require(720 /* ./_setCacheAdd */),
+setCacheHas=require(721 /* ./_setCacheHas */);
+
+
+
+
+
+
+
+
+
+function SetCache(values){
+var index=-1,
+length=values?values.length:0;
+
+this.__data__=new MapCache();
+while(++index<length){
+this.add(values[index]);
+}
+}
+
+
+SetCache.prototype.add=SetCache.prototype.push=setCacheAdd;
+SetCache.prototype.has=setCacheHas;
+
+module.exports=SetCache;
+}, "lodash/_SetCache.js");
+__d(720 /* lodash/_setCacheAdd.js */, function(global, require, module, exports) {
+var HASH_UNDEFINED='__lodash_hash_undefined__';
+
+
+
+
+
+
+
+
+
+
+
+function setCacheAdd(value){
+this.__data__.set(value,HASH_UNDEFINED);
+return this;
+}
+
+module.exports=setCacheAdd;
+}, "lodash/_setCacheAdd.js");
+__d(721 /* lodash/_setCacheHas.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+function setCacheHas(value){
+return this.__data__.has(value);
+}
+
+module.exports=setCacheHas;
+}, "lodash/_setCacheHas.js");
+__d(722 /* lodash/_arraySome.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+
+function arraySome(array,predicate){
+var index=-1,
+length=array?array.length:0;
+
+while(++index<length){
+if(predicate(array[index],index,array)){
+return true;
+}
+}
+return false;
+}
+
+module.exports=arraySome;
+}, "lodash/_arraySome.js");
+__d(723 /* lodash/_cacheHas.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+function cacheHas(cache,key){
+return cache.has(key);
+}
+
+module.exports=cacheHas;
+}, "lodash/_cacheHas.js");
+__d(724 /* lodash/_equalByTag.js */, function(global, require, module, exports) {var Symbol=require(725 /* ./_Symbol */),
+Uint8Array=require(726 /* ./_Uint8Array */),
+eq=require(683 /* ./eq */),
+equalArrays=require(718 /* ./_equalArrays */),
+mapToArray=require(727 /* ./_mapToArray */),
+setToArray=require(728 /* ./_setToArray */);
+
+
+var UNORDERED_COMPARE_FLAG=1,
+PARTIAL_COMPARE_FLAG=2;
+
+
+var boolTag='[object Boolean]',
+dateTag='[object Date]',
+errorTag='[object Error]',
+mapTag='[object Map]',
+numberTag='[object Number]',
+regexpTag='[object RegExp]',
+setTag='[object Set]',
+stringTag='[object String]',
+symbolTag='[object Symbol]';
+
+var arrayBufferTag='[object ArrayBuffer]',
+dataViewTag='[object DataView]';
+
+
+var symbolProto=Symbol?typeof Symbol==='function'?Symbol.prototype:'@@prototype':undefined,
+symbolValueOf=symbolProto?symbolProto.valueOf:undefined;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function equalByTag(object,other,tag,equalFunc,customizer,bitmask,stack){
+switch(tag){
+case dataViewTag:
+if(object.byteLength!=other.byteLength||
+object.byteOffset!=other.byteOffset){
+return false;
+}
+object=object.buffer;
+other=other.buffer;
+
+case arrayBufferTag:
+if(object.byteLength!=other.byteLength||
+!equalFunc(new Uint8Array(object),new Uint8Array(other))){
+return false;
+}
+return true;
+
+case boolTag:
+case dateTag:
+case numberTag:
+
+
+return eq(+object,+other);
+
+case errorTag:
+return object.name==other.name&&object.message==other.message;
+
+case regexpTag:
+case stringTag:
+
+
+
+return object==other+'';
+
+case mapTag:
+var convert=mapToArray;
+
+case setTag:
+var isPartial=bitmask&PARTIAL_COMPARE_FLAG;
+convert||(convert=setToArray);
+
+if(object.size!=other.size&&!isPartial){
+return false;
+}
+
+var stacked=stack.get(object);
+if(stacked){
+return stacked==other;
+}
+bitmask|=UNORDERED_COMPARE_FLAG;
+
+
+stack.set(object,other);
+var result=equalArrays(convert(object),convert(other),equalFunc,customizer,bitmask,stack);
+stack['delete'](object);
+return result;
+
+case symbolTag:
+if(symbolValueOf){
+return symbolValueOf.call(object)==symbolValueOf.call(other);
+}}
+
+return false;
+}
+
+module.exports=equalByTag;
+}, "lodash/_equalByTag.js");
+__d(725 /* lodash/_Symbol.js */, function(global, require, module, exports) {var root=require(699 /* ./_root */);
+
+
+var Symbol=root.Symbol;
+
+module.exports=Symbol;
+}, "lodash/_Symbol.js");
+__d(726 /* lodash/_Uint8Array.js */, function(global, require, module, exports) {var root=require(699 /* ./_root */);
+
+
+var Uint8Array=root.Uint8Array;
+
+module.exports=Uint8Array;
+}, "lodash/_Uint8Array.js");
+__d(727 /* lodash/_mapToArray.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+function mapToArray(map){
+var index=-1,
+result=Array(map.size);
+
+map.forEach(function(value,key){
+result[++index]=[key,value];
+});
+return result;
+}
+
+module.exports=mapToArray;
+}, "lodash/_mapToArray.js");
+__d(728 /* lodash/_setToArray.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+function setToArray(set){
+var index=-1,
+result=Array(set.size);
+
+set.forEach(function(value){
+result[++index]=value;
+});
+return result;
+}
+
+module.exports=setToArray;
+}, "lodash/_setToArray.js");
+__d(729 /* lodash/_equalObjects.js */, function(global, require, module, exports) {var keys=require(730 /* ./keys */);
+
+
+var PARTIAL_COMPARE_FLAG=2;
+
+
+var objectProto=Object.prototype;
+
+
+var hasOwnProperty=objectProto.hasOwnProperty;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function equalObjects(object,other,equalFunc,customizer,bitmask,stack){
+var isPartial=bitmask&PARTIAL_COMPARE_FLAG,
+objProps=keys(object),
+objLength=objProps.length,
+othProps=keys(other),
+othLength=othProps.length;
+
+if(objLength!=othLength&&!isPartial){
+return false;
+}
+var index=objLength;
+while(index--){
+var key=objProps[index];
+if(!(isPartial?key in other:hasOwnProperty.call(other,key))){
+return false;
+}
+}
+
+var stacked=stack.get(object);
+if(stacked&&stack.get(other)){
+return stacked==other;
+}
+var result=true;
+stack.set(object,other);
+stack.set(other,object);
+
+var skipCtor=isPartial;
+while(++index<objLength){
+key=objProps[index];
+var objValue=object[key],
+othValue=other[key];
+
+if(customizer){
+var compared=isPartial?
+customizer(othValue,objValue,key,other,object,stack):
+customizer(objValue,othValue,key,object,other,stack);
+}
+
+if(!(compared===undefined?
+objValue===othValue||equalFunc(objValue,othValue,customizer,bitmask,stack):
+compared))
+{
+result=false;
+break;
+}
+skipCtor||(skipCtor=key=='constructor');
+}
+if(result&&!skipCtor){
+var objCtor=object.constructor,
+othCtor=other.constructor;
+
+
+if(objCtor!=othCtor&&
+'constructor'in object&&'constructor'in other&&
+!(typeof objCtor=='function'&&objCtor instanceof objCtor&&
+typeof othCtor=='function'&&othCtor instanceof othCtor)){
+result=false;
+}
+}
+stack['delete'](object);
+stack['delete'](other);
+return result;
+}
+
+module.exports=equalObjects;
+}, "lodash/_equalObjects.js");
+__d(730 /* lodash/keys.js */, function(global, require, module, exports) {var arrayLikeKeys=require(731 /* ./_arrayLikeKeys */),
+baseKeys=require(740 /* ./_baseKeys */),
+isArrayLike=require(735 /* ./isArrayLike */);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function keys(object){
+return isArrayLike(object)?arrayLikeKeys(object):baseKeys(object);
+}
+
+module.exports=keys;
+}, "lodash/keys.js");
+__d(731 /* lodash/_arrayLikeKeys.js */, function(global, require, module, exports) {var baseTimes=require(732 /* ./_baseTimes */),
+isArguments=require(733 /* ./isArguments */),
+isArray=require(738 /* ./isArray */),
+isIndex=require(739 /* ./_isIndex */);
+
+
+var objectProto=Object.prototype;
+
+
+var hasOwnProperty=objectProto.hasOwnProperty;
+
+
+
+
+
+
+
+
+
+function arrayLikeKeys(value,inherited){
+
+
+var result=isArray(value)||isArguments(value)?
+baseTimes(value.length,String):
+[];
+
+var length=result.length,
+skipIndexes=!!length;
+
+for(var key in value){
+if((inherited||hasOwnProperty.call(value,key))&&
+!(skipIndexes&&(key=='length'||isIndex(key,length)))){
+result.push(key);
+}
+}
+return result;
+}
+
+module.exports=arrayLikeKeys;
+}, "lodash/_arrayLikeKeys.js");
+__d(732 /* lodash/_baseTimes.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+function baseTimes(n,iteratee){
+var index=-1,
+result=Array(n);
+
+while(++index<n){
+result[index]=iteratee(index);
+}
+return result;
+}
+
+module.exports=baseTimes;
+}, "lodash/_baseTimes.js");
+__d(733 /* lodash/isArguments.js */, function(global, require, module, exports) {var isArrayLikeObject=require(734 /* ./isArrayLikeObject */);
+
+
+var argsTag='[object Arguments]';
+
+
+var objectProto=Object.prototype;
+
+
+var hasOwnProperty=objectProto.hasOwnProperty;
+
+
+
+
+
+
+var objectToString=objectProto.toString;
+
+
+var propertyIsEnumerable=objectProto.propertyIsEnumerable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function isArguments(value){
+
+return isArrayLikeObject(value)&&hasOwnProperty.call(value,'callee')&&(
+!propertyIsEnumerable.call(value,'callee')||objectToString.call(value)==argsTag);
+}
+
+module.exports=isArguments;
+}, "lodash/isArguments.js");
+__d(734 /* lodash/isArrayLikeObject.js */, function(global, require, module, exports) {var isArrayLike=require(735 /* ./isArrayLike */),
+isObjectLike=require(737 /* ./isObjectLike */);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function isArrayLikeObject(value){
+return isObjectLike(value)&&isArrayLike(value);
+}
+
+module.exports=isArrayLikeObject;
+}, "lodash/isArrayLikeObject.js");
+__d(735 /* lodash/isArrayLike.js */, function(global, require, module, exports) {var isFunction=require(695 /* ./isFunction */),
+isLength=require(736 /* ./isLength */);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function isArrayLike(value){
+return value!=null&&isLength(value.length)&&!isFunction(value);
+}
+
+module.exports=isArrayLike;
+}, "lodash/isArrayLike.js");
+__d(736 /* lodash/isLength.js */, function(global, require, module, exports) {
+var MAX_SAFE_INTEGER=9007199254740991;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function isLength(value){
+return typeof value=='number'&&
+value>-1&&value%1==0&&value<=MAX_SAFE_INTEGER;
+}
+
+module.exports=isLength;
+}, "lodash/isLength.js");
+__d(737 /* lodash/isObjectLike.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function isObjectLike(value){
+return value!=null&&typeof value=='object';
+}
+
+module.exports=isObjectLike;
+}, "lodash/isObjectLike.js");
+__d(738 /* lodash/isArray.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var isArray=Array.isArray;
+
+module.exports=isArray;
+}, "lodash/isArray.js");
+__d(739 /* lodash/_isIndex.js */, function(global, require, module, exports) {
+var MAX_SAFE_INTEGER=9007199254740991;
+
+
+var reIsUint=/^(?:0|[1-9]\d*)$/;
+
+
+
+
+
+
+
+
+
+function isIndex(value,length){
+length=length==null?MAX_SAFE_INTEGER:length;
+return!!length&&(
+typeof value=='number'||reIsUint.test(value))&&
+value>-1&&value%1==0&&value<length;
+}
+
+module.exports=isIndex;
+}, "lodash/_isIndex.js");
+__d(740 /* lodash/_baseKeys.js */, function(global, require, module, exports) {var isPrototype=require(741 /* ./_isPrototype */),
+nativeKeys=require(742 /* ./_nativeKeys */);
+
+
+var objectProto=Object.prototype;
+
+
+var hasOwnProperty=objectProto.hasOwnProperty;
+
+
+
+
+
+
+
+
+function baseKeys(object){
+if(!isPrototype(object)){
+return nativeKeys(object);
+}
+var result=[];
+for(var key in Object(object)){
+if(hasOwnProperty.call(object,key)&&key!='constructor'){
+result.push(key);
+}
+}
+return result;
+}
+
+module.exports=baseKeys;
+}, "lodash/_baseKeys.js");
+__d(741 /* lodash/_isPrototype.js */, function(global, require, module, exports) {
+var objectProto=Object.prototype;
+
+
+
+
+
+
+
+
+function isPrototype(value){
+var Ctor=value&&value.constructor,
+proto=typeof Ctor=='function'&&Ctor.prototype||objectProto;
+
+return value===proto;
+}
+
+module.exports=isPrototype;
+}, "lodash/_isPrototype.js");
+__d(742 /* lodash/_nativeKeys.js */, function(global, require, module, exports) {var overArg=require(743 /* ./_overArg */);
+
+
+var nativeKeys=overArg(Object.keys,Object);
+
+module.exports=nativeKeys;
+}, "lodash/_nativeKeys.js");
+__d(743 /* lodash/_overArg.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+function overArg(func,transform){
+return function(arg){
+return func(transform(arg));
+};
+}
+
+module.exports=overArg;
+}, "lodash/_overArg.js");
+__d(744 /* lodash/_getTag.js */, function(global, require, module, exports) {var DataView=require(745 /* ./_DataView */),
+Map=require(692 /* ./_Map */),
+Promise=require(746 /* ./_Promise */),
+Set=require(747 /* ./_Set */),
+WeakMap=require(748 /* ./_WeakMap */),
+baseGetTag=require(749 /* ./_baseGetTag */),
+toSource=require(701 /* ./_toSource */);
+
+
+var mapTag='[object Map]',
+objectTag='[object Object]',
+promiseTag='[object Promise]',
+setTag='[object Set]',
+weakMapTag='[object WeakMap]';
+
+var dataViewTag='[object DataView]';
+
+
+var objectProto=Object.prototype;
+
+
+
+
+
+
+var objectToString=objectProto.toString;
+
+
+var dataViewCtorString=toSource(DataView),
+mapCtorString=toSource(Map),
+promiseCtorString=toSource(Promise),
+setCtorString=toSource(Set),
+weakMapCtorString=toSource(WeakMap);
+
+
+
+
+
+
+
+
+var getTag=baseGetTag;
+
+
+if(DataView&&getTag(new DataView(new ArrayBuffer(1)))!=dataViewTag||
+Map&&getTag(new Map())!=mapTag||
+Promise&&getTag(Promise.resolve())!=promiseTag||
+Set&&getTag(new Set())!=setTag||
+WeakMap&&getTag(new WeakMap())!=weakMapTag){
+getTag=function getTag(value){
+var result=objectToString.call(value),
+Ctor=result==objectTag?value.constructor:undefined,
+ctorString=Ctor?toSource(Ctor):undefined;
+
+if(ctorString){
+switch(ctorString){
+case dataViewCtorString:return dataViewTag;
+case mapCtorString:return mapTag;
+case promiseCtorString:return promiseTag;
+case setCtorString:return setTag;
+case weakMapCtorString:return weakMapTag;}
+
+}
+return result;
+};
+}
+
+module.exports=getTag;
+}, "lodash/_getTag.js");
+__d(745 /* lodash/_DataView.js */, function(global, require, module, exports) {var getNative=require(693 /* ./_getNative */),
+root=require(699 /* ./_root */);
+
+
+var DataView=getNative(root,'DataView');
+
+module.exports=DataView;
+}, "lodash/_DataView.js");
+__d(746 /* lodash/_Promise.js */, function(global, require, module, exports) {var getNative=require(693 /* ./_getNative */),
+root=require(699 /* ./_root */);
+
+
+var Promise=getNative(root,'Promise');
+
+module.exports=Promise;
+}, "lodash/_Promise.js");
+__d(747 /* lodash/_Set.js */, function(global, require, module, exports) {var getNative=require(693 /* ./_getNative */),
+root=require(699 /* ./_root */);
+
+
+var Set=getNative(root,'Set');
+
+module.exports=Set;
+}, "lodash/_Set.js");
+__d(748 /* lodash/_WeakMap.js */, function(global, require, module, exports) {var getNative=require(693 /* ./_getNative */),
+root=require(699 /* ./_root */);
+
+
+var WeakMap=getNative(root,'WeakMap');
+
+module.exports=WeakMap;
+}, "lodash/_WeakMap.js");
+__d(749 /* lodash/_baseGetTag.js */, function(global, require, module, exports) {
+var objectProto=Object.prototype;
+
+
+
+
+
+
+var objectToString=objectProto.toString;
+
+
+
+
+
+
+
+
+function baseGetTag(value){
+return objectToString.call(value);
+}
+
+module.exports=baseGetTag;
+}, "lodash/_baseGetTag.js");
+__d(750 /* lodash/isTypedArray.js */, function(global, require, module, exports) {var baseIsTypedArray=require(751 /* ./_baseIsTypedArray */),
+baseUnary=require(752 /* ./_baseUnary */),
+nodeUtil=require(753 /* ./_nodeUtil */);
+
+
+var nodeIsTypedArray=nodeUtil&&nodeUtil.isTypedArray;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var isTypedArray=nodeIsTypedArray?baseUnary(nodeIsTypedArray):baseIsTypedArray;
+
+module.exports=isTypedArray;
+}, "lodash/isTypedArray.js");
+__d(751 /* lodash/_baseIsTypedArray.js */, function(global, require, module, exports) {var isLength=require(736 /* ./isLength */),
+isObjectLike=require(737 /* ./isObjectLike */);
+
+
+var argsTag='[object Arguments]',
+arrayTag='[object Array]',
+boolTag='[object Boolean]',
+dateTag='[object Date]',
+errorTag='[object Error]',
+funcTag='[object Function]',
+mapTag='[object Map]',
+numberTag='[object Number]',
+objectTag='[object Object]',
+regexpTag='[object RegExp]',
+setTag='[object Set]',
+stringTag='[object String]',
+weakMapTag='[object WeakMap]';
+
+var arrayBufferTag='[object ArrayBuffer]',
+dataViewTag='[object DataView]',
+float32Tag='[object Float32Array]',
+float64Tag='[object Float64Array]',
+int8Tag='[object Int8Array]',
+int16Tag='[object Int16Array]',
+int32Tag='[object Int32Array]',
+uint8Tag='[object Uint8Array]',
+uint8ClampedTag='[object Uint8ClampedArray]',
+uint16Tag='[object Uint16Array]',
+uint32Tag='[object Uint32Array]';
+
+
+var typedArrayTags={};
+typedArrayTags[float32Tag]=typedArrayTags[float64Tag]=
+typedArrayTags[int8Tag]=typedArrayTags[int16Tag]=
+typedArrayTags[int32Tag]=typedArrayTags[uint8Tag]=
+typedArrayTags[uint8ClampedTag]=typedArrayTags[uint16Tag]=
+typedArrayTags[uint32Tag]=true;
+typedArrayTags[argsTag]=typedArrayTags[arrayTag]=
+typedArrayTags[arrayBufferTag]=typedArrayTags[boolTag]=
+typedArrayTags[dataViewTag]=typedArrayTags[dateTag]=
+typedArrayTags[errorTag]=typedArrayTags[funcTag]=
+typedArrayTags[mapTag]=typedArrayTags[numberTag]=
+typedArrayTags[objectTag]=typedArrayTags[regexpTag]=
+typedArrayTags[setTag]=typedArrayTags[stringTag]=
+typedArrayTags[weakMapTag]=false;
+
+
+var objectProto=Object.prototype;
+
+
+
+
+
+
+var objectToString=objectProto.toString;
+
+
+
+
+
+
+
+
+function baseIsTypedArray(value){
+return isObjectLike(value)&&
+isLength(value.length)&&!!typedArrayTags[objectToString.call(value)];
+}
+
+module.exports=baseIsTypedArray;
+}, "lodash/_baseIsTypedArray.js");
+__d(752 /* lodash/_baseUnary.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+function baseUnary(func){
+return function(value){
+return func(value);
+};
+}
+
+module.exports=baseUnary;
+}, "lodash/_baseUnary.js");
+__d(753 /* lodash/_nodeUtil.js */, function(global, require, module, exports) {var freeGlobal=require(700 /* ./_freeGlobal */);
+
+
+var freeExports=typeof exports=='object'&&exports&&!exports.nodeType&&exports;
+
+
+var freeModule=freeExports&&typeof module=='object'&&module&&!module.nodeType&&module;
+
+
+var moduleExports=freeModule&&freeModule.exports===freeExports;
+
+
+var freeProcess=moduleExports&&freeGlobal.process;
+
+
+var nodeUtil=function(){
+try{
+return freeProcess&&freeProcess.binding('util');
+}catch(e){}
+}();
+
+module.exports=nodeUtil;
+}, "lodash/_nodeUtil.js");
+__d(754 /* lodash/isString.js */, function(global, require, module, exports) {var isArray=require(738 /* ./isArray */),
+isObjectLike=require(737 /* ./isObjectLike */);
+
+
+var stringTag='[object String]';
+
+
+var objectProto=Object.prototype;
+
+
+
+
+
+
+var objectToString=objectProto.toString;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function isString(value){
+return typeof value=='string'||
+!isArray(value)&&isObjectLike(value)&&objectToString.call(value)==stringTag;
+}
+
+module.exports=isString;
+}, "lodash/isString.js");
+__d(755 /* lodash/omit.js */, function(global, require, module, exports) {var arrayMap=require(756 /* ./_arrayMap */),
+baseDifference=require(757 /* ./_baseDifference */),
+basePick=require(764 /* ./_basePick */),
+flatRest=require(767 /* ./_flatRest */),
+getAllKeysIn=require(780 /* ./_getAllKeysIn */),
+toKey=require(789 /* ./_toKey */);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var omit=flatRest(function(object,props){
+if(object==null){
+return{};
+}
+props=arrayMap(props,toKey);
+return basePick(object,baseDifference(getAllKeysIn(object),props));
+});
+
+module.exports=omit;
+}, "lodash/omit.js");
+__d(756 /* lodash/_arrayMap.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+function arrayMap(array,iteratee){
+var index=-1,
+length=array?array.length:0,
+result=Array(length);
+
+while(++index<length){
+result[index]=iteratee(array[index],index,array);
+}
+return result;
+}
+
+module.exports=arrayMap;
+}, "lodash/_arrayMap.js");
+__d(757 /* lodash/_baseDifference.js */, function(global, require, module, exports) {var SetCache=require(719 /* ./_SetCache */),
+arrayIncludes=require(758 /* ./_arrayIncludes */),
+arrayIncludesWith=require(763 /* ./_arrayIncludesWith */),
+arrayMap=require(756 /* ./_arrayMap */),
+baseUnary=require(752 /* ./_baseUnary */),
+cacheHas=require(723 /* ./_cacheHas */);
+
+
+var LARGE_ARRAY_SIZE=200;
+
+
+
+
+
+
+
+
+
+
+
+
+function baseDifference(array,values,iteratee,comparator){
+var index=-1,
+includes=arrayIncludes,
+isCommon=true,
+length=array.length,
+result=[],
+valuesLength=values.length;
+
+if(!length){
+return result;
+}
+if(iteratee){
+values=arrayMap(values,baseUnary(iteratee));
+}
+if(comparator){
+includes=arrayIncludesWith;
+isCommon=false;
+}else
+if(values.length>=LARGE_ARRAY_SIZE){
+includes=cacheHas;
+isCommon=false;
+values=new SetCache(values);
+}
+outer:
+while(++index<length){
+var value=array[index],
+computed=iteratee?iteratee(value):value;
+
+value=comparator||value!==0?value:0;
+if(isCommon&&computed===computed){
+var valuesIndex=valuesLength;
+while(valuesIndex--){
+if(values[valuesIndex]===computed){
+continue outer;
+}
+}
+result.push(value);
+}else
+if(!includes(values,computed,comparator)){
+result.push(value);
+}
+}
+return result;
+}
+
+module.exports=baseDifference;
+}, "lodash/_baseDifference.js");
+__d(758 /* lodash/_arrayIncludes.js */, function(global, require, module, exports) {var baseIndexOf=require(759 /* ./_baseIndexOf */);
+
+
+
+
+
+
+
+
+
+
+function arrayIncludes(array,value){
+var length=array?array.length:0;
+return!!length&&baseIndexOf(array,value,0)>-1;
+}
+
+module.exports=arrayIncludes;
+}, "lodash/_arrayIncludes.js");
+__d(759 /* lodash/_baseIndexOf.js */, function(global, require, module, exports) {var baseFindIndex=require(760 /* ./_baseFindIndex */),
+baseIsNaN=require(761 /* ./_baseIsNaN */),
+strictIndexOf=require(762 /* ./_strictIndexOf */);
+
+
+
+
+
+
+
+
+
+
+function baseIndexOf(array,value,fromIndex){
+return value===value?
+strictIndexOf(array,value,fromIndex):
+baseFindIndex(array,baseIsNaN,fromIndex);
+}
+
+module.exports=baseIndexOf;
+}, "lodash/_baseIndexOf.js");
+__d(760 /* lodash/_baseFindIndex.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+
+
+function baseFindIndex(array,predicate,fromIndex,fromRight){
+var length=array.length,
+index=fromIndex+(fromRight?1:-1);
+
+while(fromRight?index--:++index<length){
+if(predicate(array[index],index,array)){
+return index;
+}
+}
+return-1;
+}
+
+module.exports=baseFindIndex;
+}, "lodash/_baseFindIndex.js");
+__d(761 /* lodash/_baseIsNaN.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+function baseIsNaN(value){
+return value!==value;
+}
+
+module.exports=baseIsNaN;
+}, "lodash/_baseIsNaN.js");
+__d(762 /* lodash/_strictIndexOf.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+
+function strictIndexOf(array,value,fromIndex){
+var index=fromIndex-1,
+length=array.length;
+
+while(++index<length){
+if(array[index]===value){
+return index;
+}
+}
+return-1;
+}
+
+module.exports=strictIndexOf;
+}, "lodash/_strictIndexOf.js");
+__d(763 /* lodash/_arrayIncludesWith.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+function arrayIncludesWith(array,value,comparator){
+var index=-1,
+length=array?array.length:0;
+
+while(++index<length){
+if(comparator(value,array[index])){
+return true;
+}
+}
+return false;
+}
+
+module.exports=arrayIncludesWith;
+}, "lodash/_arrayIncludesWith.js");
+__d(764 /* lodash/_basePick.js */, function(global, require, module, exports) {var basePickBy=require(765 /* ./_basePickBy */);
+
+
+
+
+
+
+
+
+
+
+function basePick(object,props){
+object=Object(object);
+return basePickBy(object,props,function(value,key){
+return key in object;
+});
+}
+
+module.exports=basePick;
+}, "lodash/_basePick.js");
+__d(765 /* lodash/_basePickBy.js */, function(global, require, module, exports) {var baseAssignValue=require(766 /* ./_baseAssignValue */);
+
+
+
+
+
+
+
+
+
+
+function basePickBy(object,props,predicate){
+var index=-1,
+length=props.length,
+result={};
+
+while(++index<length){
+var key=props[index],
+value=object[key];
+
+if(predicate(value,key)){
+baseAssignValue(result,key,value);
+}
+}
+return result;
+}
+
+module.exports=basePickBy;
+}, "lodash/_basePickBy.js");
+__d(766 /* lodash/_baseAssignValue.js */, function(global, require, module, exports) {
+var defineProperty=Object.defineProperty;
+
+
+
+
+
+
+
+
+
+
+function baseAssignValue(object,key,value){
+if(key=='__proto__'&&defineProperty){
+defineProperty(object,key,{
+'configurable':true,
+'enumerable':true,
+'value':value,
+'writable':true});
+
+}else{
+object[key]=value;
+}
+}
+
+module.exports=baseAssignValue;
+}, "lodash/_baseAssignValue.js");
+__d(767 /* lodash/_flatRest.js */, function(global, require, module, exports) {var flatten=require(768 /* ./flatten */),
+overRest=require(772 /* ./_overRest */),
+setToString=require(774 /* ./_setToString */);
+
+
+
+
+
+
+
+
+function flatRest(func){
+return setToString(overRest(func,undefined,flatten),func+'');
+}
+
+module.exports=flatRest;
+}, "lodash/_flatRest.js");
+__d(768 /* lodash/flatten.js */, function(global, require, module, exports) {var baseFlatten=require(769 /* ./_baseFlatten */);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function flatten(array){
+var length=array?array.length:0;
+return length?baseFlatten(array,1):[];
+}
+
+module.exports=flatten;
+}, "lodash/flatten.js");
+__d(769 /* lodash/_baseFlatten.js */, function(global, require, module, exports) {var arrayPush=require(770 /* ./_arrayPush */),
+isFlattenable=require(771 /* ./_isFlattenable */);
+
+
+
+
+
+
+
+
+
+
+
+
+function baseFlatten(array,depth,predicate,isStrict,result){
+var index=-1,
+length=array.length;
+
+predicate||(predicate=isFlattenable);
+result||(result=[]);
+
+while(++index<length){
+var value=array[index];
+if(depth>0&&predicate(value)){
+if(depth>1){
+
+baseFlatten(value,depth-1,predicate,isStrict,result);
+}else{
+arrayPush(result,value);
+}
+}else if(!isStrict){
+result[result.length]=value;
+}
+}
+return result;
+}
+
+module.exports=baseFlatten;
+}, "lodash/_baseFlatten.js");
+__d(770 /* lodash/_arrayPush.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+function arrayPush(array,values){
+var index=-1,
+length=values.length,
+offset=array.length;
+
+while(++index<length){
+array[offset+index]=values[index];
+}
+return array;
+}
+
+module.exports=arrayPush;
+}, "lodash/_arrayPush.js");
+__d(771 /* lodash/_isFlattenable.js */, function(global, require, module, exports) {var Symbol=require(725 /* ./_Symbol */),
+isArguments=require(733 /* ./isArguments */),
+isArray=require(738 /* ./isArray */);
+
+
+var spreadableSymbol=Symbol?typeof Symbol==='function'?Symbol.isConcatSpreadable:'@@isConcatSpreadable':undefined;
+
+
+
+
+
+
+
+
+function isFlattenable(value){
+return isArray(value)||isArguments(value)||
+!!(spreadableSymbol&&value&&value[spreadableSymbol]);
+}
+
+module.exports=isFlattenable;
+}, "lodash/_isFlattenable.js");
+__d(772 /* lodash/_overRest.js */, function(global, require, module, exports) {var apply=require(773 /* ./_apply */);
+
+
+var nativeMax=Math.max;
+
+
+
+
+
+
+
+
+
+
+function overRest(func,start,transform){
+start=nativeMax(start===undefined?func.length-1:start,0);
+return function(){
+var args=arguments,
+index=-1,
+length=nativeMax(args.length-start,0),
+array=Array(length);
+
+while(++index<length){
+array[index]=args[start+index];
+}
+index=-1;
+var otherArgs=Array(start+1);
+while(++index<start){
+otherArgs[index]=args[index];
+}
+otherArgs[start]=transform(array);
+return apply(func,this,otherArgs);
+};
+}
+
+module.exports=overRest;
+}, "lodash/_overRest.js");
+__d(773 /* lodash/_apply.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+
+function apply(func,thisArg,args){
+switch(args.length){
+case 0:return func.call(thisArg);
+case 1:return func.call(thisArg,args[0]);
+case 2:return func.call(thisArg,args[0],args[1]);
+case 3:return func.call(thisArg,args[0],args[1],args[2]);}
+
+return func.apply(thisArg,args);
+}
+
+module.exports=apply;
+}, "lodash/_apply.js");
+__d(774 /* lodash/_setToString.js */, function(global, require, module, exports) {var baseSetToString=require(775 /* ./_baseSetToString */),
+shortOut=require(779 /* ./_shortOut */);
+
+
+
+
+
+
+
+
+
+var setToString=shortOut(baseSetToString);
+
+module.exports=setToString;
+}, "lodash/_setToString.js");
+__d(775 /* lodash/_baseSetToString.js */, function(global, require, module, exports) {var constant=require(776 /* ./constant */),
+identity=require(777 /* ./identity */),
+nativeDefineProperty=require(778 /* ./_nativeDefineProperty */);
+
+
+
+
+
+
+
+
+
+var baseSetToString=!nativeDefineProperty?identity:function(func,string){
+return nativeDefineProperty(func,'toString',{
+'configurable':true,
+'enumerable':false,
+'value':constant(string),
+'writable':true});
+
+};
+
+module.exports=baseSetToString;
+}, "lodash/_baseSetToString.js");
+__d(776 /* lodash/constant.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function constant(value){
+return function(){
+return value;
+};
+}
+
+module.exports=constant;
+}, "lodash/constant.js");
+__d(777 /* lodash/identity.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function identity(value){
+return value;
+}
+
+module.exports=identity;
+}, "lodash/identity.js");
+__d(778 /* lodash/_nativeDefineProperty.js */, function(global, require, module, exports) {var getNative=require(693 /* ./_getNative */);
+
+
+var nativeDefineProperty=getNative(Object,'defineProperty');
+
+module.exports=nativeDefineProperty;
+}, "lodash/_nativeDefineProperty.js");
+__d(779 /* lodash/_shortOut.js */, function(global, require, module, exports) {
+var HOT_COUNT=500,
+HOT_SPAN=16;
+
+
+var nativeNow=Date.now;
+
+
+
+
+
+
+
+
+
+
+function shortOut(func){
+var count=0,
+lastCalled=0;
+
+return function(){
+var stamp=nativeNow(),
+remaining=HOT_SPAN-(stamp-lastCalled);
+
+lastCalled=stamp;
+if(remaining>0){
+if(++count>=HOT_COUNT){
+return arguments[0];
+}
+}else{
+count=0;
+}
+return func.apply(undefined,arguments);
+};
+}
+
+module.exports=shortOut;
+}, "lodash/_shortOut.js");
+__d(780 /* lodash/_getAllKeysIn.js */, function(global, require, module, exports) {var baseGetAllKeys=require(781 /* ./_baseGetAllKeys */),
+getSymbolsIn=require(782 /* ./_getSymbolsIn */),
+keysIn=require(786 /* ./keysIn */);
+
+
+
+
+
+
+
+
+
+function getAllKeysIn(object){
+return baseGetAllKeys(object,keysIn,getSymbolsIn);
+}
+
+module.exports=getAllKeysIn;
+}, "lodash/_getAllKeysIn.js");
+__d(781 /* lodash/_baseGetAllKeys.js */, function(global, require, module, exports) {var arrayPush=require(770 /* ./_arrayPush */),
+isArray=require(738 /* ./isArray */);
+
+
+
+
+
+
+
+
+
+
+
+
+function baseGetAllKeys(object,keysFunc,symbolsFunc){
+var result=keysFunc(object);
+return isArray(object)?result:arrayPush(result,symbolsFunc(object));
+}
+
+module.exports=baseGetAllKeys;
+}, "lodash/_baseGetAllKeys.js");
+__d(782 /* lodash/_getSymbolsIn.js */, function(global, require, module, exports) {var arrayPush=require(770 /* ./_arrayPush */),
+getPrototype=require(783 /* ./_getPrototype */),
+getSymbols=require(784 /* ./_getSymbols */),
+stubArray=require(785 /* ./stubArray */);
+
+
+var nativeGetSymbols=Object.getOwnPropertySymbols;
+
+
+
+
+
+
+
+
+
+var getSymbolsIn=!nativeGetSymbols?stubArray:function(object){
+var result=[];
+while(object){
+arrayPush(result,getSymbols(object));
+object=getPrototype(object);
+}
+return result;
+};
+
+module.exports=getSymbolsIn;
+}, "lodash/_getSymbolsIn.js");
+__d(783 /* lodash/_getPrototype.js */, function(global, require, module, exports) {var overArg=require(743 /* ./_overArg */);
+
+
+var getPrototype=overArg(Object.getPrototypeOf,Object);
+
+module.exports=getPrototype;
+}, "lodash/_getPrototype.js");
+__d(784 /* lodash/_getSymbols.js */, function(global, require, module, exports) {var overArg=require(743 /* ./_overArg */),
+stubArray=require(785 /* ./stubArray */);
+
+
+var nativeGetSymbols=Object.getOwnPropertySymbols;
+
+
+
+
+
+
+
+
+var getSymbols=nativeGetSymbols?overArg(nativeGetSymbols,Object):stubArray;
+
+module.exports=getSymbols;
+}, "lodash/_getSymbols.js");
+__d(785 /* lodash/stubArray.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function stubArray(){
+return[];
+}
+
+module.exports=stubArray;
+}, "lodash/stubArray.js");
+__d(786 /* lodash/keysIn.js */, function(global, require, module, exports) {var arrayLikeKeys=require(731 /* ./_arrayLikeKeys */),
+baseKeysIn=require(787 /* ./_baseKeysIn */),
+isArrayLike=require(735 /* ./isArrayLike */);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function keysIn(object){
+return isArrayLike(object)?arrayLikeKeys(object,true):baseKeysIn(object);
+}
+
+module.exports=keysIn;
+}, "lodash/keysIn.js");
+__d(787 /* lodash/_baseKeysIn.js */, function(global, require, module, exports) {var isObject=require(696 /* ./isObject */),
+isPrototype=require(741 /* ./_isPrototype */),
+nativeKeysIn=require(788 /* ./_nativeKeysIn */);
+
+
+var objectProto=Object.prototype;
+
+
+var hasOwnProperty=objectProto.hasOwnProperty;
+
+
+
+
+
+
+
+
+function baseKeysIn(object){
+if(!isObject(object)){
+return nativeKeysIn(object);
+}
+var isProto=isPrototype(object),
+result=[];
+
+for(var key in object){
+if(!(key=='constructor'&&(isProto||!hasOwnProperty.call(object,key)))){
+result.push(key);
+}
+}
+return result;
+}
+
+module.exports=baseKeysIn;
+}, "lodash/_baseKeysIn.js");
+__d(788 /* lodash/_nativeKeysIn.js */, function(global, require, module, exports) {
+
+
+
+
+
+
+
+
+function nativeKeysIn(object){
+var result=[];
+if(object!=null){
+for(var key in Object(object)){
+result.push(key);
+}
+}
+return result;
+}
+
+module.exports=nativeKeysIn;
+}, "lodash/_nativeKeysIn.js");
+__d(789 /* lodash/_toKey.js */, function(global, require, module, exports) {var isSymbol=require(790 /* ./isSymbol */);
+
+
+var INFINITY=1/0;
+
+
+
+
+
+
+
+
+function toKey(value){
+if(typeof value=='string'||isSymbol(value)){
+return value;
+}
+var result=value+'';
+return result=='0'&&1/value==-INFINITY?'-0':result;
+}
+
+module.exports=toKey;
+}, "lodash/_toKey.js");
+__d(790 /* lodash/isSymbol.js */, function(global, require, module, exports) {var isObjectLike=require(737 /* ./isObjectLike */);
+
+
+var symbolTag='[object Symbol]';
+
+
+var objectProto=Object.prototype;
+
+
+
+
+
+
+var objectToString=objectProto.toString;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function isSymbol(value){
+return typeof value=='symbol'||
+isObjectLike(value)&&objectToString.call(value)==symbolTag;
+}
+
+module.exports=isSymbol;
+}, "lodash/isSymbol.js");
+__d(791 /* lodash/pick.js */, function(global, require, module, exports) {var arrayMap=require(756 /* ./_arrayMap */),
+basePick=require(764 /* ./_basePick */),
+flatRest=require(767 /* ./_flatRest */),
+toKey=require(789 /* ./_toKey */);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var pick=flatRest(function(object,props){
+return object==null?{}:basePick(object,arrayMap(props,toKey));
+});
+
+module.exports=pick;
+}, "lodash/pick.js");
+__d(792 /* react-native-vector-icons/lib/tab-bar-item-ios.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.default=
+
+
+
+
+
+
+
+
+
+
+
+createTabBarItemIOSComponent;var _isEqual=require(675 /* lodash/isEqual */);var _isEqual2=babelHelpers.interopRequireDefault(_isEqual);var _pick=require(791 /* lodash/pick */);var _pick2=babelHelpers.interopRequireDefault(_pick);var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);var _reactNative=require(673 /* ./react-native */);function createTabBarItemIOSComponent(IconNamePropType,getImageSource){var _class,_temp;
+return _temp=_class=function(_Component){babelHelpers.inherits(TabBarItemIOS,_Component);function TabBarItemIOS(){babelHelpers.classCallCheck(this,TabBarItemIOS);return babelHelpers.possibleConstructorReturn(this,(TabBarItemIOS.__proto__||Object.getPrototypeOf(TabBarItemIOS)).apply(this,arguments));}babelHelpers.createClass(TabBarItemIOS,[{key:'updateIconSources',value:function updateIconSources(
+
+
+
+
+
+
+
+
+
+
+
+
+props){var _this2=this;
+if(props.iconName){
+getImageSource(props.iconName,props.iconSize,props.iconColor).then(function(icon){return _this2.setState({icon:icon});});
+}
+if(props.selectedIconName||props.selectedIconColor){
+var selectedIconName=props.selectedIconName||props.iconName;
+var selectedIconColor=props.selectedIconColor||props.iconColor;
+getImageSource(selectedIconName,props.iconSize,selectedIconColor).then(function(selectedIcon){return _this2.setState({selectedIcon:selectedIcon});});
+}
+}},{key:'componentWillMount',value:function componentWillMount()
+
+{
+this.updateIconSources(this.props);
+}},{key:'componentWillReceiveProps',value:function componentWillReceiveProps(
+
+nextProps){
+var keys=Object.keys(TabBarItemIOS.propTypes);
+if(!(0,_isEqual2.default)((0,_pick2.default)(nextProps,keys),(0,_pick2.default)(this.props,keys))){
+this.updateIconSources(nextProps);
+}
+}},{key:'render',value:function render()
+
+{
+return _react2.default.createElement(_reactNative.TabBarIOS.Item,babelHelpers.extends({},this.props,this.state));
+}}]);return TabBarItemIOS;}(_react.Component),_class.propTypes={iconName:IconNamePropType.isRequired,selectedIconName:IconNamePropType,iconSize:_react.PropTypes.number,iconColor:_react.PropTypes.string,selectedIconColor:_react.PropTypes.string},_class.defaultProps={iconSize:30},_temp;
+
+}
+}, "react-native-vector-icons/lib/tab-bar-item-ios.js");
+__d(793 /* react-native-vector-icons/lib/toolbar-android.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.default=
+
+
+
+
+
+
+
+
+
+
+
+createToolbarAndroidComponent;var _isEqual=require(675 /* lodash/isEqual */);var _isEqual2=babelHelpers.interopRequireDefault(_isEqual);var _pick=require(791 /* lodash/pick */);var _pick2=babelHelpers.interopRequireDefault(_pick);var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);var _reactNative=require(673 /* ./react-native */);function createToolbarAndroidComponent(IconNamePropType,getImageSource){var _class,_temp;
+return _temp=_class=function(_Component){babelHelpers.inherits(IconToolbarAndroid,_Component);function IconToolbarAndroid(){babelHelpers.classCallCheck(this,IconToolbarAndroid);return babelHelpers.possibleConstructorReturn(this,(IconToolbarAndroid.__proto__||Object.getPrototypeOf(IconToolbarAndroid)).apply(this,arguments));}babelHelpers.createClass(IconToolbarAndroid,[{key:'updateIconSources',value:function updateIconSources(
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+props){var _this2=this;
+var size=props.iconSize;
+var color=props.iconColor||props.titleColor;
+if(props.navIconName){
+getImageSource(props.navIconName,size,color).then(function(navIcon){return _this2.setState({navIcon:navIcon});});
+}
+if(props.overflowIconName){
+getImageSource(props.overflowIconName,size,color).then(function(overflowIcon){return _this2.setState({overflowIcon:overflowIcon});});
+}
+
+Promise.all((props.actions||[]).map(function(action){
+if(action.iconName){
+return getImageSource(action.iconName,action.iconSize||size,action.iconColor||color).then(function(icon){return babelHelpers.extends({},
+action,{
+icon:icon});});
+
+}
+return Promise.resolve(action);
+})).then(function(actions){return _this2.setState({actions:actions});});
+}},{key:'componentWillMount',value:function componentWillMount()
+
+{
+this.updateIconSources(this.props);
+}},{key:'componentWillReceiveProps',value:function componentWillReceiveProps(
+
+nextProps){var _this3=this;
+var keys=Object.keys(IconToolbarAndroid.propTypes);
+if(!(0,_isEqual2.default)((0,_pick2.default)(nextProps,keys),(0,_pick2.default)(this.props,keys))){
+var stateToEvict={};
+if(!nextProps.navIconName){
+stateToEvict.navIcon=undefined;
+}
+if(!nextProps.iconName){
+stateToEvict.icon=undefined;
+}
+if(this.state&&Object.keys(stateToEvict).length){
+this.setState(stateToEvict,function(){return _this3.updateIconSources(nextProps);});
+}else{
+this.updateIconSources(nextProps);
+}
+}
+}},{key:'render',value:function render()
+
+{
+return _react2.default.createElement(_reactNative.ToolbarAndroid,babelHelpers.extends({},this.props,this.state));
+}}]);return IconToolbarAndroid;}(_react.Component),_class.propTypes={navIconName:IconNamePropType,overflowIconName:IconNamePropType,actions:_react.PropTypes.arrayOf(_react.PropTypes.shape({title:_react.PropTypes.string.isRequired,iconName:IconNamePropType,iconSize:_react.PropTypes.number,iconColor:_react.PropTypes.string,show:_react.PropTypes.oneOf(['always','ifRoom','never']),showWithText:_react.PropTypes.bool})),iconSize:_react.PropTypes.number,iconColor:_react.PropTypes.string},_class.defaultProps={iconSize:24},_temp;
+
+}
+}, "react-native-vector-icons/lib/toolbar-android.js");
+__d(794 /* react-native-vector-icons/EvilIcons.js */, function(global, require, module, exports) {
+
+
+
+
+var _createIconSet=require(672 /* ./lib/create-icon-set */);var _createIconSet2=babelHelpers.interopRequireDefault(_createIconSet);
+var glyphMap={
+"archive":61696,
+"arrow-down":61697,
+"arrow-left":61698,
+"arrow-right":61699,
+"arrow-up":61700,
+"bell":61701,
+"calendar":61702,
+"camera":61703,
+"cart":61704,
+"chart":61705,
+"check":61706,
+"chevron-down":61707,
+"chevron-left":61708,
+"chevron-right":61709,
+"chevron-up":61710,
+"clock":61711,
+"close":61712,
+"close-o":61713,
+"comment":61714,
+"credit-card":61715,
+"envelope":61716,
+"exclamation":61717,
+"external-link":61718,
+"eye":61719,
+"gear":61720,
+"heart":61721,
+"image":61722,
+"like":61723,
+"link":61724,
+"location":61725,
+"lock":61726,
+"minus":61727,
+"navicon":61728,
+"paperclip":61729,
+"pencil":61730,
+"play":61731,
+"plus":61732,
+"pointer":61733,
+"question":61734,
+"redo":61735,
+"refresh":61736,
+"retweet":61737,
+"sc-facebook":61738,
+"sc-github":61739,
+"sc-google-plus":61740,
+"sc-instagram":61741,
+"sc-linkedin":61742,
+"sc-odnoklassniki":61743,
+"sc-pinterest":61744,
+"sc-skype":61745,
+"sc-soundcloud":61746,
+"sc-telegram":61747,
+"sc-tumblr":61748,
+"sc-twitter":61749,
+"sc-vimeo":61750,
+"sc-vk":61751,
+"sc-youtube":61752,
+"search":61753,
+"share-apple":61754,
+"share-google":61755,
+"spinner":61756,
+"spinner-2":61757,
+"spinner-3":61758,
+"star":61759,
+"tag":61760,
+"trash":61761,
+"trophy":61762,
+"undo":61763,
+"unlock":61764,
+"user":61765};
+
+
+var EvilIcons=(0,_createIconSet2.default)(glyphMap,'EvilIcons','EvilIcons.ttf');
+
+module.exports=EvilIcons;
+module.exports.glyphMap=glyphMap;
+}, "react-native-vector-icons/EvilIcons.js");
+__d(795 /* react-native-vector-icons/FontAwesome.js */, function(global, require, module, exports) {
+
+
+
+
+var _createIconSet=require(672 /* ./lib/create-icon-set */);var _createIconSet2=babelHelpers.interopRequireDefault(_createIconSet);
+var glyphMap={
+"glass":61440,
+"music":61441,
+"search":61442,
+"envelope-o":61443,
+"heart":61444,
+"star":61445,
+"star-o":61446,
+"user":61447,
+"film":61448,
+"th-large":61449,
+"th":61450,
+"th-list":61451,
+"check":61452,
+"remove":61453,
+"close":61453,
+"times":61453,
+"search-plus":61454,
+"search-minus":61456,
+"power-off":61457,
+"signal":61458,
+"gear":61459,
+"cog":61459,
+"trash-o":61460,
+"home":61461,
+"file-o":61462,
+"clock-o":61463,
+"road":61464,
+"download":61465,
+"arrow-circle-o-down":61466,
+"arrow-circle-o-up":61467,
+"inbox":61468,
+"play-circle-o":61469,
+"rotate-right":61470,
+"repeat":61470,
+"refresh":61473,
+"list-alt":61474,
+"lock":61475,
+"flag":61476,
+"headphones":61477,
+"volume-off":61478,
+"volume-down":61479,
+"volume-up":61480,
+"qrcode":61481,
+"barcode":61482,
+"tag":61483,
+"tags":61484,
+"book":61485,
+"bookmark":61486,
+"print":61487,
+"camera":61488,
+"font":61489,
+"bold":61490,
+"italic":61491,
+"text-height":61492,
+"text-width":61493,
+"align-left":61494,
+"align-center":61495,
+"align-right":61496,
+"align-justify":61497,
+"list":61498,
+"dedent":61499,
+"outdent":61499,
+"indent":61500,
+"video-camera":61501,
+"photo":61502,
+"image":61502,
+"picture-o":61502,
+"pencil":61504,
+"map-marker":61505,
+"adjust":61506,
+"tint":61507,
+"edit":61508,
+"pencil-square-o":61508,
+"share-square-o":61509,
+"check-square-o":61510,
+"arrows":61511,
+"step-backward":61512,
+"fast-backward":61513,
+"backward":61514,
+"play":61515,
+"pause":61516,
+"stop":61517,
+"forward":61518,
+"fast-forward":61520,
+"step-forward":61521,
+"eject":61522,
+"chevron-left":61523,
+"chevron-right":61524,
+"plus-circle":61525,
+"minus-circle":61526,
+"times-circle":61527,
+"check-circle":61528,
+"question-circle":61529,
+"info-circle":61530,
+"crosshairs":61531,
+"times-circle-o":61532,
+"check-circle-o":61533,
+"ban":61534,
+"arrow-left":61536,
+"arrow-right":61537,
+"arrow-up":61538,
+"arrow-down":61539,
+"mail-forward":61540,
+"share":61540,
+"expand":61541,
+"compress":61542,
+"plus":61543,
+"minus":61544,
+"asterisk":61545,
+"exclamation-circle":61546,
+"gift":61547,
+"leaf":61548,
+"fire":61549,
+"eye":61550,
+"eye-slash":61552,
+"warning":61553,
+"exclamation-triangle":61553,
+"plane":61554,
+"calendar":61555,
+"random":61556,
+"comment":61557,
+"magnet":61558,
+"chevron-up":61559,
+"chevron-down":61560,
+"retweet":61561,
+"shopping-cart":61562,
+"folder":61563,
+"folder-open":61564,
+"arrows-v":61565,
+"arrows-h":61566,
+"bar-chart-o":61568,
+"bar-chart":61568,
+"twitter-square":61569,
+"facebook-square":61570,
+"camera-retro":61571,
+"key":61572,
+"gears":61573,
+"cogs":61573,
+"comments":61574,
+"thumbs-o-up":61575,
+"thumbs-o-down":61576,
+"star-half":61577,
+"heart-o":61578,
+"sign-out":61579,
+"linkedin-square":61580,
+"thumb-tack":61581,
+"external-link":61582,
+"sign-in":61584,
+"trophy":61585,
+"github-square":61586,
+"upload":61587,
+"lemon-o":61588,
+"phone":61589,
+"square-o":61590,
+"bookmark-o":61591,
+"phone-square":61592,
+"twitter":61593,
+"facebook-f":61594,
+"facebook":61594,
+"github":61595,
+"unlock":61596,
+"credit-card":61597,
+"feed":61598,
+"rss":61598,
+"hdd-o":61600,
+"bullhorn":61601,
+"bell":61683,
+"certificate":61603,
+"hand-o-right":61604,
+"hand-o-left":61605,
+"hand-o-up":61606,
+"hand-o-down":61607,
+"arrow-circle-left":61608,
+"arrow-circle-right":61609,
+"arrow-circle-up":61610,
+"arrow-circle-down":61611,
+"globe":61612,
+"wrench":61613,
+"tasks":61614,
+"filter":61616,
+"briefcase":61617,
+"arrows-alt":61618,
+"group":61632,
+"users":61632,
+"chain":61633,
+"link":61633,
+"cloud":61634,
+"flask":61635,
+"cut":61636,
+"scissors":61636,
+"copy":61637,
+"files-o":61637,
+"paperclip":61638,
+"save":61639,
+"floppy-o":61639,
+"square":61640,
+"navicon":61641,
+"reorder":61641,
+"bars":61641,
+"list-ul":61642,
+"list-ol":61643,
+"strikethrough":61644,
+"underline":61645,
+"table":61646,
+"magic":61648,
+"truck":61649,
+"pinterest":61650,
+"pinterest-square":61651,
+"google-plus-square":61652,
+"google-plus":61653,
+"money":61654,
+"caret-down":61655,
+"caret-up":61656,
+"caret-left":61657,
+"caret-right":61658,
+"columns":61659,
+"unsorted":61660,
+"sort":61660,
+"sort-down":61661,
+"sort-desc":61661,
+"sort-up":61662,
+"sort-asc":61662,
+"envelope":61664,
+"linkedin":61665,
+"rotate-left":61666,
+"undo":61666,
+"legal":61667,
+"gavel":61667,
+"dashboard":61668,
+"tachometer":61668,
+"comment-o":61669,
+"comments-o":61670,
+"flash":61671,
+"bolt":61671,
+"sitemap":61672,
+"umbrella":61673,
+"paste":61674,
+"clipboard":61674,
+"lightbulb-o":61675,
+"exchange":61676,
+"cloud-download":61677,
+"cloud-upload":61678,
+"user-md":61680,
+"stethoscope":61681,
+"suitcase":61682,
+"bell-o":61602,
+"coffee":61684,
+"cutlery":61685,
+"file-text-o":61686,
+"building-o":61687,
+"hospital-o":61688,
+"ambulance":61689,
+"medkit":61690,
+"fighter-jet":61691,
+"beer":61692,
+"h-square":61693,
+"plus-square":61694,
+"angle-double-left":61696,
+"angle-double-right":61697,
+"angle-double-up":61698,
+"angle-double-down":61699,
+"angle-left":61700,
+"angle-right":61701,
+"angle-up":61702,
+"angle-down":61703,
+"desktop":61704,
+"laptop":61705,
+"tablet":61706,
+"mobile-phone":61707,
+"mobile":61707,
+"circle-o":61708,
+"quote-left":61709,
+"quote-right":61710,
+"spinner":61712,
+"circle":61713,
+"mail-reply":61714,
+"reply":61714,
+"github-alt":61715,
+"folder-o":61716,
+"folder-open-o":61717,
+"smile-o":61720,
+"frown-o":61721,
+"meh-o":61722,
+"gamepad":61723,
+"keyboard-o":61724,
+"flag-o":61725,
+"flag-checkered":61726,
+"terminal":61728,
+"code":61729,
+"mail-reply-all":61730,
+"reply-all":61730,
+"star-half-empty":61731,
+"star-half-full":61731,
+"star-half-o":61731,
+"location-arrow":61732,
+"crop":61733,
+"code-fork":61734,
+"unlink":61735,
+"chain-broken":61735,
+"question":61736,
+"info":61737,
+"exclamation":61738,
+"superscript":61739,
+"subscript":61740,
+"eraser":61741,
+"puzzle-piece":61742,
+"microphone":61744,
+"microphone-slash":61745,
+"shield":61746,
+"calendar-o":61747,
+"fire-extinguisher":61748,
+"rocket":61749,
+"maxcdn":61750,
+"chevron-circle-left":61751,
+"chevron-circle-right":61752,
+"chevron-circle-up":61753,
+"chevron-circle-down":61754,
+"html5":61755,
+"css3":61756,
+"anchor":61757,
+"unlock-alt":61758,
+"bullseye":61760,
+"ellipsis-h":61761,
+"ellipsis-v":61762,
+"rss-square":61763,
+"play-circle":61764,
+"ticket":61765,
+"minus-square":61766,
+"minus-square-o":61767,
+"level-up":61768,
+"level-down":61769,
+"check-square":61770,
+"pencil-square":61771,
+"external-link-square":61772,
+"share-square":61773,
+"compass":61774,
+"toggle-down":61776,
+"caret-square-o-down":61776,
+"toggle-up":61777,
+"caret-square-o-up":61777,
+"toggle-right":61778,
+"caret-square-o-right":61778,
+"euro":61779,
+"eur":61779,
+"gbp":61780,
+"dollar":61781,
+"usd":61781,
+"rupee":61782,
+"inr":61782,
+"cny":61783,
+"rmb":61783,
+"yen":61783,
+"jpy":61783,
+"ruble":61784,
+"rouble":61784,
+"rub":61784,
+"won":61785,
+"krw":61785,
+"bitcoin":61786,
+"btc":61786,
+"file":61787,
+"file-text":61788,
+"sort-alpha-asc":61789,
+"sort-alpha-desc":61790,
+"sort-amount-asc":61792,
+"sort-amount-desc":61793,
+"sort-numeric-asc":61794,
+"sort-numeric-desc":61795,
+"thumbs-up":61796,
+"thumbs-down":61797,
+"youtube-square":61798,
+"youtube":61799,
+"xing":61800,
+"xing-square":61801,
+"youtube-play":61802,
+"dropbox":61803,
+"stack-overflow":61804,
+"instagram":61805,
+"flickr":61806,
+"adn":61808,
+"bitbucket":61809,
+"bitbucket-square":61810,
+"tumblr":61811,
+"tumblr-square":61812,
+"long-arrow-down":61813,
+"long-arrow-up":61814,
+"long-arrow-left":61815,
+"long-arrow-right":61816,
+"apple":61817,
+"windows":61818,
+"android":61819,
+"linux":61820,
+"dribbble":61821,
+"skype":61822,
+"foursquare":61824,
+"trello":61825,
+"female":61826,
+"male":61827,
+"gittip":61828,
+"gratipay":61828,
+"sun-o":61829,
+"moon-o":61830,
+"archive":61831,
+"bug":61832,
+"vk":61833,
+"weibo":61834,
+"renren":61835,
+"pagelines":61836,
+"stack-exchange":61837,
+"arrow-circle-o-right":61838,
+"arrow-circle-o-left":61840,
+"toggle-left":61841,
+"caret-square-o-left":61841,
+"dot-circle-o":61842,
+"wheelchair":61843,
+"vimeo-square":61844,
+"turkish-lira":61845,
+"try":61845,
+"plus-square-o":61846,
+"space-shuttle":61847,
+"slack":61848,
+"envelope-square":61849,
+"wordpress":61850,
+"openid":61851,
+"institution":61852,
+"bank":61852,
+"university":61852,
+"mortar-board":61853,
+"graduation-cap":61853,
+"yahoo":61854,
+"google":61856,
+"reddit":61857,
+"reddit-square":61858,
+"stumbleupon-circle":61859,
+"stumbleupon":61860,
+"delicious":61861,
+"digg":61862,
+"pied-piper-pp":61863,
+"pied-piper-alt":61864,
+"drupal":61865,
+"joomla":61866,
+"language":61867,
+"fax":61868,
+"building":61869,
+"child":61870,
+"paw":61872,
+"spoon":61873,
+"cube":61874,
+"cubes":61875,
+"behance":61876,
+"behance-square":61877,
+"steam":61878,
+"steam-square":61879,
+"recycle":61880,
+"automobile":61881,
+"car":61881,
+"cab":61882,
+"taxi":61882,
+"tree":61883,
+"spotify":61884,
+"deviantart":61885,
+"soundcloud":61886,
+"database":61888,
+"file-pdf-o":61889,
+"file-word-o":61890,
+"file-excel-o":61891,
+"file-powerpoint-o":61892,
+"file-photo-o":61893,
+"file-picture-o":61893,
+"file-image-o":61893,
+"file-zip-o":61894,
+"file-archive-o":61894,
+"file-sound-o":61895,
+"file-audio-o":61895,
+"file-movie-o":61896,
+"file-video-o":61896,
+"file-code-o":61897,
+"vine":61898,
+"codepen":61899,
+"jsfiddle":61900,
+"life-bouy":61901,
+"life-buoy":61901,
+"life-saver":61901,
+"support":61901,
+"life-ring":61901,
+"circle-o-notch":61902,
+"ra":61904,
+"resistance":61904,
+"rebel":61904,
+"ge":61905,
+"empire":61905,
+"git-square":61906,
+"git":61907,
+"y-combinator-square":61908,
+"yc-square":61908,
+"hacker-news":61908,
+"tencent-weibo":61909,
+"qq":61910,
+"wechat":61911,
+"weixin":61911,
+"send":61912,
+"paper-plane":61912,
+"send-o":61913,
+"paper-plane-o":61913,
+"history":61914,
+"circle-thin":61915,
+"header":61916,
+"paragraph":61917,
+"sliders":61918,
+"share-alt":61920,
+"share-alt-square":61921,
+"bomb":61922,
+"soccer-ball-o":61923,
+"futbol-o":61923,
+"tty":61924,
+"binoculars":61925,
+"plug":61926,
+"slideshare":61927,
+"twitch":61928,
+"yelp":61929,
+"newspaper-o":61930,
+"wifi":61931,
+"calculator":61932,
+"paypal":61933,
+"google-wallet":61934,
+"cc-visa":61936,
+"cc-mastercard":61937,
+"cc-discover":61938,
+"cc-amex":61939,
+"cc-paypal":61940,
+"cc-stripe":61941,
+"bell-slash":61942,
+"bell-slash-o":61943,
+"trash":61944,
+"copyright":61945,
+"at":61946,
+"eyedropper":61947,
+"paint-brush":61948,
+"birthday-cake":61949,
+"area-chart":61950,
+"pie-chart":61952,
+"line-chart":61953,
+"lastfm":61954,
+"lastfm-square":61955,
+"toggle-off":61956,
+"toggle-on":61957,
+"bicycle":61958,
+"bus":61959,
+"ioxhost":61960,
+"angellist":61961,
+"cc":61962,
+"shekel":61963,
+"sheqel":61963,
+"ils":61963,
+"meanpath":61964,
+"buysellads":61965,
+"connectdevelop":61966,
+"dashcube":61968,
+"forumbee":61969,
+"leanpub":61970,
+"sellsy":61971,
+"shirtsinbulk":61972,
+"simplybuilt":61973,
+"skyatlas":61974,
+"cart-plus":61975,
+"cart-arrow-down":61976,
+"diamond":61977,
+"ship":61978,
+"user-secret":61979,
+"motorcycle":61980,
+"street-view":61981,
+"heartbeat":61982,
+"venus":61985,
+"mars":61986,
+"mercury":61987,
+"intersex":61988,
+"transgender":61988,
+"transgender-alt":61989,
+"venus-double":61990,
+"mars-double":61991,
+"venus-mars":61992,
+"mars-stroke":61993,
+"mars-stroke-v":61994,
+"mars-stroke-h":61995,
+"neuter":61996,
+"genderless":61997,
+"facebook-official":62000,
+"pinterest-p":62001,
+"whatsapp":62002,
+"server":62003,
+"user-plus":62004,
+"user-times":62005,
+"hotel":62006,
+"bed":62006,
+"viacoin":62007,
+"train":62008,
+"subway":62009,
+"medium":62010,
+"yc":62011,
+"y-combinator":62011,
+"optin-monster":62012,
+"opencart":62013,
+"expeditedssl":62014,
+"battery-4":62016,
+"battery-full":62016,
+"battery-3":62017,
+"battery-three-quarters":62017,
+"battery-2":62018,
+"battery-half":62018,
+"battery-1":62019,
+"battery-quarter":62019,
+"battery-0":62020,
+"battery-empty":62020,
+"mouse-pointer":62021,
+"i-cursor":62022,
+"object-group":62023,
+"object-ungroup":62024,
+"sticky-note":62025,
+"sticky-note-o":62026,
+"cc-jcb":62027,
+"cc-diners-club":62028,
+"clone":62029,
+"balance-scale":62030,
+"hourglass-o":62032,
+"hourglass-1":62033,
+"hourglass-start":62033,
+"hourglass-2":62034,
+"hourglass-half":62034,
+"hourglass-3":62035,
+"hourglass-end":62035,
+"hourglass":62036,
+"hand-grab-o":62037,
+"hand-rock-o":62037,
+"hand-stop-o":62038,
+"hand-paper-o":62038,
+"hand-scissors-o":62039,
+"hand-lizard-o":62040,
+"hand-spock-o":62041,
+"hand-pointer-o":62042,
+"hand-peace-o":62043,
+"trademark":62044,
+"registered":62045,
+"creative-commons":62046,
+"gg":62048,
+"gg-circle":62049,
+"tripadvisor":62050,
+"odnoklassniki":62051,
+"odnoklassniki-square":62052,
+"get-pocket":62053,
+"wikipedia-w":62054,
+"safari":62055,
+"chrome":62056,
+"firefox":62057,
+"opera":62058,
+"internet-explorer":62059,
+"tv":62060,
+"television":62060,
+"contao":62061,
+"500px":62062,
+"amazon":62064,
+"calendar-plus-o":62065,
+"calendar-minus-o":62066,
+"calendar-times-o":62067,
+"calendar-check-o":62068,
+"industry":62069,
+"map-pin":62070,
+"map-signs":62071,
+"map-o":62072,
+"map":62073,
+"commenting":62074,
+"commenting-o":62075,
+"houzz":62076,
+"vimeo":62077,
+"black-tie":62078,
+"fonticons":62080,
+"reddit-alien":62081,
+"edge":62082,
+"credit-card-alt":62083,
+"codiepie":62084,
+"modx":62085,
+"fort-awesome":62086,
+"usb":62087,
+"product-hunt":62088,
+"mixcloud":62089,
+"scribd":62090,
+"pause-circle":62091,
+"pause-circle-o":62092,
+"stop-circle":62093,
+"stop-circle-o":62094,
+"shopping-bag":62096,
+"shopping-basket":62097,
+"hashtag":62098,
+"bluetooth":62099,
+"bluetooth-b":62100,
+"percent":62101,
+"gitlab":62102,
+"wpbeginner":62103,
+"wpforms":62104,
+"envira":62105,
+"universal-access":62106,
+"wheelchair-alt":62107,
+"question-circle-o":62108,
+"blind":62109,
+"audio-description":62110,
+"volume-control-phone":62112,
+"braille":62113,
+"assistive-listening-systems":62114,
+"asl-interpreting":62115,
+"american-sign-language-interpreting":62115,
+"deafness":62116,
+"hard-of-hearing":62116,
+"deaf":62116,
+"glide":62117,
+"glide-g":62118,
+"signing":62119,
+"sign-language":62119,
+"low-vision":62120,
+"viadeo":62121,
+"viadeo-square":62122,
+"snapchat":62123,
+"snapchat-ghost":62124,
+"snapchat-square":62125,
+"pied-piper":62126,
+"first-order":62128,
+"yoast":62129,
+"themeisle":62130,
+"google-plus-circle":62131,
+"google-plus-official":62131,
+"fa":62132,
+"font-awesome":62132};
+
+
+var FontAwesome=(0,_createIconSet2.default)(glyphMap,'FontAwesome','FontAwesome.ttf');
+
+module.exports=FontAwesome;
+module.exports.glyphMap=glyphMap;
+}, "react-native-vector-icons/FontAwesome.js");
+__d(796 /* react-native-vector-icons/Foundation.js */, function(global, require, module, exports) {
+
+
+
+
+var _createIconSet=require(672 /* ./lib/create-icon-set */);var _createIconSet2=babelHelpers.interopRequireDefault(_createIconSet);
+var glyphMap={
+"address-book":61696,
+"alert":61697,
+"align-center":61698,
+"align-justify":61699,
+"align-left":61700,
+"align-right":61701,
+"anchor":61702,
+"annotate":61703,
+"archive":61704,
+"arrow-down":61705,
+"arrow-left":61706,
+"arrow-right":61707,
+"arrow-up":61708,
+"arrows-compress":61709,
+"arrows-expand":61710,
+"arrows-in":61711,
+"arrows-out":61712,
+"asl":61713,
+"asterisk":61714,
+"at-sign":61715,
+"background-color":61716,
+"battery-empty":61717,
+"battery-full":61718,
+"battery-half":61719,
+"bitcoin-circle":61720,
+"bitcoin":61721,
+"blind":61722,
+"bluetooth":61723,
+"bold":61724,
+"book-bookmark":61725,
+"book":61726,
+"bookmark":61727,
+"braille":61728,
+"burst-new":61729,
+"burst-sale":61730,
+"burst":61731,
+"calendar":61732,
+"camera":61733,
+"check":61734,
+"checkbox":61735,
+"clipboard-notes":61736,
+"clipboard-pencil":61737,
+"clipboard":61738,
+"clock":61739,
+"closed-caption":61740,
+"cloud":61741,
+"comment-minus":61742,
+"comment-quotes":61743,
+"comment-video":61744,
+"comment":61745,
+"comments":61746,
+"compass":61747,
+"contrast":61748,
+"credit-card":61749,
+"crop":61750,
+"crown":61751,
+"css3":61752,
+"database":61753,
+"die-five":61754,
+"die-four":61755,
+"die-one":61756,
+"die-six":61757,
+"die-three":61758,
+"die-two":61759,
+"dislike":61760,
+"dollar-bill":61761,
+"dollar":61762,
+"download":61763,
+"eject":61764,
+"elevator":61765,
+"euro":61766,
+"eye":61767,
+"fast-forward":61768,
+"female-symbol":61769,
+"female":61770,
+"filter":61771,
+"first-aid":61772,
+"flag":61773,
+"folder-add":61774,
+"folder-lock":61775,
+"folder":61776,
+"foot":61777,
+"foundation":61778,
+"graph-bar":61779,
+"graph-horizontal":61780,
+"graph-pie":61781,
+"graph-trend":61782,
+"guide-dog":61783,
+"hearing-aid":61784,
+"heart":61785,
+"home":61786,
+"html5":61787,
+"indent-less":61788,
+"indent-more":61789,
+"info":61790,
+"italic":61791,
+"key":61792,
+"laptop":61793,
+"layout":61794,
+"lightbulb":61795,
+"like":61796,
+"link":61797,
+"list-bullet":61798,
+"list-number":61799,
+"list-thumbnails":61800,
+"list":61801,
+"lock":61802,
+"loop":61803,
+"magnifying-glass":61804,
+"mail":61805,
+"male-female":61806,
+"male-symbol":61807,
+"male":61808,
+"map":61809,
+"marker":61810,
+"megaphone":61811,
+"microphone":61812,
+"minus-circle":61813,
+"minus":61814,
+"mobile-signal":61815,
+"mobile":61816,
+"monitor":61817,
+"mountains":61818,
+"music":61819,
+"next":61820,
+"no-dogs":61821,
+"no-smoking":61822,
+"page-add":61823,
+"page-copy":61824,
+"page-csv":61825,
+"page-delete":61826,
+"page-doc":61827,
+"page-edit":61828,
+"page-export-csv":61829,
+"page-export-doc":61830,
+"page-export-pdf":61831,
+"page-export":61832,
+"page-filled":61833,
+"page-multiple":61834,
+"page-pdf":61835,
+"page-remove":61836,
+"page-search":61837,
+"page":61838,
+"paint-bucket":61839,
+"paperclip":61840,
+"pause":61841,
+"paw":61842,
+"paypal":61843,
+"pencil":61844,
+"photo":61845,
+"play-circle":61846,
+"play-video":61847,
+"play":61848,
+"plus":61849,
+"pound":61850,
+"power":61851,
+"previous":61852,
+"price-tag":61853,
+"pricetag-multiple":61854,
+"print":61855,
+"prohibited":61856,
+"projection-screen":61857,
+"puzzle":61858,
+"quote":61859,
+"record":61860,
+"refresh":61861,
+"results-demographics":61862,
+"results":61863,
+"rewind-ten":61864,
+"rewind":61865,
+"rss":61866,
+"safety-cone":61867,
+"save":61868,
+"share":61869,
+"sheriff-badge":61870,
+"shield":61871,
+"shopping-bag":61872,
+"shopping-cart":61873,
+"shuffle":61874,
+"skull":61875,
+"social-500px":61876,
+"social-adobe":61877,
+"social-amazon":61878,
+"social-android":61879,
+"social-apple":61880,
+"social-behance":61881,
+"social-bing":61882,
+"social-blogger":61883,
+"social-delicious":61884,
+"social-designer-news":61885,
+"social-deviant-art":61886,
+"social-digg":61887,
+"social-dribbble":61888,
+"social-drive":61889,
+"social-dropbox":61890,
+"social-evernote":61891,
+"social-facebook":61892,
+"social-flickr":61893,
+"social-forrst":61894,
+"social-foursquare":61895,
+"social-game-center":61896,
+"social-github":61897,
+"social-google-plus":61898,
+"social-hacker-news":61899,
+"social-hi5":61900,
+"social-instagram":61901,
+"social-joomla":61902,
+"social-lastfm":61903,
+"social-linkedin":61904,
+"social-medium":61905,
+"social-myspace":61906,
+"social-orkut":61907,
+"social-path":61908,
+"social-picasa":61909,
+"social-pinterest":61910,
+"social-rdio":61911,
+"social-reddit":61912,
+"social-skillshare":61913,
+"social-skype":61914,
+"social-smashing-mag":61915,
+"social-snapchat":61916,
+"social-spotify":61917,
+"social-squidoo":61918,
+"social-stack-overflow":61919,
+"social-steam":61920,
+"social-stumbleupon":61921,
+"social-treehouse":61922,
+"social-tumblr":61923,
+"social-twitter":61924,
+"social-vimeo":61925,
+"social-windows":61926,
+"social-xbox":61927,
+"social-yahoo":61928,
+"social-yelp":61929,
+"social-youtube":61930,
+"social-zerply":61931,
+"social-zurb":61932,
+"sound":61933,
+"star":61934,
+"stop":61935,
+"strikethrough":61936,
+"subscript":61937,
+"superscript":61938,
+"tablet-landscape":61939,
+"tablet-portrait":61940,
+"target-two":61941,
+"target":61942,
+"telephone-accessible":61943,
+"telephone":61944,
+"text-color":61945,
+"thumbnails":61946,
+"ticket":61947,
+"torso-business":61948,
+"torso-female":61949,
+"torso":61950,
+"torsos-all-female":61951,
+"torsos-all":61952,
+"torsos-female-male":61953,
+"torsos-male-female":61954,
+"torsos":61955,
+"trash":61956,
+"trees":61957,
+"trophy":61958,
+"underline":61959,
+"universal-access":61960,
+"unlink":61961,
+"unlock":61962,
+"upload-cloud":61963,
+"upload":61964,
+"usb":61965,
+"video":61966,
+"volume-none":61967,
+"volume-strike":61968,
+"volume":61969,
+"web":61970,
+"wheelchair":61971,
+"widget":61972,
+"wrench":61973,
+"x-circle":61974,
+"x":61975,
+"yen":61976,
+"zoom-in":61977,
+"zoom-out":61978};
+
+
+var Foundation=(0,_createIconSet2.default)(glyphMap,'fontcustom','Foundation.ttf');
+
+module.exports=Foundation;
+module.exports.glyphMap=glyphMap;
+}, "react-native-vector-icons/Foundation.js");
+__d(797 /* react-native-vector-icons/Ionicons.js */, function(global, require, module, exports) {
+
+
+
+
+var _createIconSet=require(672 /* ./lib/create-icon-set */);var _createIconSet2=babelHelpers.interopRequireDefault(_createIconSet);
+var glyphMap={
+"ios-add":61698,
+"ios-add-circle":61697,
+"ios-add-circle-outline":61696,
+"ios-add-outline":61698,
+"ios-alarm":62408,
+"ios-alarm-outline":62407,
+"ios-albums":62410,
+"ios-albums-outline":62409,
+"ios-alert":61700,
+"ios-alert-outline":61699,
+"ios-american-football":61702,
+"ios-american-football-outline":61701,
+"ios-analytics":62414,
+"ios-analytics-outline":62413,
+"ios-aperture":61704,
+"ios-aperture-outline":61703,
+"ios-apps":61706,
+"ios-apps-outline":61705,
+"ios-appstore":61708,
+"ios-appstore-outline":61707,
+"ios-archive":61710,
+"ios-archive-outline":61709,
+"ios-arrow-back":62415,
+"ios-arrow-back-outline":62415,
+"ios-arrow-down":62416,
+"ios-arrow-down-outline":62416,
+"ios-arrow-dropdown":61712,
+"ios-arrow-dropdown-circle":61711,
+"ios-arrow-dropdown-circle-outline":61711,
+"ios-arrow-dropdown-outline":61712,
+"ios-arrow-dropleft":61714,
+"ios-arrow-dropleft-circle":61713,
+"ios-arrow-dropleft-circle-outline":61713,
+"ios-arrow-dropleft-outline":61714,
+"ios-arrow-dropright":61716,
+"ios-arrow-dropright-circle":61715,
+"ios-arrow-dropright-circle-outline":61715,
+"ios-arrow-dropright-outline":61716,
+"ios-arrow-dropup":61718,
+"ios-arrow-dropup-circle":61717,
+"ios-arrow-dropup-circle-outline":61717,
+"ios-arrow-dropup-outline":61718,
+"ios-arrow-forward":62417,
+"ios-arrow-forward-outline":62417,
+"ios-arrow-round-back":61719,
+"ios-arrow-round-back-outline":61719,
+"ios-arrow-round-down":61720,
+"ios-arrow-round-down-outline":61720,
+"ios-arrow-round-forward":61721,
+"ios-arrow-round-forward-outline":61721,
+"ios-arrow-round-up":61722,
+"ios-arrow-round-up-outline":61722,
+"ios-arrow-up":62424,
+"ios-arrow-up-outline":62424,
+"ios-at":62426,
+"ios-at-outline":62425,
+"ios-attach":61723,
+"ios-attach-outline":61723,
+"ios-backspace":61725,
+"ios-backspace-outline":61724,
+"ios-barcode":62428,
+"ios-barcode-outline":62427,
+"ios-baseball":62430,
+"ios-baseball-outline":62429,
+"ios-basket":61727,
+"ios-basket-outline":61726,
+"ios-basketball":62432,
+"ios-basketball-outline":62431,
+"ios-battery-charging":61728,
+"ios-battery-charging-outline":61728,
+"ios-battery-dead":61729,
+"ios-battery-dead-outline":61729,
+"ios-battery-full":61730,
+"ios-battery-full-outline":61730,
+"ios-beaker":61732,
+"ios-beaker-outline":61731,
+"ios-beer":61734,
+"ios-beer-outline":61733,
+"ios-bicycle":61735,
+"ios-bicycle-outline":61735,
+"ios-bluetooth":61736,
+"ios-bluetooth-outline":61736,
+"ios-boat":61738,
+"ios-boat-outline":61737,
+"ios-body":62436,
+"ios-body-outline":62435,
+"ios-bonfire":61740,
+"ios-bonfire-outline":61739,
+"ios-book":62440,
+"ios-book-outline":62439,
+"ios-bookmark":61742,
+"ios-bookmark-outline":61741,
+"ios-bookmarks":62442,
+"ios-bookmarks-outline":62441,
+"ios-bowtie":61744,
+"ios-bowtie-outline":61743,
+"ios-briefcase":62446,
+"ios-briefcase-outline":62445,
+"ios-browsers":62448,
+"ios-browsers-outline":62447,
+"ios-brush":61746,
+"ios-brush-outline":61745,
+"ios-bug":61748,
+"ios-bug-outline":61747,
+"ios-build":61750,
+"ios-build-outline":61749,
+"ios-bulb":61752,
+"ios-bulb-outline":61751,
+"ios-bus":61754,
+"ios-bus-outline":61753,
+"ios-cafe":61756,
+"ios-cafe-outline":61755,
+"ios-calculator":62450,
+"ios-calculator-outline":62449,
+"ios-calendar":62452,
+"ios-calendar-outline":62451,
+"ios-call":61758,
+"ios-call-outline":61757,
+"ios-camera":62454,
+"ios-camera-outline":62453,
+"ios-car":61760,
+"ios-car-outline":61759,
+"ios-card":61762,
+"ios-card-outline":61761,
+"ios-cart":62456,
+"ios-cart-outline":62455,
+"ios-cash":61764,
+"ios-cash-outline":61763,
+"ios-chatboxes":62458,
+"ios-chatboxes-outline":62457,
+"ios-chatbubbles":61766,
+"ios-chatbubbles-outline":61765,
+"ios-checkbox":61768,
+"ios-checkbox-outline":61767,
+"ios-checkmark":62463,
+"ios-checkmark-circle":61770,
+"ios-checkmark-circle-outline":61769,
+"ios-checkmark-outline":62463,
+"ios-clipboard":61772,
+"ios-clipboard-outline":61771,
+"ios-clock":62467,
+"ios-clock-outline":62466,
+"ios-close":62470,
+"ios-close-circle":61774,
+"ios-close-circle-outline":61773,
+"ios-close-outline":62470,
+"ios-closed-captioning":61776,
+"ios-closed-captioning-outline":61775,
+"ios-cloud":62476,
+"ios-cloud-circle":61778,
+"ios-cloud-circle-outline":61777,
+"ios-cloud-done":61780,
+"ios-cloud-done-outline":61779,
+"ios-cloud-download":62472,
+"ios-cloud-download-outline":62471,
+"ios-cloud-outline":62473,
+"ios-cloud-upload":62475,
+"ios-cloud-upload-outline":62474,
+"ios-cloudy":62480,
+"ios-cloudy-night":62478,
+"ios-cloudy-night-outline":62477,
+"ios-cloudy-outline":62479,
+"ios-code":61783,
+"ios-code-download":61781,
+"ios-code-download-outline":61781,
+"ios-code-outline":61783,
+"ios-code-working":61782,
+"ios-code-working-outline":61782,
+"ios-cog":62482,
+"ios-cog-outline":62481,
+"ios-color-fill":61785,
+"ios-color-fill-outline":61784,
+"ios-color-filter":62484,
+"ios-color-filter-outline":62483,
+"ios-color-palette":61787,
+"ios-color-palette-outline":61786,
+"ios-color-wand":62486,
+"ios-color-wand-outline":62485,
+"ios-compass":61789,
+"ios-compass-outline":61788,
+"ios-construct":61791,
+"ios-construct-outline":61790,
+"ios-contact":62490,
+"ios-contact-outline":62489,
+"ios-contacts":61793,
+"ios-contacts-outline":61792,
+"ios-contract":61794,
+"ios-contract-outline":61794,
+"ios-contrast":61795,
+"ios-contrast-outline":61795,
+"ios-copy":62492,
+"ios-copy-outline":62491,
+"ios-create":61797,
+"ios-create-outline":61796,
+"ios-crop":62494,
+"ios-crop-outline":61798,
+"ios-cube":61800,
+"ios-cube-outline":61799,
+"ios-cut":61802,
+"ios-cut-outline":61801,
+"ios-desktop":61804,
+"ios-desktop-outline":61803,
+"ios-disc":61806,
+"ios-disc-outline":61805,
+"ios-document":61808,
+"ios-document-outline":61807,
+"ios-done-all":61809,
+"ios-done-all-outline":61809,
+"ios-download":62496,
+"ios-download-outline":62495,
+"ios-easel":61811,
+"ios-easel-outline":61810,
+"ios-egg":61813,
+"ios-egg-outline":61812,
+"ios-exit":61815,
+"ios-exit-outline":61814,
+"ios-expand":61816,
+"ios-expand-outline":61816,
+"ios-eye":62501,
+"ios-eye-off":61818,
+"ios-eye-off-outline":61817,
+"ios-eye-outline":62500,
+"ios-fastforward":62503,
+"ios-fastforward-outline":62502,
+"ios-female":61819,
+"ios-female-outline":61819,
+"ios-filing":62505,
+"ios-filing-outline":62504,
+"ios-film":62507,
+"ios-film-outline":62506,
+"ios-finger-print":61820,
+"ios-finger-print-outline":61820,
+"ios-flag":62509,
+"ios-flag-outline":62508,
+"ios-flame":62511,
+"ios-flame-outline":62510,
+"ios-flash":61822,
+"ios-flash-outline":61821,
+"ios-flask":62513,
+"ios-flask-outline":62512,
+"ios-flower":62515,
+"ios-flower-outline":62514,
+"ios-folder":62517,
+"ios-folder-open":61824,
+"ios-folder-open-outline":61823,
+"ios-folder-outline":62516,
+"ios-football":62519,
+"ios-football-outline":62518,
+"ios-funnel":61826,
+"ios-funnel-outline":61825,
+"ios-game-controller-a":62521,
+"ios-game-controller-a-outline":62520,
+"ios-game-controller-b":62523,
+"ios-game-controller-b-outline":62522,
+"ios-git-branch":61827,
+"ios-git-branch-outline":61827,
+"ios-git-commit":61828,
+"ios-git-commit-outline":61828,
+"ios-git-compare":61829,
+"ios-git-compare-outline":61829,
+"ios-git-merge":61830,
+"ios-git-merge-outline":61830,
+"ios-git-network":61831,
+"ios-git-network-outline":61831,
+"ios-git-pull-request":61832,
+"ios-git-pull-request-outline":61832,
+"ios-glasses":62527,
+"ios-glasses-outline":62526,
+"ios-globe":61834,
+"ios-globe-outline":61833,
+"ios-grid":61836,
+"ios-grid-outline":61835,
+"ios-hammer":61838,
+"ios-hammer-outline":61837,
+"ios-hand":61840,
+"ios-hand-outline":61839,
+"ios-happy":61842,
+"ios-happy-outline":61841,
+"ios-headset":61844,
+"ios-headset-outline":61843,
+"ios-heart":62531,
+"ios-heart-outline":62530,
+"ios-help":62534,
+"ios-help-buoy":61846,
+"ios-help-buoy-outline":61845,
+"ios-help-circle":61848,
+"ios-help-circle-outline":61847,
+"ios-help-outline":62534,
+"ios-home":62536,
+"ios-home-outline":62535,
+"ios-ice-cream":61850,
+"ios-ice-cream-outline":61849,
+"ios-image":61852,
+"ios-image-outline":61851,
+"ios-images":61854,
+"ios-images-outline":61853,
+"ios-infinite":62538,
+"ios-infinite-outline":62537,
+"ios-information":62541,
+"ios-information-circle":61856,
+"ios-information-circle-outline":61855,
+"ios-information-outline":62541,
+"ios-ionic":61857,
+"ios-ionic-outline":62542,
+"ios-ionitron":61859,
+"ios-ionitron-outline":61858,
+"ios-jet":61861,
+"ios-jet-outline":61860,
+"ios-key":61863,
+"ios-key-outline":61862,
+"ios-keypad":62544,
+"ios-keypad-outline":62543,
+"ios-laptop":61864,
+"ios-laptop-outline":61864,
+"ios-leaf":61866,
+"ios-leaf-outline":61865,
+"ios-link":61994,
+"ios-link-outline":61898,
+"ios-list":62548,
+"ios-list-box":61868,
+"ios-list-box-outline":61867,
+"ios-list-outline":62548,
+"ios-locate":61870,
+"ios-locate-outline":61869,
+"ios-lock":61872,
+"ios-lock-outline":61871,
+"ios-log-in":61873,
+"ios-log-in-outline":61873,
+"ios-log-out":61874,
+"ios-log-out-outline":61874,
+"ios-magnet":61876,
+"ios-magnet-outline":61875,
+"ios-mail":61880,
+"ios-mail-open":61878,
+"ios-mail-open-outline":61877,
+"ios-mail-outline":61879,
+"ios-male":61881,
+"ios-male-outline":61881,
+"ios-man":61883,
+"ios-man-outline":61882,
+"ios-map":61885,
+"ios-map-outline":61884,
+"ios-medal":61887,
+"ios-medal-outline":61886,
+"ios-medical":62556,
+"ios-medical-outline":62555,
+"ios-medkit":62558,
+"ios-medkit-outline":62557,
+"ios-megaphone":61889,
+"ios-megaphone-outline":61888,
+"ios-menu":61891,
+"ios-menu-outline":61890,
+"ios-mic":62561,
+"ios-mic-off":62559,
+"ios-mic-off-outline":61892,
+"ios-mic-outline":62560,
+"ios-microphone":61894,
+"ios-microphone-outline":61893,
+"ios-moon":62568,
+"ios-moon-outline":62567,
+"ios-more":61896,
+"ios-more-outline":61895,
+"ios-move":61899,
+"ios-move-outline":61899,
+"ios-musical-note":62571,
+"ios-musical-note-outline":61900,
+"ios-musical-notes":62572,
+"ios-musical-notes-outline":61901,
+"ios-navigate":62574,
+"ios-navigate-outline":62573,
+"ios-no-smoking":61903,
+"ios-no-smoking-outline":61902,
+"ios-notifications":61907,
+"ios-notifications-off":61905,
+"ios-notifications-off-outline":61904,
+"ios-notifications-outline":61906,
+"ios-nuclear":61909,
+"ios-nuclear-outline":61908,
+"ios-nutrition":62576,
+"ios-nutrition-outline":62575,
+"ios-open":61911,
+"ios-open-outline":61910,
+"ios-options":61913,
+"ios-options-outline":61912,
+"ios-outlet":61915,
+"ios-outlet-outline":61914,
+"ios-paper":62578,
+"ios-paper-outline":62577,
+"ios-paper-plane":61917,
+"ios-paper-plane-outline":61916,
+"ios-partly-sunny":61919,
+"ios-partly-sunny-outline":61918,
+"ios-pause":62584,
+"ios-pause-outline":62583,
+"ios-paw":62586,
+"ios-paw-outline":62585,
+"ios-people":62588,
+"ios-people-outline":62587,
+"ios-person":62590,
+"ios-person-add":61921,
+"ios-person-add-outline":61920,
+"ios-person-outline":62589,
+"ios-phone-landscape":61922,
+"ios-phone-landscape-outline":61922,
+"ios-phone-portrait":61923,
+"ios-phone-portrait-outline":61923,
+"ios-photos":62594,
+"ios-photos-outline":62593,
+"ios-pie":62596,
+"ios-pie-outline":62595,
+"ios-pin":61925,
+"ios-pin-outline":61924,
+"ios-pint":62598,
+"ios-pint-outline":62597,
+"ios-pizza":61927,
+"ios-pizza-outline":61926,
+"ios-plane":61929,
+"ios-plane-outline":61928,
+"ios-planet":61931,
+"ios-planet-outline":61930,
+"ios-play":62600,
+"ios-play-outline":62599,
+"ios-podium":61933,
+"ios-podium-outline":61932,
+"ios-power":61935,
+"ios-power-outline":61934,
+"ios-pricetag":62605,
+"ios-pricetag-outline":62604,
+"ios-pricetags":62607,
+"ios-pricetags-outline":62606,
+"ios-print":61937,
+"ios-print-outline":61936,
+"ios-pulse":62611,
+"ios-pulse-outline":61938,
+"ios-qr-scanner":61939,
+"ios-qr-scanner-outline":61939,
+"ios-quote":61941,
+"ios-quote-outline":61940,
+"ios-radio":61945,
+"ios-radio-button-off":61942,
+"ios-radio-button-off-outline":61942,
+"ios-radio-button-on":61943,
+"ios-radio-button-on-outline":61943,
+"ios-radio-outline":61944,
+"ios-rainy":62613,
+"ios-rainy-outline":62612,
+"ios-recording":62615,
+"ios-recording-outline":62614,
+"ios-redo":62617,
+"ios-redo-outline":62616,
+"ios-refresh":62620,
+"ios-refresh-circle":61990,
+"ios-refresh-circle-outline":61988,
+"ios-refresh-outline":62620,
+"ios-remove":61948,
+"ios-remove-circle":61947,
+"ios-remove-circle-outline":61946,
+"ios-remove-outline":61948,
+"ios-reorder":61949,
+"ios-reorder-outline":61949,
+"ios-repeat":61950,
+"ios-repeat-outline":61950,
+"ios-resize":61951,
+"ios-resize-outline":61951,
+"ios-restaurant":61953,
+"ios-restaurant-outline":61952,
+"ios-return-left":61954,
+"ios-return-left-outline":61954,
+"ios-return-right":61955,
+"ios-return-right-outline":61955,
+"ios-reverse-camera":62623,
+"ios-reverse-camera-outline":62622,
+"ios-rewind":62625,
+"ios-rewind-outline":62624,
+"ios-ribbon":61957,
+"ios-ribbon-outline":61956,
+"ios-rose":62627,
+"ios-rose-outline":62626,
+"ios-sad":61959,
+"ios-sad-outline":61958,
+"ios-school":61961,
+"ios-school-outline":61960,
+"ios-search":62629,
+"ios-search-outline":61962,
+"ios-send":61964,
+"ios-send-outline":61963,
+"ios-settings":62631,
+"ios-settings-outline":61965,
+"ios-share":61969,
+"ios-share-alt":61967,
+"ios-share-alt-outline":61966,
+"ios-share-outline":61968,
+"ios-shirt":61971,
+"ios-shirt-outline":61970,
+"ios-shuffle":62633,
+"ios-shuffle-outline":62633,
+"ios-skip-backward":61973,
+"ios-skip-backward-outline":61972,
+"ios-skip-forward":61975,
+"ios-skip-forward-outline":61974,
+"ios-snow":61976,
+"ios-snow-outline":61996,
+"ios-speedometer":62640,
+"ios-speedometer-outline":62639,
+"ios-square":61978,
+"ios-square-outline":61977,
+"ios-star":62643,
+"ios-star-half":62641,
+"ios-star-half-outline":62641,
+"ios-star-outline":62642,
+"ios-stats":61980,
+"ios-stats-outline":61979,
+"ios-stopwatch":62645,
+"ios-stopwatch-outline":62644,
+"ios-subway":61982,
+"ios-subway-outline":61981,
+"ios-sunny":62647,
+"ios-sunny-outline":62646,
+"ios-swap":61983,
+"ios-swap-outline":61983,
+"ios-switch":61985,
+"ios-switch-outline":61984,
+"ios-sync":61986,
+"ios-sync-outline":61986,
+"ios-tablet-landscape":61987,
+"ios-tablet-landscape-outline":61987,
+"ios-tablet-portrait":62030,
+"ios-tablet-portrait-outline":62030,
+"ios-tennisball":62651,
+"ios-tennisball-outline":62650,
+"ios-text":62032,
+"ios-text-outline":62031,
+"ios-thermometer":62034,
+"ios-thermometer-outline":62033,
+"ios-thumbs-down":62036,
+"ios-thumbs-down-outline":62035,
+"ios-thumbs-up":62038,
+"ios-thumbs-up-outline":62037,
+"ios-thunderstorm":62653,
+"ios-thunderstorm-outline":62652,
+"ios-time":62655,
+"ios-time-outline":62654,
+"ios-timer":62657,
+"ios-timer-outline":62656,
+"ios-train":62040,
+"ios-train-outline":62039,
+"ios-transgender":62041,
+"ios-transgender-outline":62041,
+"ios-trash":62661,
+"ios-trash-outline":62660,
+"ios-trending-down":62042,
+"ios-trending-down-outline":62042,
+"ios-trending-up":62043,
+"ios-trending-up-outline":62043,
+"ios-trophy":62045,
+"ios-trophy-outline":62044,
+"ios-umbrella":62047,
+"ios-umbrella-outline":62046,
+"ios-undo":62663,
+"ios-undo-outline":62662,
+"ios-unlock":62049,
+"ios-unlock-outline":62048,
+"ios-videocam":62669,
+"ios-videocam-outline":62668,
+"ios-volume-down":62050,
+"ios-volume-down-outline":62050,
+"ios-volume-mute":62051,
+"ios-volume-mute-outline":62051,
+"ios-volume-off":62052,
+"ios-volume-off-outline":62052,
+"ios-volume-up":62053,
+"ios-volume-up-outline":62053,
+"ios-walk":62054,
+"ios-walk-outline":62054,
+"ios-warning":62056,
+"ios-warning-outline":62055,
+"ios-watch":62057,
+"ios-watch-outline":62057,
+"ios-water":62059,
+"ios-water-outline":62058,
+"ios-wifi":62061,
+"ios-wifi-outline":62060,
+"ios-wine":62063,
+"ios-wine-outline":62062,
+"ios-woman":62065,
+"ios-woman-outline":62064,
+"logo-android":61989,
+"logo-angular":61991,
+"logo-apple":61993,
+"logo-bitcoin":61995,
+"logo-buffer":61997,
+"logo-chrome":61999,
+"logo-codepen":62000,
+"logo-css3":62001,
+"logo-designernews":62002,
+"logo-dribbble":62003,
+"logo-dropbox":62004,
+"logo-euro":62005,
+"logo-facebook":62006,
+"logo-foursquare":62007,
+"logo-freebsd-devil":62008,
+"logo-github":62009,
+"logo-google":62010,
+"logo-googleplus":62011,
+"logo-hackernews":62012,
+"logo-html5":62013,
+"logo-instagram":62014,
+"logo-javascript":62015,
+"logo-linkedin":62016,
+"logo-markdown":62017,
+"logo-nodejs":62018,
+"logo-octocat":62019,
+"logo-pinterest":62020,
+"logo-playstation":62021,
+"logo-python":62022,
+"logo-reddit":62023,
+"logo-rss":62024,
+"logo-sass":62025,
+"logo-skype":62026,
+"logo-snapchat":62027,
+"logo-steam":62028,
+"logo-tumblr":62029,
+"logo-tux":62126,
+"logo-twitch":62127,
+"logo-twitter":62128,
+"logo-usd":62129,
+"logo-vimeo":62148,
+"logo-whatsapp":62149,
+"logo-windows":62255,
+"logo-wordpress":62256,
+"logo-xbox":62284,
+"logo-yahoo":62285,
+"logo-yen":62286,
+"logo-youtube":62287,
+"md-add":62067,
+"md-add-circle":62066,
+"md-alarm":62068,
+"md-albums":62069,
+"md-alert":62070,
+"md-american-football":62071,
+"md-analytics":62072,
+"md-aperture":62073,
+"md-apps":62074,
+"md-appstore":62075,
+"md-archive":62076,
+"md-arrow-back":62077,
+"md-arrow-down":62078,
+"md-arrow-dropdown":62080,
+"md-arrow-dropdown-circle":62079,
+"md-arrow-dropleft":62082,
+"md-arrow-dropleft-circle":62081,
+"md-arrow-dropright":62084,
+"md-arrow-dropright-circle":62083,
+"md-arrow-dropup":62086,
+"md-arrow-dropup-circle":62085,
+"md-arrow-forward":62087,
+"md-arrow-round-back":62088,
+"md-arrow-round-down":62089,
+"md-arrow-round-forward":62090,
+"md-arrow-round-up":62091,
+"md-arrow-up":62092,
+"md-at":62093,
+"md-attach":62094,
+"md-backspace":62095,
+"md-barcode":62096,
+"md-baseball":62097,
+"md-basket":62098,
+"md-basketball":62099,
+"md-battery-charging":62100,
+"md-battery-dead":62101,
+"md-battery-full":62102,
+"md-beaker":62103,
+"md-beer":62104,
+"md-bicycle":62105,
+"md-bluetooth":62106,
+"md-boat":62107,
+"md-body":62108,
+"md-bonfire":62109,
+"md-book":62110,
+"md-bookmark":62111,
+"md-bookmarks":62112,
+"md-bowtie":62113,
+"md-briefcase":62114,
+"md-browsers":62115,
+"md-brush":62116,
+"md-bug":62117,
+"md-build":62118,
+"md-bulb":62119,
+"md-bus":62120,
+"md-cafe":62121,
+"md-calculator":62122,
+"md-calendar":62123,
+"md-call":62124,
+"md-camera":62125,
+"md-car":62130,
+"md-card":62131,
+"md-cart":62132,
+"md-cash":62133,
+"md-chatboxes":62134,
+"md-chatbubbles":62135,
+"md-checkbox":62137,
+"md-checkbox-outline":62136,
+"md-checkmark":62140,
+"md-checkmark-circle":62139,
+"md-checkmark-circle-outline":62138,
+"md-clipboard":62141,
+"md-clock":62142,
+"md-close":62144,
+"md-close-circle":62143,
+"md-closed-captioning":62145,
+"md-cloud":62153,
+"md-cloud-circle":62146,
+"md-cloud-done":62147,
+"md-cloud-download":62150,
+"md-cloud-outline":62151,
+"md-cloud-upload":62152,
+"md-cloudy":62155,
+"md-cloudy-night":62154,
+"md-code":62158,
+"md-code-download":62156,
+"md-code-working":62157,
+"md-cog":62159,
+"md-color-fill":62160,
+"md-color-filter":62161,
+"md-color-palette":62162,
+"md-color-wand":62163,
+"md-compass":62164,
+"md-construct":62165,
+"md-contact":62166,
+"md-contacts":62167,
+"md-contract":62168,
+"md-contrast":62169,
+"md-copy":62170,
+"md-create":62171,
+"md-crop":62172,
+"md-cube":62173,
+"md-cut":62174,
+"md-desktop":62175,
+"md-disc":62176,
+"md-document":62177,
+"md-done-all":62178,
+"md-download":62179,
+"md-easel":62180,
+"md-egg":62181,
+"md-exit":62182,
+"md-expand":62183,
+"md-eye":62185,
+"md-eye-off":62184,
+"md-fastforward":62186,
+"md-female":62187,
+"md-filing":62188,
+"md-film":62189,
+"md-finger-print":62190,
+"md-flag":62191,
+"md-flame":62192,
+"md-flash":62193,
+"md-flask":62194,
+"md-flower":62195,
+"md-folder":62197,
+"md-folder-open":62196,
+"md-football":62198,
+"md-funnel":62199,
+"md-game-controller-a":62200,
+"md-game-controller-b":62201,
+"md-git-branch":62202,
+"md-git-commit":62203,
+"md-git-compare":62204,
+"md-git-merge":62205,
+"md-git-network":62206,
+"md-git-pull-request":62207,
+"md-glasses":62208,
+"md-globe":62209,
+"md-grid":62210,
+"md-hammer":62211,
+"md-hand":62212,
+"md-happy":62213,
+"md-headset":62214,
+"md-heart":62216,
+"md-heart-outline":62215,
+"md-help":62219,
+"md-help-buoy":62217,
+"md-help-circle":62218,
+"md-home":62220,
+"md-ice-cream":62221,
+"md-image":62222,
+"md-images":62223,
+"md-infinite":62224,
+"md-information":62226,
+"md-information-circle":62225,
+"md-ionic":62227,
+"md-ionitron":62228,
+"md-jet":62229,
+"md-key":62230,
+"md-keypad":62231,
+"md-laptop":62232,
+"md-leaf":62233,
+"md-link":61998,
+"md-list":62235,
+"md-list-box":62234,
+"md-locate":62236,
+"md-lock":62237,
+"md-log-in":62238,
+"md-log-out":62239,
+"md-magnet":62240,
+"md-mail":62242,
+"md-mail-open":62241,
+"md-male":62243,
+"md-man":62244,
+"md-map":62245,
+"md-medal":62246,
+"md-medical":62247,
+"md-medkit":62248,
+"md-megaphone":62249,
+"md-menu":62250,
+"md-mic":62252,
+"md-mic-off":62251,
+"md-microphone":62253,
+"md-moon":62254,
+"md-more":61897,
+"md-move":62257,
+"md-musical-note":62258,
+"md-musical-notes":62259,
+"md-navigate":62260,
+"md-no-smoking":62261,
+"md-notifications":62264,
+"md-notifications-off":62262,
+"md-notifications-outline":62263,
+"md-nuclear":62265,
+"md-nutrition":62266,
+"md-open":62267,
+"md-options":62268,
+"md-outlet":62269,
+"md-paper":62271,
+"md-paper-plane":62270,
+"md-partly-sunny":62272,
+"md-pause":62273,
+"md-paw":62274,
+"md-people":62275,
+"md-person":62277,
+"md-person-add":62276,
+"md-phone-landscape":62278,
+"md-phone-portrait":62279,
+"md-photos":62280,
+"md-pie":62281,
+"md-pin":62282,
+"md-pint":62283,
+"md-pizza":62292,
+"md-plane":62293,
+"md-planet":62294,
+"md-play":62295,
+"md-podium":62296,
+"md-power":62297,
+"md-pricetag":62298,
+"md-pricetags":62299,
+"md-print":62300,
+"md-pulse":62301,
+"md-qr-scanner":62302,
+"md-quote":62303,
+"md-radio":62306,
+"md-radio-button-off":62304,
+"md-radio-button-on":62305,
+"md-rainy":62307,
+"md-recording":62308,
+"md-redo":62309,
+"md-refresh":62310,
+"md-refresh-circle":61992,
+"md-remove":62312,
+"md-remove-circle":62311,
+"md-reorder":62313,
+"md-repeat":62314,
+"md-resize":62315,
+"md-restaurant":62316,
+"md-return-left":62317,
+"md-return-right":62318,
+"md-reverse-camera":62319,
+"md-rewind":62320,
+"md-ribbon":62321,
+"md-rose":62322,
+"md-sad":62323,
+"md-school":62324,
+"md-search":62325,
+"md-send":62326,
+"md-settings":62327,
+"md-share":62329,
+"md-share-alt":62328,
+"md-shirt":62330,
+"md-shuffle":62331,
+"md-skip-backward":62332,
+"md-skip-forward":62333,
+"md-snow":62334,
+"md-speedometer":62335,
+"md-square":62337,
+"md-square-outline":62336,
+"md-star":62340,
+"md-star-half":62338,
+"md-star-outline":62339,
+"md-stats":62341,
+"md-stopwatch":62342,
+"md-subway":62343,
+"md-sunny":62344,
+"md-swap":62345,
+"md-switch":62346,
+"md-sync":62347,
+"md-tablet-landscape":62348,
+"md-tablet-portrait":62349,
+"md-tennisball":62350,
+"md-text":62351,
+"md-thermometer":62352,
+"md-thumbs-down":62353,
+"md-thumbs-up":62354,
+"md-thunderstorm":62355,
+"md-time":62356,
+"md-timer":62357,
+"md-train":62358,
+"md-transgender":62359,
+"md-trash":62360,
+"md-trending-down":62361,
+"md-trending-up":62362,
+"md-trophy":62363,
+"md-umbrella":62364,
+"md-undo":62365,
+"md-unlock":62366,
+"md-videocam":62367,
+"md-volume-down":62368,
+"md-volume-mute":62369,
+"md-volume-off":62370,
+"md-volume-up":62371,
+"md-walk":62372,
+"md-warning":62373,
+"md-watch":62374,
+"md-water":62375,
+"md-wifi":62376,
+"md-wine":62377,
+"md-woman":62378};
+
+
+var Ionicons=(0,_createIconSet2.default)(glyphMap,'Ionicons','Ionicons.ttf');
+
+module.exports=Ionicons;
+module.exports.glyphMap=glyphMap;
+}, "react-native-vector-icons/Ionicons.js");
+__d(798 /* react-native-vector-icons/MaterialIcons.js */, function(global, require, module, exports) {
+
+
+
+
+var _createIconSet=require(672 /* ./lib/create-icon-set */);var _createIconSet2=babelHelpers.interopRequireDefault(_createIconSet);
+var glyphMap={
+"3d-rotation":59469,
+"ac-unit":60219,
+"access-alarm":57744,
+"access-alarms":57745,
+"access-time":57746,
+"accessibility":59470,
+"accessible":59668,
+"account-balance":59471,
+"account-balance-wallet":59472,
+"account-box":59473,
+"account-circle":59475,
+"adb":58894,
+"add":57669,
+"add-a-photo":58425,
+"add-alarm":57747,
+"add-alert":57347,
+"add-box":57670,
+"add-circle":57671,
+"add-circle-outline":57672,
+"add-location":58727,
+"add-shopping-cart":59476,
+"add-to-photos":58269,
+"add-to-queue":57436,
+"adjust":58270,
+"airline-seat-flat":58928,
+"airline-seat-flat-angled":58929,
+"airline-seat-individual-suite":58930,
+"airline-seat-legroom-extra":58931,
+"airline-seat-legroom-normal":58932,
+"airline-seat-legroom-reduced":58933,
+"airline-seat-recline-extra":58934,
+"airline-seat-recline-normal":58935,
+"airplanemode-active":57749,
+"airplanemode-inactive":57748,
+"airplay":57429,
+"airport-shuttle":60220,
+"alarm":59477,
+"alarm-add":59478,
+"alarm-off":59479,
+"alarm-on":59480,
+"album":57369,
+"all-inclusive":60221,
+"all-out":59659,
+"android":59481,
+"announcement":59482,
+"apps":58819,
+"archive":57673,
+"arrow-back":58820,
+"arrow-downward":58843,
+"arrow-drop-down":58821,
+"arrow-drop-down-circle":58822,
+"arrow-drop-up":58823,
+"arrow-forward":58824,
+"arrow-upward":58840,
+"art-track":57440,
+"aspect-ratio":59483,
+"assessment":59484,
+"assignment":59485,
+"assignment-ind":59486,
+"assignment-late":59487,
+"assignment-return":59488,
+"assignment-returned":59489,
+"assignment-turned-in":59490,
+"assistant":58271,
+"assistant-photo":58272,
+"attach-file":57894,
+"attach-money":57895,
+"attachment":58044,
+"audiotrack":58273,
+"autorenew":59491,
+"av-timer":57371,
+"backspace":57674,
+"backup":59492,
+"battery-alert":57756,
+"battery-charging-full":57763,
+"battery-full":57764,
+"battery-std":57765,
+"battery-unknown":57766,
+"beach-access":60222,
+"beenhere":58669,
+"block":57675,
+"bluetooth":57767,
+"bluetooth-audio":58895,
+"bluetooth-connected":57768,
+"bluetooth-disabled":57769,
+"bluetooth-searching":57770,
+"blur-circular":58274,
+"blur-linear":58275,
+"blur-off":58276,
+"blur-on":58277,
+"book":59493,
+"bookmark":59494,
+"bookmark-border":59495,
+"border-all":57896,
+"border-bottom":57897,
+"border-clear":57898,
+"border-color":57899,
+"border-horizontal":57900,
+"border-inner":57901,
+"border-left":57902,
+"border-outer":57903,
+"border-right":57904,
+"border-style":57905,
+"border-top":57906,
+"border-vertical":57907,
+"branding-watermark":57451,
+"brightness-1":58278,
+"brightness-2":58279,
+"brightness-3":58280,
+"brightness-4":58281,
+"brightness-5":58282,
+"brightness-6":58283,
+"brightness-7":58284,
+"brightness-auto":57771,
+"brightness-high":57772,
+"brightness-low":57773,
+"brightness-medium":57774,
+"broken-image":58285,
+"brush":58286,
+"bubble-chart":59101,
+"bug-report":59496,
+"build":59497,
+"burst-mode":58428,
+"business":57519,
+"business-center":60223,
+"cached":59498,
+"cake":59369,
+"call":57520,
+"call-end":57521,
+"call-made":57522,
+"call-merge":57523,
+"call-missed":57524,
+"call-missed-outgoing":57572,
+"call-received":57525,
+"call-split":57526,
+"call-to-action":57452,
+"camera":58287,
+"camera-alt":58288,
+"camera-enhance":59644,
+"camera-front":58289,
+"camera-rear":58290,
+"camera-roll":58291,
+"cancel":58825,
+"card-giftcard":59638,
+"card-membership":59639,
+"card-travel":59640,
+"casino":60224,
+"cast":58119,
+"cast-connected":58120,
+"center-focus-strong":58292,
+"center-focus-weak":58293,
+"change-history":59499,
+"chat":57527,
+"chat-bubble":57546,
+"chat-bubble-outline":57547,
+"check":58826,
+"check-box":59444,
+"check-box-outline-blank":59445,
+"check-circle":59500,
+"chevron-left":58827,
+"chevron-right":58828,
+"child-care":60225,
+"child-friendly":60226,
+"chrome-reader-mode":59501,
+"class":59502,
+"clear":57676,
+"clear-all":57528,
+"close":58829,
+"closed-caption":57372,
+"cloud":58045,
+"cloud-circle":58046,
+"cloud-done":58047,
+"cloud-download":58048,
+"cloud-off":58049,
+"cloud-queue":58050,
+"cloud-upload":58051,
+"code":59503,
+"collections":58294,
+"collections-bookmark":58417,
+"color-lens":58295,
+"colorize":58296,
+"comment":57529,
+"compare":58297,
+"compare-arrows":59669,
+"computer":58122,
+"confirmation-number":58936,
+"contact-mail":57552,
+"contact-phone":57551,
+"contacts":57530,
+"content-copy":57677,
+"content-cut":57678,
+"content-paste":57679,
+"control-point":58298,
+"control-point-duplicate":58299,
+"copyright":59660,
+"create":57680,
+"create-new-folder":58060,
+"credit-card":59504,
+"crop":58302,
+"crop-16-9":58300,
+"crop-3-2":58301,
+"crop-5-4":58303,
+"crop-7-5":58304,
+"crop-din":58305,
+"crop-free":58306,
+"crop-landscape":58307,
+"crop-original":58308,
+"crop-portrait":58309,
+"crop-rotate":58423,
+"crop-square":58310,
+"dashboard":59505,
+"data-usage":57775,
+"date-range":59670,
+"dehaze":58311,
+"delete":59506,
+"delete-forever":59691,
+"delete-sweep":57708,
+"description":59507,
+"desktop-mac":58123,
+"desktop-windows":58124,
+"details":58312,
+"developer-board":58125,
+"developer-mode":57776,
+"device-hub":58165,
+"devices":57777,
+"devices-other":58167,
+"dialer-sip":57531,
+"dialpad":57532,
+"directions":58670,
+"directions-bike":58671,
+"directions-boat":58674,
+"directions-bus":58672,
+"directions-car":58673,
+"directions-railway":58676,
+"directions-run":58726,
+"directions-subway":58675,
+"directions-transit":58677,
+"directions-walk":58678,
+"disc-full":58896,
+"dns":59509,
+"do-not-disturb":58898,
+"do-not-disturb-alt":58897,
+"do-not-disturb-off":58947,
+"do-not-disturb-on":58948,
+"dock":58126,
+"domain":59374,
+"done":59510,
+"done-all":59511,
+"donut-large":59671,
+"donut-small":59672,
+"drafts":57681,
+"drag-handle":57949,
+"drive-eta":58899,
+"dvr":57778,
+"edit":58313,
+"edit-location":58728,
+"eject":59643,
+"email":57534,
+"enhanced-encryption":58943,
+"equalizer":57373,
+"error":57344,
+"error-outline":57345,
+"euro-symbol":59686,
+"ev-station":58733,
+"event":59512,
+"event-available":58900,
+"event-busy":58901,
+"event-note":58902,
+"event-seat":59651,
+"exit-to-app":59513,
+"expand-less":58830,
+"expand-more":58831,
+"explicit":57374,
+"explore":59514,
+"exposure":58314,
+"exposure-neg-1":58315,
+"exposure-neg-2":58316,
+"exposure-plus-1":58317,
+"exposure-plus-2":58318,
+"exposure-zero":58319,
+"extension":59515,
+"face":59516,
+"fast-forward":57375,
+"fast-rewind":57376,
+"favorite":59517,
+"favorite-border":59518,
+"featured-play-list":57453,
+"featured-video":57454,
+"feedback":59519,
+"fiber-dvr":57437,
+"fiber-manual-record":57441,
+"fiber-new":57438,
+"fiber-pin":57450,
+"fiber-smart-record":57442,
+"file-download":58052,
+"file-upload":58054,
+"filter":58323,
+"filter-1":58320,
+"filter-2":58321,
+"filter-3":58322,
+"filter-4":58324,
+"filter-5":58325,
+"filter-6":58326,
+"filter-7":58327,
+"filter-8":58328,
+"filter-9":58329,
+"filter-9-plus":58330,
+"filter-b-and-w":58331,
+"filter-center-focus":58332,
+"filter-drama":58333,
+"filter-frames":58334,
+"filter-hdr":58335,
+"filter-list":57682,
+"filter-none":58336,
+"filter-tilt-shift":58338,
+"filter-vintage":58339,
+"find-in-page":59520,
+"find-replace":59521,
+"fingerprint":59661,
+"first-page":58844,
+"fitness-center":60227,
+"flag":57683,
+"flare":58340,
+"flash-auto":58341,
+"flash-off":58342,
+"flash-on":58343,
+"flight":58681,
+"flight-land":59652,
+"flight-takeoff":59653,
+"flip":58344,
+"flip-to-back":59522,
+"flip-to-front":59523,
+"folder":58055,
+"folder-open":58056,
+"folder-shared":58057,
+"folder-special":58903,
+"font-download":57703,
+"format-align-center":57908,
+"format-align-justify":57909,
+"format-align-left":57910,
+"format-align-right":57911,
+"format-bold":57912,
+"format-clear":57913,
+"format-color-fill":57914,
+"format-color-reset":57915,
+"format-color-text":57916,
+"format-indent-decrease":57917,
+"format-indent-increase":57918,
+"format-italic":57919,
+"format-line-spacing":57920,
+"format-list-bulleted":57921,
+"format-list-numbered":57922,
+"format-paint":57923,
+"format-quote":57924,
+"format-shapes":57950,
+"format-size":57925,
+"format-strikethrough":57926,
+"format-textdirection-l-to-r":57927,
+"format-textdirection-r-to-l":57928,
+"format-underlined":57929,
+"forum":57535,
+"forward":57684,
+"forward-10":57430,
+"forward-30":57431,
+"forward-5":57432,
+"free-breakfast":60228,
+"fullscreen":58832,
+"fullscreen-exit":58833,
+"functions":57930,
+"g-translate":59687,
+"gamepad":58127,
+"games":57377,
+"gavel":59662,
+"gesture":57685,
+"get-app":59524,
+"gif":59656,
+"golf-course":60229,
+"gps-fixed":57779,
+"gps-not-fixed":57780,
+"gps-off":57781,
+"grade":59525,
+"gradient":58345,
+"grain":58346,
+"graphic-eq":57784,
+"grid-off":58347,
+"grid-on":58348,
+"group":59375,
+"group-add":59376,
+"group-work":59526,
+"hd":57426,
+"hdr-off":58349,
+"hdr-on":58350,
+"hdr-strong":58353,
+"hdr-weak":58354,
+"headset":58128,
+"headset-mic":58129,
+"healing":58355,
+"hearing":57379,
+"help":59527,
+"help-outline":59645,
+"high-quality":57380,
+"highlight":57951,
+"highlight-off":59528,
+"history":59529,
+"home":59530,
+"hot-tub":60230,
+"hotel":58682,
+"hourglass-empty":59531,
+"hourglass-full":59532,
+"http":59650,
+"https":59533,
+"image":58356,
+"image-aspect-ratio":58357,
+"import-contacts":57568,
+"import-export":57539,
+"important-devices":59666,
+"inbox":57686,
+"indeterminate-check-box":59657,
+"info":59534,
+"info-outline":59535,
+"input":59536,
+"insert-chart":57931,
+"insert-comment":57932,
+"insert-drive-file":57933,
+"insert-emoticon":57934,
+"insert-invitation":57935,
+"insert-link":57936,
+"insert-photo":57937,
+"invert-colors":59537,
+"invert-colors-off":57540,
+"iso":58358,
+"keyboard":58130,
+"keyboard-arrow-down":58131,
+"keyboard-arrow-left":58132,
+"keyboard-arrow-right":58133,
+"keyboard-arrow-up":58134,
+"keyboard-backspace":58135,
+"keyboard-capslock":58136,
+"keyboard-hide":58138,
+"keyboard-return":58139,
+"keyboard-tab":58140,
+"keyboard-voice":58141,
+"kitchen":60231,
+"label":59538,
+"label-outline":59539,
+"landscape":58359,
+"language":59540,
+"laptop":58142,
+"laptop-chromebook":58143,
+"laptop-mac":58144,
+"laptop-windows":58145,
+"last-page":58845,
+"launch":59541,
+"layers":58683,
+"layers-clear":58684,
+"leak-add":58360,
+"leak-remove":58361,
+"lens":58362,
+"library-add":57390,
+"library-books":57391,
+"library-music":57392,
+"lightbulb-outline":59663,
+"line-style":59673,
+"line-weight":59674,
+"linear-scale":57952,
+"link":57687,
+"linked-camera":58424,
+"list":59542,
+"live-help":57542,
+"live-tv":58937,
+"local-activity":58687,
+"local-airport":58685,
+"local-atm":58686,
+"local-bar":58688,
+"local-cafe":58689,
+"local-car-wash":58690,
+"local-convenience-store":58691,
+"local-dining":58710,
+"local-drink":58692,
+"local-florist":58693,
+"local-gas-station":58694,
+"local-grocery-store":58695,
+"local-hospital":58696,
+"local-hotel":58697,
+"local-laundry-service":58698,
+"local-library":58699,
+"local-mall":58700,
+"local-movies":58701,
+"local-offer":58702,
+"local-parking":58703,
+"local-pharmacy":58704,
+"local-phone":58705,
+"local-pizza":58706,
+"local-play":58707,
+"local-post-office":58708,
+"local-printshop":58709,
+"local-see":58711,
+"local-shipping":58712,
+"local-taxi":58713,
+"location-city":59377,
+"location-disabled":57782,
+"location-off":57543,
+"location-on":57544,
+"location-searching":57783,
+"lock":59543,
+"lock-open":59544,
+"lock-outline":59545,
+"looks":58364,
+"looks-3":58363,
+"looks-4":58365,
+"looks-5":58366,
+"looks-6":58367,
+"looks-one":58368,
+"looks-two":58369,
+"loop":57384,
+"loupe":58370,
+"low-priority":57709,
+"loyalty":59546,
+"mail":57688,
+"mail-outline":57569,
+"map":58715,
+"markunread":57689,
+"markunread-mailbox":59547,
+"memory":58146,
+"menu":58834,
+"merge-type":57938,
+"message":57545,
+"mic":57385,
+"mic-none":57386,
+"mic-off":57387,
+"mms":58904,
+"mode-comment":57939,
+"mode-edit":57940,
+"monetization-on":57955,
+"money-off":57948,
+"monochrome-photos":58371,
+"mood":59378,
+"mood-bad":59379,
+"more":58905,
+"more-horiz":58835,
+"more-vert":58836,
+"motorcycle":59675,
+"mouse":58147,
+"move-to-inbox":57704,
+"movie":57388,
+"movie-creation":58372,
+"movie-filter":58426,
+"multiline-chart":59103,
+"music-note":58373,
+"music-video":57443,
+"my-location":58716,
+"nature":58374,
+"nature-people":58375,
+"navigate-before":58376,
+"navigate-next":58377,
+"navigation":58717,
+"near-me":58729,
+"network-cell":57785,
+"network-check":58944,
+"network-locked":58906,
+"network-wifi":57786,
+"new-releases":57393,
+"next-week":57706,
+"nfc":57787,
+"no-encryption":58945,
+"no-sim":57548,
+"not-interested":57395,
+"note":57455,
+"note-add":59548,
+"notifications":59380,
+"notifications-active":59383,
+"notifications-none":59381,
+"notifications-off":59382,
+"notifications-paused":59384,
+"offline-pin":59658,
+"ondemand-video":58938,
+"opacity":59676,
+"open-in-browser":59549,
+"open-in-new":59550,
+"open-with":59551,
+"pages":59385,
+"pageview":59552,
+"palette":58378,
+"pan-tool":59685,
+"panorama":58379,
+"panorama-fish-eye":58380,
+"panorama-horizontal":58381,
+"panorama-vertical":58382,
+"panorama-wide-angle":58383,
+"party-mode":59386,
+"pause":57396,
+"pause-circle-filled":57397,
+"pause-circle-outline":57398,
+"payment":59553,
+"people":59387,
+"people-outline":59388,
+"perm-camera-mic":59554,
+"perm-contact-calendar":59555,
+"perm-data-setting":59556,
+"perm-device-information":59557,
+"perm-identity":59558,
+"perm-media":59559,
+"perm-phone-msg":59560,
+"perm-scan-wifi":59561,
+"person":59389,
+"person-add":59390,
+"person-outline":59391,
+"person-pin":58714,
+"person-pin-circle":58730,
+"personal-video":58939,
+"pets":59677,
+"phone":57549,
+"phone-android":58148,
+"phone-bluetooth-speaker":58907,
+"phone-forwarded":58908,
+"phone-in-talk":58909,
+"phone-iphone":58149,
+"phone-locked":58910,
+"phone-missed":58911,
+"phone-paused":58912,
+"phonelink":58150,
+"phonelink-erase":57563,
+"phonelink-lock":57564,
+"phonelink-off":58151,
+"phonelink-ring":57565,
+"phonelink-setup":57566,
+"photo":58384,
+"photo-album":58385,
+"photo-camera":58386,
+"photo-filter":58427,
+"photo-library":58387,
+"photo-size-select-actual":58418,
+"photo-size-select-large":58419,
+"photo-size-select-small":58420,
+"picture-as-pdf":58389,
+"picture-in-picture":59562,
+"picture-in-picture-alt":59665,
+"pie-chart":59076,
+"pie-chart-outlined":59077,
+"pin-drop":58718,
+"place":58719,
+"play-arrow":57399,
+"play-circle-filled":57400,
+"play-circle-outline":57401,
+"play-for-work":59654,
+"playlist-add":57403,
+"playlist-add-check":57445,
+"playlist-play":57439,
+"plus-one":59392,
+"poll":59393,
+"polymer":59563,
+"pool":60232,
+"portable-wifi-off":57550,
+"portrait":58390,
+"power":58940,
+"power-input":58166,
+"power-settings-new":59564,
+"pregnant-woman":59678,
+"present-to-all":57567,
+"print":59565,
+"priority-high":58949,
+"public":59403,
+"publish":57941,
+"query-builder":59566,
+"question-answer":59567,
+"queue":57404,
+"queue-music":57405,
+"queue-play-next":57446,
+"radio":57406,
+"radio-button-checked":59447,
+"radio-button-unchecked":59446,
+"rate-review":58720,
+"receipt":59568,
+"recent-actors":57407,
+"record-voice-over":59679,
+"redeem":59569,
+"redo":57690,
+"refresh":58837,
+"remove":57691,
+"remove-circle":57692,
+"remove-circle-outline":57693,
+"remove-from-queue":57447,
+"remove-red-eye":58391,
+"remove-shopping-cart":59688,
+"reorder":59646,
+"repeat":57408,
+"repeat-one":57409,
+"replay":57410,
+"replay-10":57433,
+"replay-30":57434,
+"replay-5":57435,
+"reply":57694,
+"reply-all":57695,
+"report":57696,
+"report-problem":59570,
+"restaurant":58732,
+"restaurant-menu":58721,
+"restore":59571,
+"restore-page":59689,
+"ring-volume":57553,
+"room":59572,
+"room-service":60233,
+"rotate-90-degrees-ccw":58392,
+"rotate-left":58393,
+"rotate-right":58394,
+"rounded-corner":59680,
+"router":58152,
+"rowing":59681,
+"rss-feed":57573,
+"rv-hookup":58946,
+"satellite":58722,
+"save":57697,
+"scanner":58153,
+"schedule":59573,
+"school":59404,
+"screen-lock-landscape":57790,
+"screen-lock-portrait":57791,
+"screen-lock-rotation":57792,
+"screen-rotation":57793,
+"screen-share":57570,
+"sd-card":58915,
+"sd-storage":57794,
+"search":59574,
+"security":58154,
+"select-all":57698,
+"send":57699,
+"sentiment-dissatisfied":59409,
+"sentiment-neutral":59410,
+"sentiment-satisfied":59411,
+"sentiment-very-dissatisfied":59412,
+"sentiment-very-satisfied":59413,
+"settings":59576,
+"settings-applications":59577,
+"settings-backup-restore":59578,
+"settings-bluetooth":59579,
+"settings-brightness":59581,
+"settings-cell":59580,
+"settings-ethernet":59582,
+"settings-input-antenna":59583,
+"settings-input-component":59584,
+"settings-input-composite":59585,
+"settings-input-hdmi":59586,
+"settings-input-svideo":59587,
+"settings-overscan":59588,
+"settings-phone":59589,
+"settings-power":59590,
+"settings-remote":59591,
+"settings-system-daydream":57795,
+"settings-voice":59592,
+"share":59405,
+"shop":59593,
+"shop-two":59594,
+"shopping-basket":59595,
+"shopping-cart":59596,
+"short-text":57953,
+"show-chart":59105,
+"shuffle":57411,
+"signal-cellular-4-bar":57800,
+"signal-cellular-connected-no-internet-4-bar":57805,
+"signal-cellular-no-sim":57806,
+"signal-cellular-null":57807,
+"signal-cellular-off":57808,
+"signal-wifi-4-bar":57816,
+"signal-wifi-4-bar-lock":57817,
+"signal-wifi-off":57818,
+"sim-card":58155,
+"sim-card-alert":58916,
+"skip-next":57412,
+"skip-previous":57413,
+"slideshow":58395,
+"slow-motion-video":57448,
+"smartphone":58156,
+"smoke-free":60234,
+"smoking-rooms":60235,
+"sms":58917,
+"sms-failed":58918,
+"snooze":57414,
+"sort":57700,
+"sort-by-alpha":57427,
+"spa":60236,
+"space-bar":57942,
+"speaker":58157,
+"speaker-group":58158,
+"speaker-notes":59597,
+"speaker-notes-off":59690,
+"speaker-phone":57554,
+"spellcheck":59598,
+"star":59448,
+"star-border":59450,
+"star-half":59449,
+"stars":59600,
+"stay-current-landscape":57555,
+"stay-current-portrait":57556,
+"stay-primary-landscape":57557,
+"stay-primary-portrait":57558,
+"stop":57415,
+"stop-screen-share":57571,
+"storage":57819,
+"store":59601,
+"store-mall-directory":58723,
+"straighten":58396,
+"streetview":58734,
+"strikethrough-s":57943,
+"style":58397,
+"subdirectory-arrow-left":58841,
+"subdirectory-arrow-right":58842,
+"subject":59602,
+"subscriptions":57444,
+"subtitles":57416,
+"subway":58735,
+"supervisor-account":59603,
+"surround-sound":57417,
+"swap-calls":57559,
+"swap-horiz":59604,
+"swap-vert":59605,
+"swap-vertical-circle":59606,
+"switch-camera":58398,
+"switch-video":58399,
+"sync":58919,
+"sync-disabled":58920,
+"sync-problem":58921,
+"system-update":58922,
+"system-update-alt":59607,
+"tab":59608,
+"tab-unselected":59609,
+"tablet":58159,
+"tablet-android":58160,
+"tablet-mac":58161,
+"tag-faces":58400,
+"tap-and-play":58923,
+"terrain":58724,
+"text-fields":57954,
+"text-format":57701,
+"textsms":57560,
+"texture":58401,
+"theaters":59610,
+"thumb-down":59611,
+"thumb-up":59612,
+"thumbs-up-down":59613,
+"time-to-leave":58924,
+"timelapse":58402,
+"timeline":59682,
+"timer":58405,
+"timer-10":58403,
+"timer-3":58404,
+"timer-off":58406,
+"title":57956,
+"toc":59614,
+"today":59615,
+"toll":59616,
+"tonality":58407,
+"touch-app":59667,
+"toys":58162,
+"track-changes":59617,
+"traffic":58725,
+"train":58736,
+"tram":58737,
+"transfer-within-a-station":58738,
+"transform":58408,
+"translate":59618,
+"trending-down":59619,
+"trending-flat":59620,
+"trending-up":59621,
+"tune":58409,
+"turned-in":59622,
+"turned-in-not":59623,
+"tv":58163,
+"unarchive":57705,
+"undo":57702,
+"unfold-less":58838,
+"unfold-more":58839,
+"update":59683,
+"usb":57824,
+"verified-user":59624,
+"vertical-align-bottom":57944,
+"vertical-align-center":57945,
+"vertical-align-top":57946,
+"vibration":58925,
+"video-call":57456,
+"video-label":57457,
+"video-library":57418,
+"videocam":57419,
+"videocam-off":57420,
+"videogame-asset":58168,
+"view-agenda":59625,
+"view-array":59626,
+"view-carousel":59627,
+"view-column":59628,
+"view-comfy":58410,
+"view-compact":58411,
+"view-day":59629,
+"view-headline":59630,
+"view-list":59631,
+"view-module":59632,
+"view-quilt":59633,
+"view-stream":59634,
+"view-week":59635,
+"vignette":58421,
+"visibility":59636,
+"visibility-off":59637,
+"voice-chat":58926,
+"voicemail":57561,
+"volume-down":57421,
+"volume-mute":57422,
+"volume-off":57423,
+"volume-up":57424,
+"vpn-key":57562,
+"vpn-lock":58927,
+"wallpaper":57788,
+"warning":57346,
+"watch":58164,
+"watch-later":59684,
+"wb-auto":58412,
+"wb-cloudy":58413,
+"wb-incandescent":58414,
+"wb-iridescent":58422,
+"wb-sunny":58416,
+"wc":58941,
+"web":57425,
+"web-asset":57449,
+"weekend":57707,
+"whatshot":59406,
+"widgets":57789,
+"wifi":58942,
+"wifi-lock":57825,
+"wifi-tethering":57826,
+"work":59641,
+"wrap-text":57947,
+"youtube-searched-for":59642,
+"zoom-in":59647,
+"zoom-out":59648,
+"zoom-out-map":58731};
+
+
+var MaterialIcons=(0,_createIconSet2.default)(glyphMap,'Material Icons','MaterialIcons.ttf');
+
+module.exports=MaterialIcons;
+module.exports.glyphMap=glyphMap;
+}, "react-native-vector-icons/MaterialIcons.js");
+__d(799 /* react-native-vector-icons/Octicons.js */, function(global, require, module, exports) {
+
+
+
+
+var _createIconSet=require(672 /* ./lib/create-icon-set */);var _createIconSet2=babelHelpers.interopRequireDefault(_createIconSet);
+var glyphMap={
+"alert":61485,
+"arrow-down":61503,
+"arrow-left":61504,
+"arrow-right":61502,
+"arrow-small-down":61600,
+"arrow-small-left":61601,
+"arrow-small-right":61553,
+"arrow-small-up":61599,
+"arrow-up":61501,
+"microscope":61661,
+"beaker":61661,
+"bell":61662,
+"bold":61666,
+"book":61447,
+"bookmark":61563,
+"briefcase":61651,
+"broadcast":61512,
+"browser":61637,
+"bug":61585,
+"calendar":61544,
+"check":61498,
+"checklist":61558,
+"chevron-down":61603,
+"chevron-left":61604,
+"chevron-right":61560,
+"chevron-up":61602,
+"circle-slash":61572,
+"circuit-board":61654,
+"clippy":61493,
+"clock":61510,
+"cloud-download":61451,
+"cloud-upload":61452,
+"code":61535,
+"comment-add":61483,
+"comment":61483,
+"comment-discussion":61519,
+"credit-card":61509,
+"dash":61642,
+"dashboard":61565,
+"database":61590,
+"clone":61660,
+"desktop-download":61660,
+"device-camera":61526,
+"device-camera-video":61527,
+"device-desktop":62076,
+"device-mobile":61496,
+"diff":61517,
+"diff-added":61547,
+"diff-ignored":61593,
+"diff-modified":61549,
+"diff-removed":61548,
+"diff-renamed":61550,
+"ellipsis":61594,
+"eye-unwatch":61518,
+"eye-watch":61518,
+"eye":61518,
+"file-binary":61588,
+"file-code":61456,
+"file-directory":61462,
+"file-media":61458,
+"file-pdf":61460,
+"file-submodule":61463,
+"file-symlink-directory":61617,
+"file-symlink-file":61616,
+"file-text":61457,
+"file-zip":61459,
+"flame":61650,
+"fold":61644,
+"gear":61487,
+"gift":61506,
+"gist":61454,
+"gist-secret":61580,
+"git-branch-create":61472,
+"git-branch-delete":61472,
+"git-branch":61472,
+"git-commit":61471,
+"git-compare":61612,
+"git-merge":61475,
+"git-pull-request-abandoned":61449,
+"git-pull-request":61449,
+"globe":61622,
+"graph":61507,
+"heart":9829,
+"history":61566,
+"home":61581,
+"horizontal-rule":61552,
+"hubot":61597,
+"inbox":61647,
+"info":61529,
+"issue-closed":61480,
+"issue-opened":61478,
+"issue-reopened":61479,
+"italic":61668,
+"jersey":61465,
+"key":61513,
+"keyboard":61453,
+"law":61656,
+"light-bulb":61440,
+"link":61532,
+"link-external":61567,
+"list-ordered":61538,
+"list-unordered":61537,
+"location":61536,
+"gist-private":61546,
+"mirror-private":61546,
+"git-fork-private":61546,
+"lock":61546,
+"logo-gist":61613,
+"logo-github":61586,
+"mail":61499,
+"mail-read":61500,
+"mail-reply":61521,
+"mark-github":61450,
+"markdown":61641,
+"megaphone":61559,
+"mention":61630,
+"milestone":61557,
+"mirror-public":61476,
+"mirror":61476,
+"mortar-board":61655,
+"mute":61568,
+"no-newline":61596,
+"octoface":61448,
+"organization":61495,
+"package":61636,
+"paintcan":61649,
+"pencil":61528,
+"person-add":61464,
+"person-follow":61464,
+"person":61464,
+"pin":61505,
+"plug":61652,
+"repo-create":61533,
+"gist-new":61533,
+"file-directory-create":61533,
+"file-add":61533,
+"plus":61533,
+"primitive-dot":61522,
+"primitive-square":61523,
+"pulse":61573,
+"question":61484,
+"quote":61539,
+"radio-tower":61488,
+"repo-delete":61441,
+"repo":61441,
+"repo-clone":61516,
+"repo-force-push":61514,
+"gist-fork":61442,
+"repo-forked":61442,
+"repo-pull":61446,
+"repo-push":61445,
+"rocket":61491,
+"rss":61492,
+"ruby":61511,
+"search-save":61486,
+"search":61486,
+"server":61591,
+"settings":61564,
+"shield":61665,
+"log-in":61494,
+"sign-in":61494,
+"log-out":61490,
+"sign-out":61490,
+"smiley":61671,
+"squirrel":61618,
+"star-add":61482,
+"star-delete":61482,
+"star":61482,
+"stop":61583,
+"repo-sync":61575,
+"sync":61575,
+"tag-remove":61461,
+"tag-add":61461,
+"tag":61461,
+"tasklist":61669,
+"telescope":61576,
+"terminal":61640,
+"text-size":61667,
+"three-bars":61534,
+"thumbsdown":61659,
+"thumbsup":61658,
+"tools":61489,
+"trashcan":61648,
+"triangle-down":61531,
+"triangle-left":61508,
+"triangle-right":61530,
+"triangle-up":61610,
+"unfold":61497,
+"unmute":61626,
+"unverified":61672,
+"verified":61670,
+"versions":61540,
+"watch":61664,
+"remove-close":61569,
+"x":61569};
+
+
+var Octicons=(0,_createIconSet2.default)(glyphMap,'octicons','Octicons.ttf');
+
+module.exports=Octicons;
+module.exports.glyphMap=glyphMap;
+}, "react-native-vector-icons/Octicons.js");
+__d(800 /* react-native-vector-icons/Zocial.js */, function(global, require, module, exports) {
+
+
+
+
+var _createIconSet=require(672 /* ./lib/create-icon-set */);var _createIconSet2=babelHelpers.interopRequireDefault(_createIconSet);
+var glyphMap={
+"acrobat":61696,
+"amazon":61697,
+"android":61698,
+"angellist":61699,
+"aol":61700,
+"appnet":61701,
+"appstore":61702,
+"bitbucket":61703,
+"bitcoin":61704,
+"blogger":61705,
+"buffer":61706,
+"cal":61707,
+"call":61708,
+"cart":61709,
+"chrome":61710,
+"cloudapp":61711,
+"creativecommons":61712,
+"delicious":61713,
+"digg":61714,
+"disqus":61715,
+"dribbble":61716,
+"dropbox":61717,
+"drupal":61718,
+"dwolla":61720,
+"email":61721,
+"eventasaurus":61722,
+"eventbrite":61723,
+"eventful":61724,
+"evernote":61725,
+"facebook":61726,
+"fivehundredpx":61727,
+"flattr":61728,
+"flickr":61729,
+"forrst":61730,
+"foursquare":61731,
+"github":61732,
+"gmail":61733,
+"google":61734,
+"googleplay":61735,
+"googleplus":61736,
+"gowalla":61737,
+"grooveshark":61738,
+"guest":61739,
+"html5":61740,
+"ie":61741,
+"instagram":61742,
+"instapaper":61743,
+"intensedebate":61744,
+"itunes":61745,
+"klout":61746,
+"lanyrd":61747,
+"lastfm":61748,
+"lego":61749,
+"linkedin":61750,
+"lkdto":61751,
+"logmein":61752,
+"macstore":61753,
+"meetup":61754,
+"myspace":61755,
+"ninetyninedesigns":61756,
+"openid":61757,
+"opentable":61758,
+"paypal":61759,
+"persona":61796,
+"pinboard":61760,
+"pinterest":61761,
+"plancast":61762,
+"plurk":61763,
+"pocket":61764,
+"podcast":61765,
+"posterous":61766,
+"print":61767,
+"quora":61768,
+"reddit":61769,
+"rss":61770,
+"scribd":61771,
+"skype":61772,
+"smashing":61773,
+"songkick":61774,
+"soundcloud":61775,
+"spotify":61776,
+"stackoverflow":61777,
+"statusnet":61778,
+"steam":61779,
+"stripe":61780,
+"stumbleupon":61781,
+"tumblr":61782,
+"twitter":61783,
+"viadeo":61784,
+"vimeo":61785,
+"vk":61786,
+"weibo":61787,
+"wikipedia":61788,
+"windows":61789,
+"wordpress":61790,
+"xing":61791,
+"yahoo":61792,
+"ycombinator":61793,
+"yelp":61794,
+"youtube":61795};
+
+
+var Zocial=(0,_createIconSet2.default)(glyphMap,'zocial','Zocial.ttf');
+
+module.exports=Zocial;
+module.exports.glyphMap=glyphMap;
+}, "react-native-vector-icons/Zocial.js");
+__d(801 /* FrogAppsMobile/images/checked.png */, function(global, require, module, exports) {module.exports = require(174 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/images","width":512,"height":512,"scales":[1],"hash":"3bd35d04495d40adb94cc9f05a3aefb0","name":"checked","type":"png"});
+}, "FrogAppsMobile/images/checked.png");
+__d(802 /* FrogAppsMobile/images/outlook.png */, function(global, require, module, exports) {module.exports = require(174 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/images","width":64,"height":63,"scales":[1],"hash":"35b2300086404dd0d6c6cd9d633f9590","name":"outlook","type":"png"});
+}, "FrogAppsMobile/images/outlook.png");
+__d(803 /* FrogAppsMobile/images/office.png */, function(global, require, module, exports) {module.exports = require(174 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/images","width":150,"height":150,"scales":[1],"hash":"d5e82e7fc33a0426ca26444e520618e9","name":"office","type":"png"});
+}, "FrogAppsMobile/images/office.png");
+__d(804 /* FrogAppsMobile/images/word.jpg */, function(global, require, module, exports) {module.exports = require(174 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/images","width":175,"height":175,"scales":[1],"hash":"dcfcd0de3c3b17641c330ef511dcccb1","name":"word","type":"jpg"});
+}, "FrogAppsMobile/images/word.jpg");
+__d(805 /* FrogAppsMobile/screens/appdetails.js */, function(global, require, module, exports) {'use strict';
+var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+var _reactNative=require(44 /* react-native */);
+
+
+
+
+
+var _rating=require(806 /* ../components/rating.js */);var _rating2=babelHelpers.interopRequireDefault(_rating);
+var _scrollview=require(807 /* ../components/scrollview.js */);var _scrollview2=babelHelpers.interopRequireDefault(_scrollview);
+var NavigationBar=require(660 /* react-native-navbar */);
+var styles=require(657 /* ../stylesheets/styles */);
+
+var THUMBS=[
+require(808 /* ../images/scroll_app_1.jpg */),
+require(809 /* ../images/scroll_app_2.jpg */),
+require(810 /* ../images/scroll_app_3.jpg */),
+require(811 /* ../images/scroll_app_4.jpg */)];var
+
+
+AppDetail=function(_Component){babelHelpers.inherits(AppDetail,_Component);function AppDetail(){babelHelpers.classCallCheck(this,AppDetail);return babelHelpers.possibleConstructorReturn(this,(AppDetail.__proto__||Object.getPrototypeOf(AppDetail)).apply(this,arguments));}babelHelpers.createClass(AppDetail,[{key:'render',value:function render()
 {
 var navigator=this.props.navigator;
 var leftButtonConfig={
 title:'Back',
 handler:function handler(){
-navigator.replace({
-id:'WelcomeScreen'});
+navigator.pop({
+id:'AppList'});
 
 }};
 
 var titleConfig={
-title:'Frog Apps'};
-
+title:'Frog Apps Detail'};
 
 return(
 _react2.default.createElement(_reactNative.View,{style:styles.container},
@@ -81849,28 +89960,41 @@ style:styles.navigator,
 title:titleConfig,
 leftButton:leftButtonConfig})),
 
-_react2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'#246dd5',alignItems:'center',justifyContent:'center'}},
-_react2.default.createElement(_reactNative.Text,{style:{color:'white',fontSize:32}},'App List screen'))));
+_react2.default.createElement(_reactNative.View,{style:styles.detailContainer},
+_react2.default.createElement(_reactNative.View,{style:styles.headDetail},
+_react2.default.createElement(_reactNative.View,{style:styles.imgDetailContainer},
+_react2.default.createElement(_reactNative.Image,{style:styles.imgDetail,source:this.props.data.img})),
+
+_react2.default.createElement(_reactNative.View,{style:styles.infoDetailContainer},
+
+_react2.default.createElement(_reactNative.Text,{style:styles.titleDetail},this.props.data.title),
+_react2.default.createElement(_reactNative.View,{style:styles.downloadAndRating},
+_react2.default.createElement(_reactNative.View,{style:styles.ratingForDetailContainer},
+
+_react2.default.createElement(_reactNative.Text,null,this.props.data.downloadCount),
+_react2.default.createElement(_reactNative.View,{style:styles.rateContainer},
+_react2.default.createElement(_reactNative.View,{style:styles.detailRate},
+_react2.default.createElement(_rating2.default,{disabled:true,rating:this.props.data.starcount,starSize:11,starColor:'gray'})),
+
+_react2.default.createElement(_reactNative.Text,null,this.props.data.starcount,' (611376)'))),
 
 
 
-}}]);return AppList;}(_react.Component);
-
-
-module.exports=AppList;
-}, "FrogAppsMobile/screens/applist.js");
-__d(663 /* FrogAppsMobile/screens/appdetails.js */, function(global, require, module, exports) {'use strict';
-var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
-var _reactNative=require(44 /* react-native */);var
+_react2.default.createElement(_reactNative.View,{style:styles.btnContainer},
+_react2.default.createElement(_reactNative.TouchableOpacity,{style:styles.btn},
+_react2.default.createElement(_reactNative.Text,{style:styles.btnText},'INSTALL')))))),
 
 
 
 
-AppDetail=function(_Component){babelHelpers.inherits(AppDetail,_Component);function AppDetail(){babelHelpers.classCallCheck(this,AppDetail);return babelHelpers.possibleConstructorReturn(this,(AppDetail.__proto__||Object.getPrototypeOf(AppDetail)).apply(this,arguments));}babelHelpers.createClass(AppDetail,[{key:'render',value:function render()
-{
-return(
-_react2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'#246dd5',alignItems:'center',justifyContent:'center'}},
-_react2.default.createElement(_reactNative.Text,{style:{color:'white',fontSize:32}},'App Details screen')));
+
+
+
+_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_scrollview2.default,{thumbs:THUMBS})))));
+
+
+
 
 
 }}]);return AppDetail;}(_react.Component);
@@ -81878,6 +90002,94 @@ _react2.default.createElement(_reactNative.Text,{style:{color:'white',fontSize:3
 
 module.exports=AppDetail;
 }, "FrogAppsMobile/screens/appdetails.js");
+__d(806 /* FrogAppsMobile/components/rating.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+var _reactNative=require(44 /* react-native */);
+
+
+
+var _reactNativeStarRating=require(668 /* react-native-star-rating */);var _reactNativeStarRating2=babelHelpers.interopRequireDefault(_reactNativeStarRating);var
+
+Rating=function(_Component){babelHelpers.inherits(Rating,_Component);
+function Rating(props){babelHelpers.classCallCheck(this,Rating);return babelHelpers.possibleConstructorReturn(this,(Rating.__proto__||Object.getPrototypeOf(Rating)).call(this,
+props));
+}babelHelpers.createClass(Rating,[{key:'render',value:function render()
+{
+return(
+_react2.default.createElement(_reactNativeStarRating2.default,{
+disabled:this.props.disabled,
+emptyStar:'ios-star-outline',
+fullStar:'ios-star',
+halfStar:'ios-star-half',
+iconSet:'Ionicons',
+maxStars:5,
+rating:this.props.rating,
+selectedStar:function selectedStar(){},
+starColor:this.props.starColor,
+starSize:this.props.starSize}));
+
+
+
+}}]);return Rating;}(_react.Component);exports.default=Rating;
+
+
+Rating.propTypes={
+disabled:_react2.default.PropTypes.bool.isRequired,
+rating:_react2.default.PropTypes.number.isRequired,
+starSize:_react2.default.PropTypes.number.isRequired,
+starColor:_react2.default.PropTypes.string.isRequired};
+}, "FrogAppsMobile/components/rating.js");
+__d(807 /* FrogAppsMobile/components/scrollview.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.Thumb=undefined;var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+var _reactNative=require(44 /* react-native */);
+
+
+
+
+
+
+
+
+var styles=require(657 /* ../stylesheets/styles */);var
+ScrollViewApp=function(_Component){babelHelpers.inherits(ScrollViewApp,_Component);function ScrollViewApp(){babelHelpers.classCallCheck(this,ScrollViewApp);return babelHelpers.possibleConstructorReturn(this,(ScrollViewApp.__proto__||Object.getPrototypeOf(ScrollViewApp)).apply(this,arguments));}babelHelpers.createClass(ScrollViewApp,[{key:'render',value:function render()
+{
+var _scrollView;
+var THUMBS=this.props.thumbs;
+var createThumbRow=function createThumbRow(uri,i){return _react2.default.createElement(Thumb,{key:i,uri:uri});};
+return(
+_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_reactNative.ScrollView,{
+ref:function ref(scrollView){_scrollView=scrollView;},
+automaticallyAdjustContentInsets:false,
+horizontal:true,
+style:[styles.scrollView,styles.horizontalScrollView]},
+THUMBS.map(createThumbRow))));
+
+
+
+}}]);return ScrollViewApp;}(_react.Component);exports.default=ScrollViewApp;var
+
+
+Thumb=exports.Thumb=function(_Component2){babelHelpers.inherits(Thumb,_Component2);function Thumb(){babelHelpers.classCallCheck(this,Thumb);return babelHelpers.possibleConstructorReturn(this,(Thumb.__proto__||Object.getPrototypeOf(Thumb)).apply(this,arguments));}babelHelpers.createClass(Thumb,[{key:'shouldComponentUpdate',value:function shouldComponentUpdate(
+
+nextProps,nextState){
+return false;
+}},{key:'render',value:function render()
+
+{
+return(
+_react2.default.createElement(_reactNative.View,{style:styles.scrollViewContainer},
+_react2.default.createElement(_reactNative.Image,{style:styles.scrollViewImg,source:this.props.uri})));
+
+
+}}]);return Thumb;}(_react.Component);
+}, "FrogAppsMobile/components/scrollview.js");
+__d(808 /* FrogAppsMobile/images/scroll_app_1.jpg */, function(global, require, module, exports) {module.exports = require(174 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/images","width":506,"height":900,"scales":[1],"hash":"61cf92edcd48e9169f53786837649c5f","name":"scroll_app_1","type":"jpg"});
+}, "FrogAppsMobile/images/scroll_app_1.jpg");
+__d(809 /* FrogAppsMobile/images/scroll_app_2.jpg */, function(global, require, module, exports) {module.exports = require(174 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/images","width":392,"height":696,"scales":[1],"hash":"c280accd062cca7ea279d45b647548ea","name":"scroll_app_2","type":"jpg"});
+}, "FrogAppsMobile/images/scroll_app_2.jpg");
+__d(810 /* FrogAppsMobile/images/scroll_app_3.jpg */, function(global, require, module, exports) {module.exports = require(174 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/images","width":392,"height":696,"scales":[1],"hash":"afd259b796db0276c376315bded18480","name":"scroll_app_3","type":"jpg"});
+}, "FrogAppsMobile/images/scroll_app_3.jpg");
+__d(811 /* FrogAppsMobile/images/scroll_app_4.jpg */, function(global, require, module, exports) {module.exports = require(174 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/images","width":392,"height":696,"scales":[1],"hash":"7eceb3b9d511263e9257ee0353ed4fba","name":"scroll_app_4","type":"jpg"});
+}, "FrogAppsMobile/images/scroll_app_4.jpg");
 ;require(196);
 ;require(0);
 //# sourceMappingURL=/index.android.map?platform=android

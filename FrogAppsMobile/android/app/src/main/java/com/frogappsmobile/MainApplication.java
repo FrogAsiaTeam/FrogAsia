@@ -14,6 +14,8 @@ import com.brentvatne.react.ReactVideoPackage;
 import java.util.Arrays;
 import java.util.List;
 
+import com.frogappsmobile.apputil.*; // import the package
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -27,7 +29,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
           new VectorIconsPackage(),
-          new ReactVideoPackage()
+          new ReactVideoPackage(),
+		  new AppUtil() // include it in getPackages
       );
     }
   };
