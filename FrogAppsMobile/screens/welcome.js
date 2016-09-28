@@ -9,6 +9,7 @@ import {
     TouchableOpacity,
 	Text
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 var Global = require('../common/global.js');
 import LinearGradient from 'react-native-linear-gradient';
 var NavigationBar = require('react-native-navbar');
@@ -19,19 +20,9 @@ class WelcomeScreen extends Component{
     render(){
         let videourl = {uri: "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"}; //require('../background.mp4');
         var navigator = this.props.navigator;
-       var rightButtonConfig = {
-            title: 'Skip',
-            handler: () =>  {
-                navigator.replace({
-                    id: 'AppList'
-                })
-            },
-        };
-        var titleConfig = {
-            title: 'Frog Apps',
-        };
         return(
             <View style={styles.container}>
+
                <Video  navigator={navigator}
                         source={videourl}
                         style={styles.backgroundVideo}
@@ -50,7 +41,7 @@ class WelcomeScreen extends Component{
                     }}>
                         <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
                         <Text style={styles.buttonText}>
-                            Skip
+                           <Icon name="md-close" size={30} color="#ffffff" />
                         </Text>
                         </LinearGradient>
                     </TouchableOpacity>
@@ -58,6 +49,6 @@ class WelcomeScreen extends Component{
            </View>
         );
     }
-   
+
 }
 module.exports = WelcomeScreen;

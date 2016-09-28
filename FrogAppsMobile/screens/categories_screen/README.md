@@ -1,0 +1,1 @@
+"CategoriesScreen.js" is the main class to initalize.

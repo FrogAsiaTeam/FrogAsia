@@ -10,6 +10,7 @@ import {
   Navigator
 } from 'react-native';
 import StarRating from 'react-native-star-rating';
+import Icon from 'react-native-vector-icons/Ionicons';
 var NavigationBar = require('react-native-navbar');
 var styles = require('../stylesheets/styles');
 
@@ -24,16 +25,21 @@ export default class ListViewApp extends Component{
   }
 
   render() {
+
     return (
             <View style={styles.listViewContainer}>
               <ListView
                 style={{flex:1}}
                 dataSource={this.state.dataSource}
                 renderRow = {(property)=>{
-                  var _iconInstall = -1;
-                  if(property.install.length>0){
-                    _iconInstall = require('../images/checked.png');
+                  let _isInstall = property.isinstall;
+                  //let _installApp = styles.btnInstallApp;
+                  // _installApp = styles.btnOpenApp;
+                  let _isSwitchButton = new Boolean(true);
+                  if("true"===_isInstall){
+                     _isSwitchButton = false;
                   }
+
                   return(
                     <TouchableOpacity onPress={()=>{
                       this.props.navigator.push({
@@ -41,38 +47,27 @@ export default class ListViewApp extends Component{
                           passProps:{dataItem:property}
                       })
                     }} underlayColor='gray'>
+                      <View style={styles.listViewItemContainer}>
 
-                      <View style={styles.itemContainer}>
-                          <Image style={styles.thumb} source={property.img} />
-                          <View style={styles.textContainer}>
-                              <Text style={styles.title}>{property.title}</Text>
-                              <Text style={styles.content}>{property.content}</Text>
-                              <View style={styles.moreContainer}>
-                                <View style={styles.rating}>
-                                    <StarRating
-                                      disabled={true}
-                                      emptyStar={'ios-star-outline'}
-                                      fullStar={'ios-star'}
-                                      halfStar={'ios-star-half'}
-                                      iconSet={'Ionicons'}
-                                      maxStars={5}
-                                      rating={property.starcount}
-                                      selectedStar ={()=>{}}
-                                      starColor={'red'}
-                                      starSize={11}
-                                    />
-                                </View>
-                                <View style={styles.textDownload}>
-                                  <Text>{property.downloadCount}</Text>
-                                </View>
-                                <View style={styles.installContainer}>
-                                  <Image style={styles.iconInstall} source={_iconInstall} />
-                                  <Text style={styles.textInstall} >{property.install}</Text>
-                                </View>
+                          <Image style={styles.imgListViewItem} source={property.img} />
+                          <View style={styles.listViewContent}>
+                              <View style={styles.rateInforContainer}>
+                                  <View style={styles.rateInforContent}>
+                                      <Text style={styles.titleListViewItem}>{property.title}</Text>
+                                      <Text style={styles.starcount}>{property.starcount} <Icon name="ios-star" size={17} color="#ff8c00" /></Text>
+                                  </View>
+                                  <View style={styles.btnContainer}>
+                                    <TouchableOpacity style={_isSwitchButton?styles.btnInstallApp:styles.btnOpenApp}>
+                                      <Text style={_isSwitchButton?styles.textInsllBtn:styles.textOpenBtn}>{_isSwitchButton?"INSTALL":"   OPEN   "}</Text>
+                                    </TouchableOpacity>
+                                  </View>
                               </View>
+                              <Text>
+                              {property.content}
+                              </Text>
                           </View>
-                      </View>
 
+                      </View>
                     </TouchableOpacity>
                   )
                 }}
