@@ -9,6 +9,7 @@ import {
     TouchableOpacity,
 	Text
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 var NavigationBar = require('react-native-navbar');
 var Video = require('react-native-video');
 var styles = require('../stylesheets/styles');
@@ -19,7 +20,7 @@ class WelcomeScreen extends Component{
         let videourl = {uri: 'https://www.youtube.com/embed/ZZ5LpwO-An4?rel=0&autoplay=0&showinfo=0&controls=0'};
         var navigator = this.props.navigator;
        var rightButtonConfig = {
-            title: 'Skip',
+            title: <Icon name="md-close" size={30} color="#ffffff" />,
             handler: () =>  {
                 navigator.replace({
                     id: 'AppList'
@@ -28,7 +29,7 @@ class WelcomeScreen extends Component{
         };
 
         var titleConfig = {
-            title: 'Frog Apps',
+            title: <Text style={styles.textColor}>Frog Applications</Text>,
         };
         return(
             <View style={styles.container}>
@@ -38,10 +39,7 @@ class WelcomeScreen extends Component{
                         title={titleConfig}
                         rightButton={rightButtonConfig} />
                 </View>
-                <Video source={{uri: "background"}}
-                        style={styles.backgroundVideo}
-                        rate={1} volume={1} muted={true}
-                        resizeMode="cover" repeat={true} key="video1" />
+
            </View>
 
                 //   <WebView
