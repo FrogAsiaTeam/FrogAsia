@@ -17,6 +17,8 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.List;
 
+import com.frogappsmobile.apputil.*; // import the package
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -31,7 +33,9 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new ReactVideoPackage(),
             new VectorIconsPackage(),
-            new LinearGradientPackage()
+            new LinearGradientPackage(),
+		  new AppUtil() // include it in getPackages
+
       );
     }
   };

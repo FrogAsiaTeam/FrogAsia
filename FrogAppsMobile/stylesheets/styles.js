@@ -27,13 +27,6 @@ module.exports = StyleSheet.create({
       justifyContent:'center',
       alignItems:'center'
     },
-    /*----------ListView----------*/
-
-  listViewContainer:{
-  //resizeMode:'cover',
-    flex:1,
-    backgroundColor:'#ffffff'
-  },
   listViewItemContainer:{
     flexDirection:'row',
     justifyContent:'center',
