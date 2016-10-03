@@ -10,7 +10,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.brentvatne.react.ReactVideoPackage;
-
+import com.inprogress.reactnativeyoutube.ReactNativeYouTube;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,7 +30,8 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
           new VectorIconsPackage(),
           new ReactVideoPackage(),
-		  new AppUtil() // include it in getPackages
+          new ReactNativeYouTube(),
+		      new AppUtil() // include it in getPackages
       );
     }
   };
