@@ -2,6 +2,7 @@ package com.frogappsmobile.apputil;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 
@@ -35,19 +36,25 @@ public class AppUtilModule extends ReactContextBaseJavaModule {
 
         try {
             PackageManager pm = currentActivity.getPackageManager();
-            boolean isInstalled = isPackageInstalled(packageName, pm);
-            successCallback.invoke(isInstalled);
+            String[] appInfo = isPackageInstalled(packageName, pm);
+            String isInstalled = appInfo[0];
+            String appVersion = appInfo[1];
+            successCallback.invoke(isInstalled, appVersion);
         } catch (Exception e) {
             cancelCallback.invoke(e);
         }
     }
 
-    private boolean isPackageInstalled(String packagename, PackageManager packageManager) {
+    private String[] isPackageInstalled(String packageName, PackageManager packageManager) {
         try {
-            packageManager.getPackageInfo(packagename, PackageManager.GET_ACTIVITIES);
-            return true;
+            PackageInfo info = packageManager.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            String appVersion = String.valueOf(info.versionCode);
+            String isInstalled = "true";
+            return new String[] {isInstalled,appVersion};
         } catch (PackageManager.NameNotFoundException e) {
-            return false;
+            String appVersion = "-1";
+            String isInstalled = "false";
+            return new String[] {isInstalled,appVersion};
         }
     }
 
