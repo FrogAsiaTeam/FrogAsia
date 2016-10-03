@@ -1,9 +1,10 @@
 package com.frogappsmobile;
 
 import com.facebook.react.ReactActivity;
+import com.brentvatne.react.ReactVideoPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
-import com.brentvatne.react.ReactVideoPackage;
+
 
 public class MainActivity extends ReactActivity {
 

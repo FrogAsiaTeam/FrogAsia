@@ -45,6 +45,8 @@ public class AppUtilModule extends ReactContextBaseJavaModule {
         }
     }
 
+    
+
     private String[] isPackageInstalled(String packageName, PackageManager packageManager) {
         try {
             PackageInfo info = packageManager.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);

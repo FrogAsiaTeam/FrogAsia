@@ -12,12 +12,12 @@ module.exports = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: HEADER,
+        backgroundColor: '#ffffff',
     },
     navigator:{
         flex: 1/10,
         backgroundColor: HEADER,
-        overflow: 'hidden'
+      //overflow: 'hidden'
     },
     button: {
         width: 50,

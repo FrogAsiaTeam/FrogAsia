@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 import StarRating from 'react-native-star-rating';
 import Icon from 'react-native-vector-icons/Ionicons';
+import AppUtil from '../services/AppUtil.js';
+import CommonUtils from '../common/CommonUtils.js';
 var NavigationBar = require('react-native-navbar');
 var styles = require('../stylesheets/styles');
 
@@ -20,25 +22,30 @@ export default class ListViewApp extends Component{
       super(props);
       this.ds = new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2});
       this.state = {
-        dataSource: this.ds.cloneWithRows(this.props.mydata)
+        dataSource: this.ds.cloneWithRows(this.props.mydata),
+        hxhIns: ''
       }
   }
 
+
+
   render() {
 
+
+
     return (
-            <View style={styles.listViewContainer}>
+            <View style={{flex:1}}>
               <ListView
-                style={{flex:1}}
                 dataSource={this.state.dataSource}
                 renderRow = {(property)=>{
+
+              //    let _isInstall = this.isAppInstalled(property.appPackage);// CommonUtils.isAppInstalled(property.appPackage);
                   let _isInstall = property.isinstall;
-                  //let _installApp = styles.btnInstallApp;
-                  // _installApp = styles.btnOpenApp;
-                  let _isSwitchButton = new Boolean(true);
-                  if("true"===_isInstall){
+                 let _isSwitchButton = new Boolean(true);
+                 if("true"===_isInstall){
                      _isSwitchButton = false;
                   }
+
 
                   return(
                     <TouchableOpacity onPress={()=>{
@@ -49,11 +56,12 @@ export default class ListViewApp extends Component{
                     }} underlayColor='gray'>
                       <View style={styles.listViewItemContainer}>
 
-                          <Image style={styles.imgListViewItem} source={property.img} />
+                          <Image style={styles.imgListViewItem} source={{uri:property.resources.logo}} />
+
                           <View style={styles.listViewContent}>
                               <View style={styles.rateInforContainer}>
                                   <View style={styles.rateInforContent}>
-                                      <Text style={styles.titleListViewItem}>{property.title}</Text>
+                                      <Text style={styles.titleListViewItem}>{property.name}</Text>
                                       <Text style={styles.starcount}>{property.starcount} <Icon name="ios-star" size={17} color="#ff8c00" /></Text>
                                   </View>
                                   <View style={styles.btnContainer}>
@@ -63,7 +71,7 @@ export default class ListViewApp extends Component{
                                   </View>
                               </View>
                               <Text>
-                              {property.content}
+                              {property.desc}
                               </Text>
                           </View>
 

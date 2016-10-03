@@ -18,12 +18,7 @@ var NavigationBar = require('react-native-navbar');
 var styles = require('../stylesheets/styles');
 var ProgressBar = require('ProgressBarAndroid');
 
-var THUMBS = [
-   require('../images/scroll_app_1.jpg'),
-   require('../images/scroll_app_2.jpg'),
-   require('../images/scroll_app_3.jpg'),
-   require('../images/scroll_app_4.jpg')
-];
+var THUMBS = [];
 
 class AppDetail extends Component{
 
@@ -39,24 +34,32 @@ class AppDetail extends Component{
 
     render(){
       var navigator = this.props.navigator;
+      var THUMBS = [
+        this.props.data.resources.screenshots.logo1,
+        this.props.data.resources.screenshots.logo2,
+        this.props.data.resources.screenshots.logo3,
+        this.props.data.resources.screenshots.logo4,
+        this.props.data.resources.screenshots.logo5
+      ];
         return(
             <View style={styles.container}>
-                 <View style={styles.navigator}>
+
                     <NavigationBar
                          style={styles.navigator}
                          leftButton={
                            <BackButton style={[{marginLeft:10}, styles.center]} onPress={this.backButon.bind(this)}/>
                          }/>
-                 </View>
+
                  <ScrollView>
                    <View style={styles.detailContainer}>
                         <View style={styles.headDetail}>
                           <View style={styles.imgDetailContainer}>
-                              <Image style={styles.imgDetail} source={this.props.data.img}/>
+
+                              <Image style={styles.imgDetail} source={{uri:this.props.data.resources.logo}}/>
                           </View>
                           <View style={styles.infoDetailContainer}>
 
-                              <Text style={styles.titleDetail}>{this.props.data.title}</Text>
+                              <Text style={styles.titleDetail}>{this.props.data.name}</Text>
                               <View style={styles.downloadAndRating}>
                                   <View style= {styles.ratingForDetailContainer}>
 

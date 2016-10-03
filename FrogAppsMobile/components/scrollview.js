@@ -37,7 +37,7 @@ export class Thumb extends Component {
   render() {
     return (
       <View style={styles.scrollViewContainer}>
-        <Image style={styles.scrollViewImg} source={this.props.uri} />
+        <Image style={styles.scrollViewImg} source={{uri: this.props.uri}} />
       </View>
     );
   }
