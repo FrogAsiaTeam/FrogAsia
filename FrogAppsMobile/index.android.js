@@ -8,16 +8,41 @@ import {
   View,
   Navigator,
   TouchableOpacity,
+  BackAndroid,
+  Alert,
 } from 'react-native';
 
 var SplashScreen = require('./screens/splashscreen')
 var WelcomeScreen = require('./screens/welcome')
 var AppList = require('./screens/applist')
 var AppDetail = require('./screens/appdetails')
+var _navigator;
 
 class App extends Component{
-  render(){
-     return (
+  constructor(props){
+    super(props);
+  }
+  _handleBackButton(){
+    if (_navigator.getCurrentRoutes().length === 1  ) {
+      // if (Alert.alert('Do you want to exit application?') == true){
+      //   return true;
+      // }
+      return false;
+    }
+    _navigator.pop();
+    return true;
+  }
+
+  componentDidMount() {
+    BackAndroid.addEventListener('hardwareBackPress', this._handleBackButton);
+  }
+
+  componentWillUnmount() {
+    BackAndroid.removeEventListener('hardwareBackPress', this._handleBackButton);
+  }
+
+ render(){
+    return (
       <Navigator
           style={{ flex:1 }}
           initialRoute={{id: 'SplashScreen', name: 'Index'}}
@@ -31,6 +56,7 @@ class App extends Component{
     );
   }
   renderScene(route, navigator) {
+    _navigator = navigator;
     var routeId = route.id;
     if (routeId === 'SplashScreen') {
       return (
@@ -71,6 +97,5 @@ class App extends Component{
     );
   }
 }
-
 
 AppRegistry.registerComponent('FrogAppsMobile', () => App);

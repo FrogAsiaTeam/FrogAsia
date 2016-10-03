@@ -146,6 +146,7 @@ dependencies {
     compile "com.facebook.react:react-native:+"  // From node_modules
 	compile project(':react-native-vector-icons')
     compile project(':react-native-video')
+    compile project(':RCTYouTube')     // From node_modules
 	compile project(':react-native-linear-gradient')
 }
 

@@ -231,11 +231,10 @@ module.exports = StyleSheet.create({
       },
     /*-----------Welcome page-----------------*/
     backgroundVideo: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
+        backgroundColor: 'black',
+        marginVertical: 0,
+        alignSelf: 'stretch',
+        height: 300,
     },
     linearGradient: {
       paddingLeft: 15,
