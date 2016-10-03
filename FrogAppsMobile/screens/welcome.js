@@ -30,7 +30,7 @@ class WelcomeScreen extends Component{
     }
     
     render(){
-        let videourl = require('../background.mp4');
+        let videourl = {uri: "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"}; //require('../background.mp4');
         var navigator = this.props.navigator;
         return(
             <View style={styles.container}>
@@ -50,16 +50,12 @@ class WelcomeScreen extends Component{
                     style={styles.backgroundVideo}
                     />
                 <View style={styles.loginContainer}>
-                    <TouchableOpacity onPress={()=>{
+                    <TouchableOpacity style={{justifyContent:'center', alignItems:'flex-end'}} onPress={()=>{
                         navigator.replace({
                             id: 'AppList'
                         })
                     }}>
-                        <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
-                        <Text style={styles.buttonText}>
-                           <Icon name="md-close" size={30} color="#ffffff" />
-                        </Text>
-                        </LinearGradient>
+                       <Icon  name="md-close" size={30} color="#ffffff" />
                     </TouchableOpacity>
                 </View>
            </View>

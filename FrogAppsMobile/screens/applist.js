@@ -25,7 +25,8 @@ class AppList extends Component{
     render(){
         var navigator = this.props.navigator;
         var titleConfig = {
-            title: <Text style={styles.textColor}>Application List</Text>,
+            title: 'Frog Apps',
+            tintColor :'#ffffff'
         };
         return(
            <View style={styles.container}>
