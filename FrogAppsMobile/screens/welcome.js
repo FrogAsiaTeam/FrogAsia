@@ -41,7 +41,7 @@ class WelcomeScreen extends Component{
                     hidden={false}        // control visiblity of the entire view
                     playsInline={true}    // control whether the video should play inline
                     loop={false}          // control whether the video should loop when ended
-                    controls={1}
+                    controls={0}
                     apiKey="AIzaSyABLPTr0SiElR2jtcDP-omNC9KqWlspUew"
                     style={styles.backgroundVideo}
                     onError={(e)=>this.onError(e)}
