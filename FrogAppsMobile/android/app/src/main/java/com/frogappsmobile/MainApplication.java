@@ -11,6 +11,9 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.brentvatne.react.ReactVideoPackage;
+import com.inprogress.reactnativeyoutube.ReactNativeYouTube;
 
 
 
@@ -31,11 +34,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new ReactVideoPackage(),
-            new VectorIconsPackage(),
-            new LinearGradientPackage(),
-		  new AppUtil() // include it in getPackages
-
+          new VectorIconsPackage(),
+          new ReactVideoPackage(),
+          new ReactNativeYouTube(),
+		      new AppUtil(), // include it in getPackages
+          new LinearGradientPackage()
       );
     }
   };
