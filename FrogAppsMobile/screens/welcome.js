@@ -34,16 +34,12 @@ class WelcomeScreen extends Component{
                          }}
                         resizeMode="cover" repeat={false} key="video1" />
                 <View style={styles.loginContainer}>
-                    <TouchableOpacity onPress={()=>{
+                    <TouchableOpacity style={{justifyContent:'center', alignItems:'flex-end'}} onPress={()=>{
                         navigator.replace({
                             id: 'AppList'
                         })
                     }}>
-                        <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
-                        <Text style={styles.buttonText}>
-                           <Icon name="md-close" size={30} color="#ffffff" />
-                        </Text>
-                        </LinearGradient>
+                       <Icon  name="md-close" size={30} color="#ffffff" />
                     </TouchableOpacity>
                 </View>
            </View>
