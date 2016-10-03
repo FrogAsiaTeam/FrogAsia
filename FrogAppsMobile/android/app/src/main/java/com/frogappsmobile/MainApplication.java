@@ -38,9 +38,7 @@ public class MainApplication extends Application implements ReactApplication {
           new ReactVideoPackage(),
           new ReactNativeYouTube(),
 		      new AppUtil(), // include it in getPackages
-          new ReactVideoPackage(),
-          new VectorIconsPackage(),
-          new LinearGradientPackage(),
+          new LinearGradientPackage()
       );
     }
   };
